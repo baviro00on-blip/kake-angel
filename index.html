@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>かけ算エンジェル＆デビル</title>
+    <title>かけ算どうぶつ図鑑</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -200,29 +200,7 @@
             transform: translateY(2px) scale(0.96);
         }
 
-        /* --- カードスタイル＆レベル別キラキラ演出 --- */
-        .card-shimmer-soft {
-            position: relative;
-            overflow: hidden;
-        }
-        .card-shimmer-soft::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: linear-gradient(
-                115deg,
-                transparent 35%,
-                rgba(255, 255, 255, 0.28) 50%,
-                transparent 65%
-            );
-            transform: rotate(25deg);
-            pointer-events: none;
-            animation: foilShift 5.5s infinite linear;
-        }
-
+        /* --- カードスタイル --- */
         .card-foil {
             position: relative;
             overflow: hidden;
@@ -237,42 +215,15 @@
             background: linear-gradient(
                 115deg,
                 transparent 25%,
-                rgba(255, 255, 255, 0.65) 45%,
-                rgba(255, 0, 128, 0.45) 50%,
-                rgba(0, 255, 255, 0.45) 55%,
+                rgba(255, 255, 255, 0.6) 45%,
+                rgba(255, 0, 128, 0.4) 50%,
+                rgba(0, 255, 255, 0.4) 55%,
                 transparent 75%
             );
             transform: rotate(25deg);
             pointer-events: none;
-            opacity: 0.78;
-            animation: foilShift 3.6s infinite linear;
-        }
-
-        .card-foil-ultra {
-            position: relative;
-            overflow: hidden;
-        }
-        .card-foil-ultra::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: linear-gradient(
-                115deg,
-                transparent 15%,
-                rgba(255, 240, 120, 0.75) 35%,
-                rgba(255, 50, 180, 0.65) 45%,
-                rgba(255, 255, 255, 0.9) 50%,
-                rgba(0, 245, 255, 0.65) 55%,
-                rgba(168, 85, 247, 0.65) 65%,
-                transparent 85%
-            );
-            transform: rotate(25deg);
-            pointer-events: none;
-            opacity: 0.92;
-            animation: foilShift 2.2s infinite linear;
+            opacity: 0.7;
+            animation: foilShift 4s infinite linear;
         }
 
         @keyframes foilShift {
@@ -280,40 +231,24 @@
             100% { transform: translateY(30%) rotate(25deg); }
         }
 
-        @keyframes spinSlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-            animation: spinSlow 10s linear infinite;
-        }
-
-        @keyframes twinkleStar {
-            0%, 100% { opacity: 0.2; transform: scale(0.7) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.25) rotate(20deg); }
-        }
-        .twinkle-star {
-            animation: twinkleStar 1.8s ease-in-out infinite;
-        }
-
         .gold-glow {
-            box-shadow: 0 0 22px rgba(251, 191, 36, 0.95), 0 0 8px rgba(255, 255, 255, 0.85), inset 0 0 14px rgba(251, 191, 36, 0.65);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.9), 0 0 5px rgba(255, 255, 255, 0.8), inset 0 0 12px rgba(251, 191, 36, 0.6);
         }
 
         .super-glow {
-            box-shadow: 0 0 26px rgba(236, 72, 153, 0.95), 0 0 12px rgba(56, 189, 248, 0.95), inset 0 0 16px rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.9), 0 0 10px rgba(56, 189, 248, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.8);
         }
 
         @keyframes rainbowGlow {
-            0% { box-shadow: 0 0 28px #ef4444, 0 0 12px #fef08a, inset 0 0 16px #ef4444; }
-            20% { box-shadow: 0 0 28px #f59e0b, 0 0 12px #ffffff, inset 0 0 16px #f59e0b; }
-            40% { box-shadow: 0 0 28px #10b981, 0 0 12px #fef08a, inset 0 0 16px #10b981; }
-            60% { box-shadow: 0 0 28px #06b6d4, 0 0 12px #ffffff, inset 0 0 16px #06b6d4; }
-            80% { box-shadow: 0 0 28px #8b5cf6, 0 0 12px #fef08a, inset 0 0 16px #8b5cf6; }
-            100% { box-shadow: 0 0 28px #ec4899, 0 0 12px #ffffff, inset 0 0 16px #ec4899; }
+            0% { box-shadow: 0 0 25px #ef4444, inset 0 0 15px #ef4444; }
+            20% { box-shadow: 0 0 25px #f59e0b, inset 0 0 15px #f59e0b; }
+            40% { box-shadow: 0 0 25px #10b981, inset 0 0 15px #10b981; }
+            60% { box-shadow: 0 0 25px #06b6d4, inset 0 0 15px #06b6d4; }
+            80% { box-shadow: 0 0 25px #8b5cf6, inset 0 0 15px #8b5cf6; }
+            100% { box-shadow: 0 0 25px #ec4899, inset 0 0 15px #ec4899; }
         }
         .animate-rainbow-glow {
-            animation: rainbowGlow 1.8s linear infinite;
+            animation: rainbowGlow 2s linear infinite;
         }
 
         .btn-3d {
@@ -353,8 +288,8 @@
     <div id="menu-screen" class="flex-1 max-w-5xl w-full mx-auto flex flex-col justify-between bg-white rounded-3xl shadow-xl border-4 border-sky-300 p-3 sm:p-5 overflow-y-auto">
         <!-- ヘッダー (タイトル) -->
         <div class="text-center shrink-0 my-1 relative flex flex-col items-center">
-            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-sky-900 flex items-center justify-center gap-2 sm:gap-3">
-                <span class="text-red-500">✖&#xFE0E;</span> かけ算エンジェル＆デビル
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-sky-900 flex items-center justify-center gap-2 sm:gap-3">
+                <span>✖️</span> かけ算どうぶつ図鑑
             </h1>
             <p class="text-xs sm:text-base font-extrabold text-sky-700 mt-1">ぜんぶで 100もん！ くりあがりも かいて クリアしていこう</p>
             
@@ -371,7 +306,7 @@
                 <span>▶️ つづきから はじめる</span>
             </button>
             <div class="text-xs sm:text-sm font-bold text-sky-800 bg-sky-100 px-3.5 py-2 rounded-xl border border-sky-300 shadow-sm">
-                👇 もう１ど＝あかいコマをタップ
+                👇 やりなおす＝あかいコマをタップ
             </div>
         </div>
 
@@ -516,12 +451,12 @@
 
     <!-- ==================== カードゲット モーダル ==================== -->
     <div id="card-get-modal" onclick="closeCardGetModal()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-4 hidden cursor-pointer">
-        <div class="bg-slate-900 border-4 border-sky-400 rounded-3xl p-5 max-w-md w-full text-center space-y-4 shadow-2xl pop-in relative" onclick="event.stopPropagation()">
+        <div class="bg-slate-900 border-4 border-sky-400 rounded-3xl p-5 max-w-sm w-full text-center space-y-4 shadow-2xl pop-in relative" onclick="event.stopPropagation()">
             <div class="space-y-1">
                 <span class="inline-block bg-gradient-to-r from-sky-400 to-cyan-300 text-slate-900 font-black text-xs px-3 py-1 rounded-full shadow">
                     ✨ せいかい おめでとう！ ✨
                 </span>
-                <h3 class="text-2xl font-black text-sky-300">天使と悪魔カード ゲット！</h3>
+                <h3 class="text-2xl font-black text-sky-300">生き物カード ゲット！</h3>
             </div>
             
             <div id="get-card-preview-container" class="flex justify-center py-2">
@@ -541,7 +476,7 @@
             <div class="flex justify-between items-center border-b border-indigo-500/40 pb-3 shrink-0">
                 <div>
                     <h2 class="text-xl sm:text-2xl font-black text-sky-300 flex items-center gap-2">
-                        <span>👼😈</span> かけ算エンジェル＆デビル
+                        <span>🌍</span> 生き物カードずかん
                     </h2>
                     <p class="text-indigo-200 text-xs sm:text-sm font-bold">ゲットしたカードをタップすると おおきく みられるよ！</p>
                 </div>
@@ -556,7 +491,7 @@
             </div>
 
             <!-- カード一覧グリッド -->
-            <div id="album-grid" class="flex-1 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-2 min-h-0">
+            <div id="album-grid" class="flex-1 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-1 min-h-0">
                 <!-- 動的生成 -->
             </div>
         </div>
@@ -564,10 +499,10 @@
 
     <!-- カード詳細拡大モーダル -->
     <div id="card-detail-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex flex-col items-center justify-center p-4 hidden" onclick="closeCardDetailModal()">
-        <div class="relative transform scale-105 sm:scale-115 transition-transform duration-300" onclick="event.stopPropagation()">
+        <div class="relative transform scale-110 sm:scale-125 transition-transform duration-300" onclick="event.stopPropagation()">
             <div id="detail-card-container"></div>
         </div>
-        <button onclick="closeCardDetailModal()" class="mt-6 bg-white/20 hover:bg-white/30 text-white font-black px-6 py-2 rounded-full border border-white/40 text-sm shadow-xl backdrop-blur-md">
+        <button onclick="closeCardDetailModal()" class="mt-8 bg-white/20 hover:bg-white/30 text-white font-black px-6 py-2 rounded-full border border-white/40 text-sm shadow-xl backdrop-blur-md">
             とじる
         </button>
     </div>
@@ -644,470 +579,304 @@
         const TOTAL_QUESTIONS = ALL_QUESTIONS.length; // 100
 
         // ==========================================
-        // 全100種類の「天使と悪魔」カードデータ（5カテゴリー × 20種類）
-        // アップロードされた6枚の画像を元に、レベル（Lv.1〜100）に応じて派手さが進化
+        // 全100種類の生き物カードデータ（5カテゴリー × 20種）
         // ==========================================
-        const CATEGORY_ORDER = ['天使', '大天使', '堕天使', '悪魔', '魔王'];
+        const CATEGORY_ORDER = ['どうぶつ', 'さかな', 'とり', 'むし', '絶滅動物'];
 
         const BAKE_CARDS = [
-            // ---------------- 天使 20種類 (No.001〜020) ----------------
-            { id: 'c1', no: '001', name: 'リボンエンジェル', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'SR', level: 48, baseImg: 2, variant: 'exact2', personality: 'いつもニカッと笑顔で元気いっぱい！みんなを明るい気分にさせる人気者。', favoriteFood: 'ふわふわ綿あめとフルーツパフェ' },
-            { id: 'c2', no: '002', name: 'フィンエンジェル', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'R', level: 32, baseImg: 5, variant: 'exact5', personality: 'わんぱくで好奇心おうせい。左足のバンテージは元気いっぱい遊んだ証！', favoriteFood: 'フィッシュ＆チップスとソーダアイス' },
-            { id: 'c3', no: '003', name: 'プチヘイロー天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'C', level: 1, baseImg: 5, variant: 'v1', personality: 'まだ飛ぶ練習を始めたばかりの新米天使。少しおっちょこちょいで優しい。', favoriteFood: 'あまいプリンとホットミルク' },
-            { id: 'c4', no: '004', name: 'そよかぜリボン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'C', level: 4, baseImg: 2, variant: 'v1', personality: 'のんびり屋でお昼寝が大好き。風の吹くまま空をぷかぷか漂っている。', favoriteFood: 'マシュマロココア' },
-            { id: 'c5', no: '005', name: 'バンテージ天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'C', level: 7, baseImg: 5, variant: 'v2', personality: '困っている人を見かけるとすぐ助けに飛んでいく、正義感の強い天使。', favoriteFood: 'はちみつレモンとドーナツ' },
-            { id: 'c6', no: '006', name: 'ミルクドロップ天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'C', level: 10, baseImg: 2, variant: 'v2', personality: 'おっとりしていて礼儀正しい。小さなリボンを毎日ていねいに結んでいる。', favoriteFood: 'いちごミルクとパンケーキ' },
-            { id: 'c7', no: '007', name: 'クラウドフィン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'U', level: 14, baseImg: 5, variant: 'v3', personality: '雲の上を泳ぐのが大得意！仲間と競走するといつも一番になる。', favoriteFood: 'ソフトクリームとメロンパン' },
-            { id: 'c8', no: '008', name: 'ハミングリボン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'U', level: 18, baseImg: 2, variant: 'v3', personality: '鼻歌をうたいながら空を舞う音楽好き。聴いた人はみんな笑顔になる。', favoriteFood: 'マカロンとアップルティー' },
-            { id: 'c9', no: '009', name: 'おひさまフィン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'U', level: 22, baseImg: 5, variant: 'v4', personality: '太陽のようにポカポカした性格。寒がりな友だちをいつも温めてくれる。', favoriteFood: 'オムライスとオレンジジュース' },
-            { id: 'c10', no: '010', name: 'スターリボン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'R', level: 26, baseImg: 2, variant: 'v4', personality: '夜空の星を集めるのが趣味のロマンチスト。キラキラしたものが大好き。', favoriteFood: 'こんぺいとうと星形クッキー' },
-            { id: 'c11', no: '011', name: 'スマイルヘイロー天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'U', level: 29, baseImg: 5, variant: 'v5', personality: 'どんな時でもニコニコ笑ってピンチを乗り切るポジティブ思考の持ち主。', favoriteFood: 'チーズバーガーとポテト' },
-            { id: 'c12', no: '012', name: 'ウェーブウィング天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'R', level: 35, baseImg: 2, variant: 'v5', personality: 'ダンスが得意で、長いリボンを操って空中に美しい光の絵を描く。', favoriteFood: 'クレープとタピオカミルク' },
-            { id: 'c13', no: '013', name: 'シャークフィン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'R', level: 38, baseImg: 5, variant: 'v6', personality: '海の生き物と仲良しで、空だけでなく海の中もスイスイ泳げる元気天使。', favoriteFood: 'お寿司（とくにサーモン）' },
-            { id: 'c14', no: '014', name: 'キャンディリボン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'RR', level: 42, baseImg: 2, variant: 'v6', personality: 'お祭りやパーティーが大好きな盛り上げ役。ポケットにお菓子がいっぱい。', favoriteFood: 'カラフルペロペロキャンディ' },
-            { id: 'c15', no: '015', name: 'ダブルリング天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'RR', level: 45, baseImg: 5, variant: 'v7', personality: '頭の二重の輪っかが自慢のしっかり者。後輩天使たちの頼れるリーダー。', favoriteFood: 'バウムクーヘンとドーナツ' },
-            { id: 'c16', no: '016', name: 'プリズムリボン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'AR', level: 52, baseImg: 2, variant: 'v7', personality: '雨上がりの空に虹をかける仕事をしている。きれい好きでオシャレ。', favoriteFood: 'レインボーシャーベット' },
-            { id: 'c17', no: '017', name: 'サンダーフィン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'AR', level: 56, baseImg: 5, variant: 'v8', personality: '稲妻のように素早いスピードで空を駆ける！負けず嫌いな熱血タイプ。', favoriteFood: 'カレーライスとバナナパフェ' },
-            { id: 'c18', no: '018', name: 'オーロラリボン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'SR', level: 62, baseImg: 2, variant: 'v8', personality: '北の空を守る神秘的な天使。静かで優しいが、いざという時はとても強い。', favoriteFood: 'かき氷とホワイトチョコ' },
-            { id: 'c19', no: '019', name: 'ギャラクシーフィン天使', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'SAR', level: 70, baseImg: 5, variant: 'v9', personality: '宇宙の果てまで冒険する夢を持つ勇敢な天使。星屑のエネルギーをまとう。', favoriteFood: '宇宙食アイスとメロンソーダ' },
-            { id: 'c20', no: '020', name: '聖光のセラフィリボン', category: '天使', typeBg: 'bg-sky-400 text-slate-950', rarity: 'UR', level: 78, baseImg: 2, variant: 'v9', personality: '天使界のアイドル的存在。その笑顔と光の帯はあらゆる闇を照らし出す。', favoriteFood: '黄金のハチミツパンケーキ' },
+            // 【1】どうぶつ 20種類 (b1〜b20)
+            { id: 'b1', no: '001', name: 'ライオン', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-amber-950 via-orange-950 to-stone-950', rarity: 'RR', emoji: '🦁', habitat: 'アフリカのサバンナ', feature: '「百獣の王」とよばれ、オスにはりっぱなたてがみがある。群れで協力して狩りをする。' },
+            { id: 'b2', no: '002', name: 'アフリカゾウ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-stone-900 via-amber-950 to-stone-950', rarity: 'MUR', emoji: '🐘', habitat: 'アフリカのサバンナや森林', feature: '陸上で最大の動物。長い鼻は水浴びや食事だけでなく、仲間とのあいさつにも使う。' },
+            { id: 'b3', no: '003', name: 'キリン', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-yellow-950 via-amber-950 to-stone-950', rarity: 'U', emoji: '🦒', habitat: 'アフリカの草原', feature: '世界でいちばん背が高い動物。高い木の葉を食べるために首と舌がとても長い。' },
+            { id: 'b4', no: '004', name: 'ジャイアントパンダ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-emerald-950 via-stone-900 to-stone-950', rarity: 'SR', emoji: '🐼', habitat: '中国の竹林', feature: '白と黒の模様が特徴。1日のほとんどを竹やササを食べたり、眠ったりして過ごす。' },
+            { id: 'b5', no: '005', name: 'コアラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-teal-950 via-stone-900 to-stone-950', rarity: 'C', emoji: '🐨', habitat: 'オーストラリアのユーカリ林', feature: 'ユーカリの葉を食べて暮らす有袋類。消化にエネルギーを使うため1日20時間ほど眠る。' },
+            { id: 'b6', no: '006', name: 'カンガルー', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-orange-950 via-amber-950 to-stone-950', rarity: 'C', emoji: '🦘', habitat: 'オーストラリアの草原', feature: '発達した後ろ足と太いしっぽでバランスをとり、時速60キロ以上でジャンプして走る。' },
+            { id: 'b7', no: '007', name: 'ゴリラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-emerald-950 via-slate-900 to-stone-950', rarity: 'R', emoji: '🦍', habitat: 'アフリカの熱帯雨林', feature: '大きな体をしているがとても穏やかな性格。植物を中心に食べ、家族の群れで暮らす。' },
+            { id: 'b8', no: '008', name: 'トラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-orange-950 via-red-950 to-stone-950', rarity: 'RR', emoji: '🐯', habitat: 'アジアの森林や草原', feature: 'ネコ科最大の猛獣。しま模様は草むらに身を隠すのに役立ち、泳ぎもとても得意。' },
+            { id: 'b9', no: '009', name: 'オオカミ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-slate-900 via-indigo-950 to-stone-950', rarity: 'R', emoji: '🐺', habitat: '北半球の森林やツンドラ', feature: '家族を中心とした群れ（パック）をつくり、遠吠えで遠くの仲間と連絡を取り合う。' },
+            { id: 'b10', no: '010', name: 'キツネ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-amber-950 via-yellow-950 to-stone-950', rarity: 'C', emoji: '🦊', habitat: '森・草原・人里近く', feature: 'ふさふさのしっぽととがった耳をもつ。聴力がすぐれ、雪の下のネズミの音も聞き分ける。' },
+            { id: 'b11', no: '011', name: 'ホッキョクグマ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-sky-950 via-slate-900 to-stone-950', rarity: 'SR', emoji: '🐻‍❄️', habitat: '北極圏の海氷・沿岸', feature: '分厚い脂肪と透明な毛皮で極寒に耐える。氷の上を歩き、何十キロも海を泳ぐことができる。' },
+            { id: 'b12', no: '012', name: 'カバ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-purple-950 via-stone-900 to-stone-950', rarity: 'U', emoji: '🦛', habitat: 'アフリカの川や湖', feature: '昼間は水中で涼み、夜に陸へ上がって草を食べる。大きく開く口と鋭い牙をもつ。' },
+            { id: 'b13', no: '013', name: 'サイ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-stone-900 via-slate-900 to-stone-950', rarity: 'R', emoji: '🦏', habitat: 'アフリカ・アジアの草原や森', feature: '鼻の上にある大きな角と、よろいのように硬く分厚い皮膚をもつ草食動物。' },
+            { id: 'b14', no: '014', name: 'シマウマ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-slate-900 via-stone-900 to-stone-950', rarity: 'C', emoji: '🦓', habitat: 'アフリカのサバンナ', feature: '白と黒のしま模様は1頭ずつちがう。群れで行動すると敵から輪郭がわかりにくくなる。' },
+            { id: 'b15', no: '015', name: 'ナマケモノ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-emerald-950 via-lime-950 to-stone-950', rarity: 'U', emoji: '🦥', habitat: '中南米の熱帯雨林', feature: '長いカギ爪で木の枝にぶら下がって生活する。動きがとてもゆっくりで省エネ上手。' },
+            { id: 'b16', no: '016', name: 'カピバラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-amber-950 via-emerald-950 to-stone-950', rarity: 'AR', svgKey: 'capybara', habitat: '南米の水辺の草原', feature: '世界最大のネズミの仲間。指の間に水かきがあり、泳ぎや潜水がとても上手。' },
+            { id: 'b17', no: '017', name: 'レッサーパンダ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-orange-950 via-amber-950 to-stone-950', rarity: 'AR', svgKey: 'red_panda', habitat: 'ヒマラヤ山脈周辺の森林', feature: 'しま模様の長いしっぽでバランスをとり、木登りが得意。後ろ足で立ち上がることもある。' },
+            { id: 'b18', no: '018', name: 'カモノハシ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-teal-950 via-amber-950 to-stone-950', rarity: 'SAR', svgKey: 'platypus', habitat: 'オーストラリア東部の川', feature: '卵を産んで子育てする珍しい哺乳類。くちばしで水中の生き物の微弱な電気を感じとる。' },
+            { id: 'b19', no: '019', name: 'ユキヒョウ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-sky-950 via-indigo-950 to-stone-950', rarity: 'UR', svgKey: 'snow_leopard', habitat: '中央アジアの高山帯', feature: '岩場にまぎれる灰白色の毛並みと、寒さから顔を守る太く長いしっぽをもつ山のハンター。' },
+            { id: 'b20', no: '020', name: 'オカピ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-rose-950 via-amber-950 to-stone-950', rarity: 'SAR', svgKey: 'okapi', habitat: 'コンゴ民主共和国の熱帯雨林', feature: 'おしりから足にかけてしま模様があるが、シマウマではなくキリンの仲間。「森の貴婦人」とよばれる。' },
 
-            // ---------------- 大天使 20種類 (No.021〜040) ----------------
-            { id: 'c21', no: '021', name: 'ソードエンジェル', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SR', level: 66, baseImg: 3, variant: 'exact3', personality: '右腕に聖なる炎、左手に聖剣を宿す誇り高き戦士。仲間を守るためなら迷わない！', favoriteFood: '特上ステーキとアップルパイ' },
-            { id: 'c22', no: '022', name: 'フレイムアーム大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'R', level: 40, baseImg: 3, variant: 'v1', personality: '燃えるような熱いハートの持ち主。トレーニングと筋トレを毎日欠かさない。', favoriteFood: '焼き肉とプロテインスムージー' },
-            { id: 'c23', no: '023', name: 'ヘイローガード大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'R', level: 44, baseImg: 3, variant: 'v2', personality: '冷静沈着で頭脳明晰。大きな光輪で仲間を敵の攻撃から鉄壁ガードする。', favoriteFood: 'サンドイッチとミルクティー' },
-            { id: 'c24', no: '024', name: 'ドラゴンウィング大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'RR', level: 49, baseImg: 3, variant: 'v3', personality: '竜のように力強い翼を持つ大天使。豪快な性格で細かいことは気にしない。', favoriteFood: '骨付きチキンとコーラ' },
-            { id: 'c25', no: '025', name: 'シックスアーマー大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'RR', level: 53, baseImg: 3, variant: 'v4', personality: '鍛え上げた腹筋アーマーが自慢！悪魔たちとの力比べでも絶対に負けない。', favoriteFood: 'カツ丼とバナナジュース' },
-            { id: 'c26', no: '026', name: 'セイクリッドブレード', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'AR', level: 57, baseImg: 3, variant: 'v5', personality: '剣の腕前は天界一。毎朝1000回の素振りをしてから朝ごはんを食べる真面目派。', favoriteFood: 'おにぎりと味噌汁' },
-            { id: 'c27', no: '027', name: 'ブレイズリボン大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'AR', level: 60, baseImg: 2, variant: 'v10', personality: '優雅な光の帯に聖炎をまとわせて戦う華麗な大天使。礼儀正しく気品がある。', favoriteFood: 'ストロベリーショートケーキ' },
-            { id: 'c28', no: '028', name: 'サンダーソード大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SR', level: 64, baseImg: 3, variant: 'v6', personality: '雷の力を剣に込めて放つ電撃の騎士。スピード勝負なら誰にも負けない。', favoriteFood: 'ラーメン（チャーシュー増し）' },
-            { id: 'c29', no: '029', name: 'スカイフィン大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SR', level: 68, baseImg: 5, variant: 'v10', personality: 'かつてのわんぱく天使が立派な大天使に成長！今も遊び心は忘れていない。', favoriteFood: '特大ハンバーガーセット' },
-            { id: 'c30', no: '030', name: 'ゴールデンヘイロー騎士', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SR', level: 71, baseImg: 3, variant: 'v7', personality: '黄金に輝く光輪を授かったエリート大天使。優しい口調でみんなを導く。', favoriteFood: 'マンゴープリンと紅茶' },
-            { id: 'c31', no: '031', name: 'クリスタルソード大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SAR', level: 74, baseImg: 3, variant: 'v8', personality: '透き通る水晶の聖剣を持つ大天使。嘘を見抜く瞳を持ち、とても誠実。', favoriteFood: 'ゼリーポンチとサイダー' },
-            { id: 'c32', no: '032', name: 'インフェルノ聖剣士', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SAR', level: 77, baseImg: 3, variant: 'v9', personality: '右腕の炎が最大火力に進化！ピンチになるほど燃え上がる逆転のヒーロー。', favoriteFood: '激辛麻婆豆腐と杏仁豆腐' },
-            { id: 'c33', no: '033', name: 'セラフィム・リボン王', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'SAR', level: 80, baseImg: 2, variant: 'v11', personality: '無数の光の帯を自在に操る最高位の大天使。音楽と平和をこよなく愛する。', favoriteFood: 'ロイヤルミルクティーとスコーン' },
-            { id: 'c34', no: '034', name: 'ソーラーフレア大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'UR', level: 83, baseImg: 3, variant: 'v10', personality: '太陽の輝きそのものを身にまとう大天使。笑顔ひとつで雲を吹き飛ばす。', favoriteFood: 'とろとろオムハヤシ' },
-            { id: 'c35', no: '035', name: 'アーク・フィンエンジェル', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'UR', level: 86, baseImg: 5, variant: 'v11', personality: '聖なる翼腕で大空を支配する大天使。実は甘いスイーツを見ると目がハートになる。', favoriteFood: '特盛りチョコレートパフェ' },
-            { id: 'c36', no: '036', name: 'メテオソード大天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'UR', level: 89, baseImg: 3, variant: 'v11', personality: '流星群のような剣技を繰り出す伝説の剣士。寡黙だが仲間思いで温かい。', favoriteFood: '天ぷらそばとみたらし団子' },
-            { id: 'c37', no: '037', name: '大天使ウリエル', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'UR', level: 91, baseImg: 3, variant: 'v12', personality: '聖なる炎を司る四大天使の一人。知識が豊富で、算数の計算も超得意！', favoriteFood: '焼き芋とほうじ茶ラテ' },
-            { id: 'c38', no: '038', name: '大天使ガブリエル', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'MUR', level: 94, baseImg: 2, variant: 'v12', personality: '希望の知らせを届ける四大天使の一人。光の帯が虹色に輝き続けている。', favoriteFood: 'フルーツタルトと白桃ジュース' },
-            { id: 'c39', no: '039', name: '大天使ミカエル', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'MUR', level: 97, baseImg: 3, variant: 'v13', personality: '天使軍団を率いる最強の守護大天使。聖剣と聖炎の力で悪を打ち砕く！', favoriteFood: 'ローストビーフと黄金アップル' },
-            { id: 'c40', no: '040', name: '極限聖剣・アルティメット天使', category: '大天使', typeBg: 'bg-amber-400 text-slate-950', rarity: 'MUR', level: 100, baseImg: 3, variant: 'v14', personality: 'すべての天使の力が結晶化した究極の姿。無限の優しさと強さを持つ。', favoriteFood: '虹色の祝福ケーキ' },
+            // 【2】さかな 20種類 (b21〜b40)
+            { id: 'b21', no: '021', name: 'クロマグロ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-sky-950 to-stone-950', rarity: 'R', emoji: '🐟', habitat: '世界中の外洋', feature: '泳ぎ続けることでエラに水を通し呼吸する高速スイマー。世界中の海を大回遊する。' },
+            { id: 'b22', no: '022', name: 'カクレクマノミ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-orange-950 via-sky-950 to-stone-950', rarity: 'C', emoji: '🐠', habitat: 'インド洋・太平洋のサンゴ礁', feature: '毒のあるイソギンチャクと共生し、外敵から身を守ってもらうかわりにエサを運ぶ。' },
+            { id: 'b23', no: '023', name: 'ハリセンボン', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-amber-950 via-sky-950 to-stone-950', rarity: 'C', emoji: '🐡', habitat: '世界中の暖かい海', feature: '危険を感じると水や空気を飲みこんで丸くふくらみ、体中のトゲを立てて身を守る。' },
+            { id: 'b24', no: '024', name: 'ホオジロザメ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-slate-900 via-blue-950 to-stone-950', rarity: 'RR', emoji: '🦈', habitat: '世界中の温帯〜熱帯の海', feature: '三角形の鋭い歯が何列も並び、抜け落ちても次々と新しい歯が生えてくる海のハンター。' },
+            { id: 'b25', no: '025', name: 'ナンヨウハギ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-cyan-950 to-stone-950', rarity: 'C', emoji: '🐠', habitat: 'インド洋・太平洋のサンゴ礁', feature: '鮮やかな青い体と黄色い尾びれが特徴。尾びれの付け根に鋭いトゲを隠しもつ。' },
+            { id: 'b26', no: '026', name: 'ベニザケ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-rose-950 via-sky-950 to-stone-950', rarity: 'U', emoji: '🐟', habitat: '北太平洋・北日本の川と海', feature: '川で生まれて海で大きく育ち、産卵の時期になるとにおいをたよりに生まれた川へ戻ってくる。' },
+            { id: 'b27', no: '027', name: 'ジンベエザメ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-indigo-950 to-stone-950', rarity: 'MUR', svgKey: 'whale_shark', habitat: '世界中の熱帯・亜熱帯の海', feature: '体長10メートルを超える世界最大の魚。大きな口を開けて海水ごとプランクトンをこしとる。' },
+            { id: 'b28', no: '028', name: 'マンボウ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-sky-950 via-slate-900 to-stone-950', rarity: 'AR', svgKey: 'sunfish', habitat: '世界中の温帯・熱帯の外洋', feature: '尾びれがなく円盤のようなユニークな形をした巨魚。海面で横になって日向ぼっこをすることがある。' },
+            { id: 'b29', no: '029', name: 'タツノオトシゴ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-amber-950 via-teal-950 to-stone-950', rarity: 'U', svgKey: 'seahorse', habitat: '世界中の浅い海の藻場', feature: 'しっぽを海藻に巻きつけて体を支える魚。オスのおなかにある袋で卵を育てて出産する。' },
+            { id: 'b30', no: '030', name: 'チョウチンアンコウ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-indigo-950 via-purple-950 to-stone-950', rarity: 'R', svgKey: 'anglerfish', habitat: '水深1000m前後の深海', feature: '頭の先から伸びた発光器をちょうちんのように光らせ、暗い深海で獲物をおびき寄せる。' },
+            { id: 'b31', no: '031', name: 'シーラカンス', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-stone-900 to-stone-950', rarity: 'UR', svgKey: 'coelacanth', habitat: 'アフリカ東岸・インドネシアの深海', feature: '約4億年前からほとんど姿が変わっていない「生きた化石」。手足のような肉質のひれをもつ。' },
+            { id: 'b32', no: '032', name: 'リュウグウノツカイ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-rose-950 via-indigo-950 to-stone-950', rarity: 'SAR', svgKey: 'oarfish', habitat: '世界中の深海', feature: '銀色の細長い体と赤い背びれをもつ神秘的な深海魚。立ち泳ぎをしながらエサを食べる。' },
+            { id: 'b33', no: '033', name: 'デンキウナギ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-yellow-950 via-slate-900 to-stone-950', rarity: 'RR', svgKey: 'electric_eel', habitat: '南米アマゾン川流域', feature: '体の発電器官から最大800ボルトもの強い電気を出し、獲物をしびれさせて捕らえる。' },
+            { id: 'b34', no: '034', name: 'トビウオ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-cyan-950 via-blue-950 to-stone-950', rarity: 'C', svgKey: 'flying_fish', habitat: '世界中の暖かい海', feature: '大きな胸びれを翼のように広げて海上を滑空し、数百メートルも飛んで敵から逃げる。' },
+            { id: 'b35', no: '035', name: 'ピラニア', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-red-950 via-stone-900 to-stone-950', rarity: 'U', svgKey: 'piranha', habitat: '南米アマゾン川などの河川', feature: 'カミソリのように鋭い歯と強いあごをもつ肉食魚。普段は臆病で群れをつくって暮らす。' },
+            { id: 'b36', no: '036', name: 'オニイトマキエイ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-slate-900 via-sky-950 to-stone-950', rarity: 'SR', svgKey: 'manta', habitat: '世界中の熱帯・亜熱帯の海', feature: '「マンタ」の名で知られる世界最大のエイ。空を飛ぶように優雅に海を泳ぐ。' },
+            { id: 'b37', no: '037', name: 'ウツボ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-lime-950 via-stone-900 to-stone-950', rarity: 'U', svgKey: 'moray_eel', habitat: '暖かい海の岩礁やサンゴ礁', feature: '岩のすき間に身をひそめ、のどの奥にある第2のあご（咽頭顎）で獲物を引きこむ。' },
+            { id: 'b38', no: '038', name: 'メカジキ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-cyan-950 to-stone-950', rarity: 'R', svgKey: 'swordfish', habitat: '世界中の温帯〜熱帯の外洋', feature: '剣のように長く鋭くとがった上あごをもつ。泳ぐスピードがとても速く、ジャンプもする。' },
+            { id: 'b39', no: '039', name: 'ニシキゴイ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-red-950 via-amber-950 to-stone-950', rarity: 'AR', svgKey: 'koi', habitat: '日本の池や庭園', feature: '新潟県発祥の観賞魚。「泳ぐ宝石」とよばれ、紅白や黄金など美しい模様が世界中で愛される。' },
+            { id: 'b40', no: '040', name: 'ラブカ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-stone-950 via-rose-950 to-stone-950', rarity: 'SR', svgKey: 'frilled_shark', habitat: '世界中の深海', feature: 'ウナギのように細長い体と6対のフリルのようなエラをもつ古代ザメ。生きた化石とよばれる。' },
 
-            // ---------------- 堕天使 20種類 (No.041〜060) ----------------
-            { id: 'c41', no: '041', name: 'ツインホーン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'C', level: 15, baseImg: 1, variant: 'd1', personality: '天使の輪と小さな角を両方持つ不思議な子。ちょっと照れ屋でクールぶっている。', favoriteFood: 'ブルーベリータルト' },
-            { id: 'c42', no: '042', name: 'ダークリボン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'U', level: 21, baseImg: 2, variant: 'd1', personality: '夜空色のリボンをなびかせる自由人。ルールに縛られず気ままに空を飛ぶ。', favoriteFood: 'ぶどうゼリーとダークチョコ' },
-            { id: 'c43', no: '043', name: 'シャドウフィン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'U', level: 25, baseImg: 5, variant: 'd1', personality: 'いたずら好きだけど根はとても優しい。迷子の子猫を見かけると放っておけない。', favoriteFood: 'イカ墨パスタとコーラ' },
-            { id: 'c44', no: '044', name: 'スターアイ堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'R', level: 30, baseImg: 4, variant: 'd1', personality: '右目に星の紋章を宿すミステリアスな堕天使。占いや魔法の研究が好き。', favoriteFood: 'スターフルーツと紫芋モンブラン' },
-            { id: 'c45', no: '045', name: 'ブラックバルーン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'R', level: 34, baseImg: 6, variant: 'd1', personality: 'ふくらむ腕でみんなを驚かせるトリックスター。笑わせることが生きがい。', favoriteFood: '黒ごまアイスとポップコーン' },
-            { id: 'c46', no: '046', name: 'トワイライト堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'R', level: 39, baseImg: 2, variant: 'd2', personality: '夕暮れ時の空を愛する詩人タイプ。美しい景色を見るとすぐにポエムを詠む。', favoriteFood: 'キャラメルマキアート' },
-            { id: 'c47', no: '047', name: '魔剣の堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'RR', level: 44, baseImg: 3, variant: 'd1', personality: 'かつて大天使だった誇りを胸に、紫の魔剣を振るう孤高の剣士。', favoriteFood: 'ブラックペッパーステーキ' },
-            { id: 'c48', no: '048', name: 'シックスパック堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'RR', level: 48, baseImg: 1, variant: 'd2', personality: '天使時代から筋トレが趣味で、ついに悪魔顔負けの腹筋を手に入れた！', favoriteFood: 'ささみチーズカツとプロテイン' },
-            { id: 'c49', no: '049', name: '紫炎の堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'AR', level: 52, baseImg: 3, variant: 'd2', personality: '右腕に青い鬼火のような炎をまとう。口数は少ないが熱い友情を大切にする。', favoriteFood: 'たこ焼きとジンジャーエール' },
-            { id: 'c50', no: '050', name: 'アビスリボン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'AR', level: 56, baseImg: 2, variant: 'd3', personality: '深海のように深い青紫の帯を操る。静かな夜の図書館で本を読むのが好き。', favoriteFood: 'ブルーベリーパンケーキ' },
-            { id: 'c51', no: '051', name: 'サイクロン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'SR', level: 60, baseImg: 4, variant: 'd2', personality: '渦巻き耳から竜巻を起こす風の使い手。少しお調子者だが頼りになる。', favoriteFood: 'ソフトツイストとメロンソーダ' },
-            { id: 'c52', no: '052', name: 'カオスバルーン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'SR', level: 64, baseImg: 6, variant: 'd2', personality: '不思議な空間を操る道化師風の堕天使。いつもニヤリと笑って秘密を抱えている。', favoriteFood: '綿あめとチョコバナナ' },
-            { id: 'c53', no: '053', name: 'ミッドナイトフィン堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'SR', level: 68, baseImg: 5, variant: 'd2', personality: '真夜中の空を音もなく滑空する忍者のような堕天使。実は甘いものに目がない。', favoriteFood: 'みたらし団子と抹茶パフェ' },
-            { id: 'c54', no: '054', name: '紅蓮の翼堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'SAR', level: 72, baseImg: 1, variant: 'd3', personality: '真っ赤な翼と黄金の輪を併せ持つ情熱家。自分の信じた道を突き進む。', favoriteFood: '激辛ラーメンとマンゴーラッシー' },
-            { id: 'c55', no: '055', name: 'ペンタグラム堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'SAR', level: 76, baseImg: 4, variant: 'd3', personality: '星の魔法陣を自在に展開する天才魔導士。難解な計算問題も一瞬で解く。', favoriteFood: '星形パイとホットチョコレート' },
-            { id: 'c56', no: '056', name: '漆黒聖剣の堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'UR', level: 81, baseImg: 3, variant: 'd3', personality: '光と闇の二刀流のように聖剣と炎を操る最強クラスの戦士。', favoriteFood: '特選ハンバーグとコーヒーゼリー' },
-            { id: 'c57', no: '057', name: 'エクリプス堕天使', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'UR', level: 85, baseImg: 2, variant: 'd4', personality: '日食のように光と影が重なる神秘的な存在。天使と悪魔の架け橋になっている。', favoriteFood: 'オレオチーズケーキ' },
-            { id: 'c58', no: '058', name: '堕天使アザゼル', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'UR', level: 89, baseImg: 1, variant: 'd4', personality: '武具と鍛冶の知識を持つ伝説の堕天使。豪快に笑いながら仲間を鍛えてくれる。', favoriteFood: '豪快スペアリブとアップルサイダー' },
-            { id: 'c59', no: '059', name: '堕天使ルシファー', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'MUR', level: 94, baseImg: 3, variant: 'd4', personality: '「明けの明星」の名を持つ美しき堕天使の王。圧倒的なカリスマ性と実力を誇る。', favoriteFood: '黄金のぶどうと特上ティラミス' },
-            { id: 'c60', no: '060', name: '天魔双翼・カオスエンジェル', category: '堕天使', typeBg: 'bg-purple-500 text-white', rarity: 'MUR', level: 99, baseImg: 2, variant: 'd5', personality: '天使の輪と悪魔の翼が完璧に調和した奇跡の存在。すべての世界を見守っている。', favoriteFood: '天界と魔界のスペシャルパフェ' },
+            // 【3】とり 20種類 (b41〜b60)
+            { id: 'b41', no: '041', name: 'オオワシ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-stone-900 to-stone-950', rarity: 'SR', emoji: '🦅', habitat: '極東ロシア・冬の北海道', feature: '翼を広げると2.4メートルにもなる日本最大のワシ。強い爪でサケなどの魚をつかむ。' },
+            { id: 'b42', no: '042', name: 'フクロウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-indigo-950 via-amber-950 to-stone-950', rarity: 'R', emoji: '🦉', habitat: '世界中の森林', feature: '羽音を立てずに飛び、暗い夜でもよく見える大きな目とすぐれた聴力で獲物をとらえる。' },
+            { id: 'b43', no: '043', name: 'コウテイペンギン', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-blue-950 to-stone-950', rarity: 'RR', emoji: '🐧', habitat: '南極大陸の氷上と海', feature: 'ペンギンの中で最も体が大きい。極寒の南極の冬にオスが足の上で卵を温めてかえす。' },
+            { id: 'b44', no: '044', name: 'フラミンゴ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-pink-950 via-rose-950 to-stone-950', rarity: 'U', emoji: '🦩', habitat: 'アフリカ・南米などの塩湖', feature: '食べる藻やエビに含まれる色素によって羽がピンク色になる。片足で立って休む習性がある。' },
+            { id: 'b45', no: '045', name: 'インドクジャク', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-teal-950 via-emerald-950 to-stone-950', rarity: 'AR', emoji: '🦚', habitat: 'インド・スリランカの森林', feature: 'オスは目玉模様の美しい飾り羽を扇のように大きく広げ、ふるわせてメスにアピールする。' },
+            { id: 'b46', no: '046', name: 'コブハクチョウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-slate-900 to-stone-950', rarity: 'C', emoji: '🦢', habitat: 'ヨーロッパ〜アジアの湖や川', feature: '優雅な白い羽とS字に曲がった長い首をもつ大型の水鳥。長い助走をつけて水面から飛び立つ。' },
+            { id: 'b47', no: '047', name: 'コンゴウインコ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-red-950 via-yellow-950 to-stone-950', rarity: 'R', emoji: '🦜', habitat: '中南米の熱帯雨林', feature: '赤・青・黄色の鮮やかな羽をもつ大型のインコ。硬い木の実も割る頑丈なくちばしをもつ。' },
+            { id: 'b48', no: '048', name: 'マガモ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-emerald-950 via-teal-950 to-stone-950', rarity: 'C', emoji: '🦆', habitat: '北半球の湖・池・川', feature: 'オスの頭は光沢のある美しい緑色。水面におしりを突き出して水草や虫を食べる。' },
+            { id: 'b49', no: '049', name: 'ダチョウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'RR', svgKey: 'ostrich', habitat: 'アフリカのサバンナ', feature: '空は飛べないが世界最大の鳥。2本の指の強い足で時速70キロもの速さで走ることができる。' },
+            { id: 'b50', no: '050', name: 'ハチドリ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-emerald-950 via-cyan-950 to-stone-950', rarity: 'U', svgKey: 'hummingbird', habitat: '南北アメリカ大陸', feature: '1秒間に約50回も羽ばたいて空中で静止（ホバリング）し、細長いくちばしで花の蜜を吸う。' },
+            { id: 'b51', no: '051', name: 'カワセミ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-orange-950 to-stone-950', rarity: 'AR', svgKey: 'kingfisher', habitat: '日本やユーラシアの川や池', feature: '「渓流の宝石」とよばれるコバルトブルーの美しい鳥。水面にダイブして小魚をとらえる。' },
+            { id: 'b52', no: '052', name: 'オニオオハシ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-orange-950 via-stone-900 to-stone-950', rarity: 'U', svgKey: 'toucan', habitat: '南米の熱帯雨林', feature: '体ほどもある大きなオレンジ色のくちばしをもつ。中はスポンジ状で軽く、体温調節にも役立つ。' },
+            { id: 'b53', no: '053', name: 'ハシビロコウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-slate-900 via-teal-950 to-stone-950', rarity: 'SR', svgKey: 'shoebill', habitat: 'アフリカ中東部の湿地', feature: '木ぐつのように大きなくちばしをもつ。「動かない鳥」として有名で、魚が浮上するのをじっと待つ。' },
+            { id: 'b54', no: '054', name: 'キーウィ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-amber-950 via-lime-950 to-stone-950', rarity: 'R', svgKey: 'kiwi', habitat: 'ニュージーランドの森林', feature: '翼が退化して飛べない夜行性の鳥。くちばしの先端に鼻の穴があり、土の中のミミズを探す。' },
+            { id: 'b55', no: '055', name: 'ペリカン', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-amber-950 to-stone-950', rarity: 'C', svgKey: 'pelican', habitat: '暖かい地域の海辺や湖', feature: '下くちばしに大きく伸びる袋（咽喉嚢）をもち、海水ごと魚をすくい取って水を吐き出し飲みこむ。' },
+            { id: 'b56', no: '056', name: 'ツバメ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-blue-950 via-indigo-950 to-stone-950', rarity: 'C', svgKey: 'swallow', habitat: '春〜夏に日本へ渡ってくる地域', feature: '細長い翼と二股の尾羽でアクロバットのように飛び、空中で虫をとらえる。民家の軒先に巣を作る。' },
+            { id: 'b57', no: '057', name: 'タンチョウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-rose-950 via-slate-900 to-stone-950', rarity: 'UR', svgKey: 'crane', habitat: '北海道の湿原・東アジア', feature: '純白の羽に頭のてっぺんの赤い皮膚が映える日本の特別天然記念物。冬に求愛ダンスを踊る。' },
+            { id: 'b58', no: '058', name: 'カカポ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-lime-950 via-emerald-950 to-stone-950', rarity: 'SAR', svgKey: 'kakapo', habitat: 'ニュージーランドの保護島', feature: '世界で唯一飛ぶことができない夜行性の大型オウム。コケのような緑色の羽で森に溶けこむ。' },
+            { id: 'b59', no: '059', name: 'ヘビクイワシ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-slate-900 via-amber-950 to-stone-950', rarity: 'R', svgKey: 'secretarybird', habitat: 'アフリカのサバンナ', feature: '長いまつげと後頭部の飾り羽をもつ猛禽類。長い足で毒ヘビを踏みつけて仕留めるハンター。' },
+            { id: 'b60', no: '060', name: 'ケツァール', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-emerald-950 via-rose-950 to-stone-950', rarity: 'UR', svgKey: 'quetzal', habitat: '中米の雲霧林', feature: '「世界一美しい鳥」とよばれる神秘の鳥。オスは体長より長いエメラルドグリーンの飾り尾をもつ。' },
 
-            // ---------------- 悪魔 20種類 (No.061〜080) ----------------
-            { id: 'c61', no: '061', name: 'シックスパックデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'SR', level: 54, baseImg: 1, variant: 'exact1', personality: '6つに割れた腹筋と大きな角が自慢の熱血悪魔！ニヤッと笑って筋トレに誘ってくる。', favoriteFood: '特大チキンステーキとプロテイン' },
-            { id: 'c62', no: '062', name: 'スターアイデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'SR', level: 58, baseImg: 4, variant: 'exact4', personality: '右目の五芒星と渦巻き耳がチャームポイント！トリッキーな作戦が得意な頭脳派悪魔。', favoriteFood: '星形ポテトとエネルギードリンク' },
-            { id: 'c63', no: '063', name: 'バルーンデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'R', level: 36, baseImg: 6, variant: 'exact6', personality: '右腕が風船のように大きくふくらむひょうきん者！みんなを驚かせて笑うのが大好き。', favoriteFood: 'ふうせんガムと特大綿あめ' },
-            { id: 'c64', no: '064', name: 'チビツノ悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'C', level: 2, baseImg: 1, variant: 'v1', personality: 'まだ小さな角が生えたばかりの子悪魔。いたずらを仕掛けてはすぐバレて照れる。', favoriteFood: 'チョコチップクッキー' },
-            { id: 'c65', no: '065', name: 'ぷっくりバルーン悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'C', level: 5, baseImg: 6, variant: 'v1', personality: 'ふわふわ跳ねながら移動する陽気な悪魔。怒るとほっぺと腕がぷくっとふくらむ。', favoriteFood: 'シュークリームとメロンソーダ' },
-            { id: 'c66', no: '066', name: 'ぐるぐるイヤー悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'C', level: 8, baseImg: 4, variant: 'v1', personality: '大きな渦巻き耳で遠くのヒソヒソ話も聞こえちゃう地獄耳の持ち主。', favoriteFood: 'うずまきキャンディとロールケーキ' },
-            { id: 'c67', no: '067', name: 'ギザバデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'C', level: 11, baseImg: 1, variant: 'v2', personality: '見た目は怖いギザギザ歯だけど、実は虫歯予防で毎日3回歯磨きする几帳面な性格。', favoriteFood: 'りんご丸かじりとキシリトールガム' },
-            { id: 'c68', no: '068', name: 'もこもこトリック悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'U', level: 15, baseImg: 6, variant: 'v2', personality: 'マジックや手品が得意なエンターテイナー悪魔。腕の中からお菓子を出してくれる。', favoriteFood: 'ポップコーンとキャラメルラテ' },
-            { id: 'c69', no: '069', name: 'ホシメデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'U', level: 19, baseImg: 4, variant: 'v2', personality: '新しいもの好きで発明が得意。左目の特製バイザーでなんでも分析しちゃう。', favoriteFood: 'ナポリタンとクリームソーダ' },
-            { id: 'c70', no: '070', name: 'ヤジルシテイル悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'U', level: 23, baseImg: 1, variant: 'v3', personality: 'しっぽの矢印でいつもおいしいお店の方角を指し示してくれるグルメな悪魔。', favoriteFood: 'オムライスとハンバーグ' },
-            { id: 'c71', no: '071', name: 'ジャンボバルーン悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'R', level: 27, baseImg: 6, variant: 'v3', personality: '右腕を巨大化させてなんでも弾き返す！明るくお調子者で友だちが多い。', favoriteFood: '特大肉まんとタピオカ' },
-            { id: 'c72', no: '072', name: 'モヒカンホーン悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'R', level: 31, baseImg: 1, variant: 'v4', personality: 'トゲトゲの髪型にこだわりを持つロックな悪魔。エレキギターの演奏が超うまい。', favoriteFood: '激辛チリドッグとコーラ' },
-            { id: 'c73', no: '073', name: 'サイクロンイヤー悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'R', level: 39, baseImg: 4, variant: 'v3', personality: '左右の渦巻きから強い風を起こして空を飛ぶ。スピード狂で駆けっこが大好き。', favoriteFood: 'ソフトクリームとポテトチップス' },
-            { id: 'c74', no: '074', name: 'クロスボディデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'RR', level: 43, baseImg: 4, variant: 'v4', personality: '胸のクロスラインは歴戦の証！強い相手と戦うことにワクワクするバトル好き。', favoriteFood: 'ガーリックステーキと丼飯' },
-            { id: 'c75', no: '075', name: 'コウモリつばさ悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'RR', level: 47, baseImg: 1, variant: 'v5', personality: '夜の洞窟を探検するのが好きな冒険家悪魔。暗闇でも目がバッチリ見える。', favoriteFood: 'ぶどうジュースとチーズピザ' },
-            { id: 'c76', no: '076', name: 'メガバルーンデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'AR', level: 51, baseImg: 6, variant: 'v4', personality: '体よりも大きなバルーン腕を軽々と振り回す怪力トリックスター。', favoriteFood: 'メガ盛りパフェとドーナツ' },
-            { id: 'c77', no: '077', name: 'ペンタスターデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'AR', level: 61, baseImg: 4, variant: 'v5', personality: '五芒星の輝きがパワーアップ！星のエネルギーで仲間を応援するムードメーカー。', favoriteFood: 'こんぺいとうと星形ハンバーグ' },
-            { id: 'c78', no: '078', name: 'エイトパックデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'SR', level: 65, baseImg: 1, variant: 'v6', personality: 'シックスパックを超えて腹筋が8つに進化した！どんな攻撃も腹筋で跳ね返す。', favoriteFood: '特盛り焼き肉定食とプロテイン' },
-            { id: 'c79', no: '079', name: 'ギャラクシーバルーン悪魔', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'SAR', level: 71, baseImg: 6, variant: 'v5', personality: '腕のバルーンの中に小さな宇宙を閉じ込めている不思議な大悪魔。', favoriteFood: 'ギャラクシードーナツとソーダ' },
-            { id: 'c80', no: '080', name: 'ヘルファイヤーデーモン', category: '悪魔', typeBg: 'bg-rose-500 text-white', rarity: 'UR', level: 76, baseImg: 1, variant: 'v7', personality: '燃えさかる魔界の炎を全身にまとう上級悪魔。豪快で面倒見の良い兄貴分。', favoriteFood: '溶岩チーズカレーとマンゴーアイス' },
+            // 【4】むし 20種類 (b61〜b80)
+            { id: 'b61', no: '061', name: 'ヤマトカブトムシ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'RR', emoji: '🪲', habitat: '日本の雑木林', feature: 'りっぱな角と硬いよろいをもち、自分の体重の20倍もの重さを引く力持ちの昆虫。' },
+            { id: 'b62', no: '062', name: 'セイヨウミツバチ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-amber-950 to-stone-950', rarity: 'C', emoji: '🐝', habitat: '世界中の花畑や草原', feature: '花の蜜を集めてハチミツを作り、8の字ダンスで仲間に蜜のある場所の方向と距離を伝える。' },
+            { id: 'b63', no: '063', name: 'ナナホシテントウ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-red-950 via-lime-950 to-stone-950', rarity: 'C', emoji: '🐞', habitat: '草むらや畑', feature: '赤い羽に7つの黒い星をもつ。植物につくアブラムシをたくさん食べてくれる益虫。' },
+            { id: 'b64', no: '064', name: 'キアゲハ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-emerald-950 to-stone-950', rarity: 'U', emoji: '🦋', habitat: '草原・河原・山地の花畑', feature: '黄色と黒の美しい模様をもつ大型のチョウ。幼虫はニンジンやセリなどの葉を食べて育つ。' },
+            { id: 'b65', no: '065', name: 'トノサマバッタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-lime-950 via-green-950 to-stone-950', rarity: 'C', emoji: '🦗', habitat: '河原や日当たりのよい草原', feature: 'たくましい後ろ足で高くジャンプし、羽を広げて遠くまで飛ぶことができる日本の大型バッタ。' },
+            { id: 'b66', no: '066', name: 'クロオオアリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-stone-900 via-amber-950 to-stone-950', rarity: 'C', emoji: '🐜', habitat: '公園・庭・森の土の中', feature: '女王アリを中心に大きな巣を作り、働きアリが役割を分担してエサ集めや子育てを行う。' },
+            { id: 'b67', no: '067', name: 'ダイオウサソリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-purple-950 via-stone-900 to-stone-950', rarity: 'R', emoji: '🦂', habitat: '西アフリカの熱帯雨林', feature: '体長20センチにもなる世界最大級のサソリ。大きなハサミをもち、ブラックライトを当てると青く光る。' },
+            { id: 'b68', no: '068', name: 'ジョロウグモ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-indigo-950 to-stone-950', rarity: 'U', emoji: '🕷️', habitat: '日本の林や公園の木々', feature: '黄色と黒と赤の鮮やかな模様をもつクモ。三重構造の丈夫なクモの巣を張って虫をとらえる。' },
+            { id: 'b69', no: '069', name: 'オオクワガタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-stone-950 via-amber-950 to-stone-950', rarity: 'SR', svgKey: 'stag_beetle', habitat: '日本のクヌギやナラの雑木林', feature: '太く湾曲した大あごと黒い輝きをもつ人気のクワガタ。「黒いダイヤ」とよばれ寿命も長い。' },
+            { id: 'b70', no: '070', name: 'ヘラクレスオオカブト', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-yellow-900 to-stone-950', rarity: 'MUR', svgKey: 'hercules', habitat: '中南米の熱帯雨林', feature: '体長17センチを超える世界最大のカブトムシ。長い胸角と頭角で相手をはさんで投げ飛ばす。' },
+            { id: 'b71', no: '071', name: 'ギラファノコギリクワガタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-slate-900 via-amber-950 to-stone-950', rarity: 'UR', svgKey: 'giraffe_stag', habitat: '東南アジアの熱帯雨林', feature: 'キリン（ギラファ）のように長く伸びた大あごをもつ世界最長のクワガタムシ。' },
+            { id: 'b72', no: '072', name: 'オオムラサキ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-purple-950 via-indigo-950 to-stone-950', rarity: 'SAR', svgKey: 'oomurasaki', habitat: '日本や東アジアの雑木林', feature: '日本の国蝶に指定されている美しいチョウ。オスの羽は光の角度によって鮮やかな青紫色に輝く。' },
+            { id: 'b73', no: '073', name: 'モルフォチョウ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-sky-950 via-blue-950 to-stone-950', rarity: 'AR', svgKey: 'morpho', habitat: '中南米の熱帯雨林', feature: '「生きた宝石」とよばれるメタリックブルーのチョウ。羽のうろこが光を反射して輝く。' },
+            { id: 'b74', no: '074', name: 'オオカマキリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-lime-950 via-emerald-950 to-stone-950', rarity: 'U', svgKey: 'mantis', habitat: '日本の草原や林のふち', feature: 'トゲの並んだ前足（カマ）で獲物を素早くつかまえる肉食昆虫。秋にスポンジ状の卵のうを産む。' },
+            { id: 'b75', no: '075', name: 'オニヤンマ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-emerald-950 to-stone-950', rarity: 'R', svgKey: 'dragonfly', habitat: '日本の里山の小川や林', feature: '黒と黄色のしま模様をもつ日本最大のトンボ。時速70キロで飛び、空中で他の虫をとらえる。' },
+            { id: 'b76', no: '076', name: 'ゲンジボタル', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-lime-950 via-slate-900 to-stone-950', rarity: 'AR', svgKey: 'firefly', habitat: 'きれいな水が流れる日本の川辺', feature: '初夏の夜におしりを黄緑色に光らせて飛び、光のリズムで仲間に合図を送る日本の固有種。' },
+            { id: 'b77', no: '077', name: 'アブラゼミ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'C', svgKey: 'cicada', habitat: '日本の公園や雑木林', feature: '羽が茶色く不透明な珍しいセミ。数年を土の中で幼虫として過ごし、夏に地上へ出て鳴く。' },
+            { id: 'b78', no: '078', name: 'ナナフシモドキ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-lime-950 to-stone-950', rarity: 'U', svgKey: 'stick_insect', habitat: '日本の雑木林の木の葉や枝', feature: '木の小枝にそっくりな細長い体で敵の目をあざむく擬態の名人。風で揺れる枝のまねもする。' },
+            { id: 'b79', no: '079', name: 'ハナカマキリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-pink-950 via-rose-950 to-stone-950', rarity: 'SAR', svgKey: 'orchid_mantis', habitat: '東南アジアの熱帯雨林', feature: 'ランの花びらのような白やピンクの美しい体をもち、花に擬態して蜜を吸いに来た虫をとらえる。' },
+            { id: 'b80', no: '080', name: 'ニジイロクワガタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-emerald-950 via-purple-950 to-stone-950', rarity: 'UR', svgKey: 'rainbow_stag', habitat: 'オーストラリア北東部の熱帯雨林', feature: '緑・赤・紫など虹色に輝く「世界一美しいクワガタ」。上向きにカーブしたあごをもつ。' },
 
-            // ---------------- 魔王 20種類 (No.081〜100) ----------------
-            { id: 'c81', no: '081', name: 'マッスル魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'RR', level: 63, baseImg: 1, variant: 'm1', personality: '力こそ正義を掲げるパワー系魔王。でも子犬や小鳥にはメロメロになってしまう。', favoriteFood: '丸焼きチキンと特大プリン' },
-            { id: 'c82', no: '082', name: '五芒星の魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'SR', level: 67, baseImg: 4, variant: 'm1', personality: '星の魔力を極めた知略の魔王。チェスやパズルが得意で、計画を立てるのが大好き。', favoriteFood: '高級チョコレートとエスプレッソ' },
-            { id: 'c83', no: '083', name: 'バルーンキング魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'SR', level: 70, baseImg: 6, variant: 'm1', personality: '魔界の遊園地を支配する陽気な魔王。世界中の子どもたちを驚かせるのが夢。', favoriteFood: '巨大綿あめとレインボーアイス' },
-            { id: 'c84', no: '084', name: '魔剣ブレイズ魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'SAR', level: 73, baseImg: 3, variant: 'm1', personality: '魔界の炎と魔剣を手に入れた戦闘魔王。正々堂々とした一騎打ちを好む。', favoriteFood: 'サーロインステーキと赤ぶどうジュース' },
-            { id: 'c85', no: '085', name: 'ギガホーン魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'SAR', level: 75, baseImg: 1, variant: 'm2', personality: '天まで届く巨大な二本角を持つ魔王。角のツヤ出しを毎朝1時間行っている。', favoriteFood: 'クロワッサンとカフェオレ' },
-            { id: 'c86', no: '086', name: 'サイクロンロード魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'SAR', level: 78, baseImg: 4, variant: 'm2', personality: '嵐を呼び起こす風の魔王。豪快な笑い声とともに空から颯爽と現れる。', favoriteFood: '特大たこ焼きとラムネ' },
-            { id: 'c87', no: '087', name: 'クリムゾンデーモン王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'UR', level: 80, baseImg: 1, variant: 'm3', personality: '真紅の翼と黄金のコアを持つ紅蓮の魔王。部下からの信頼がとても厚い。', favoriteFood: '完熟イチゴとレアチーズケーキ' },
-            { id: 'c88', no: '088', name: 'カオスバルーン魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'UR', level: 82, baseImg: 6, variant: 'm2', personality: '無限にふくらむ魔法の腕で星さえも弾き飛ばす、予測不能のトリック魔王。', favoriteFood: 'ポップコーンバケツとコーラフロート' },
-            { id: 'c89', no: '089', name: 'アビスシックスパック魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'UR', level: 84, baseImg: 1, variant: 'm4', personality: '深淵の魔力で鍛え上げた鋼鉄のボディを持つ魔王。どんな困難も笑顔で突破する。', favoriteFood: '特盛りカツカレーとバナナシェイク' },
-            { id: 'c90', no: '090', name: 'コズミックアイ魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'UR', level: 87, baseImg: 4, variant: 'm3', personality: 'すべてを見通す星の瞳を持つ魔王。未来の出来事までピタリと当ててしまう。', favoriteFood: 'ブルーベリーパイとハーブティー' },
-            { id: 'c91', no: '091', name: '魔王ベルフェゴール', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'UR', level: 89, baseImg: 6, variant: 'm3', personality: '発明と昼寝を愛するマイペースな七大魔王。やる気を出すとすごい兵器を作る。', favoriteFood: '特大ピザと昼寝後のホットミルク' },
-            { id: 'c92', no: '092', name: '魔王マモン', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'UR', level: 90, baseImg: 4, variant: 'm4', personality: '世界中のキラキラしたお宝を集める七大魔王。実は友だちにプレゼントするのも好き。', favoriteFood: '金箔ソフトクリームと高級メロン' },
-            { id: 'c93', no: '093', name: '魔王アスモデウス', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'MUR', level: 92, baseImg: 1, variant: 'm5', personality: '燃える情熱と圧倒的なパワーを誇る七大魔王。派手なパフォーマンスが大好き。', favoriteFood: 'スパイシーチキンとマンゴージュース' },
-            { id: 'c94', no: '094', name: '魔王ベルゼブブ', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'MUR', level: 93, baseImg: 6, variant: 'm4', personality: '魔界一の食いしん坊な七大魔王！どんな料理もペロリと平らげてパワーに変える。', favoriteFood: '食べ放題バイキング全メニュー！' },
-            { id: 'c95', no: '095', name: '魔王レヴィアタン', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'MUR', level: 95, baseImg: 3, variant: 'm2', personality: '大海原を統べる巨大な力を持つ七大魔王。普段は穏やかだが怒ると大津波を呼ぶ。', favoriteFood: '豪華海鮮丼と塩キャラメルアイス' },
-            { id: 'c96', no: '096', name: '大魔王サタン', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'MUR', level: 96, baseImg: 1, variant: 'm6', personality: '魔界の頂点に君臨する誇り高き大魔王。強い挑戦者が現れるのを心待ちにしている。', favoriteFood: '最高級和牛ステーキと暗黒チョコ' },
-            { id: 'c97', no: '097', name: '究極シックスパック魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'MUR', level: 97, baseImg: 1, variant: 'm7', personality: '黄金の角と虹色の翼を手に入れた究極の筋肉魔王！笑顔の輝きがまぶしすぎる。', favoriteFood: '黄金プロテインと特大フルーツタルト' },
-            { id: 'c98', no: '098', name: '究極スターアイ魔王', category: '魔王', typeBg: 'bg-red-600 text-yellow-200', rarity: 'MUR', level: 98, baseImg: 4, variant: 'm5', personality: '全宇宙の星の力を集結させた超魔王。渦巻き耳から銀河のエネルギーが溢れ出す。', favoriteFood: '銀河パフェと星屑マカロン' },
-            { id: 'c99', no: '099', name: '天魔融合エンペル', category: '魔王', typeBg: 'bg-gradient-to-r from-sky-400 to-rose-500 text-white', rarity: 'MUR', level: 99, baseImg: 3, variant: 'm3', personality: '天使の聖剣と悪魔の角を同時に宿す奇跡の覇王。光と闇の両方の心を持つ。', favoriteFood: '天使のショートケーキと悪魔のチョコ' },
-            { id: 'c100', no: '100', name: '創世神・極限天使悪魔王', category: '魔王', typeBg: 'bg-gradient-to-r from-amber-300 via-pink-400 to-cyan-300 text-slate-950', rarity: 'MUR', level: 100, baseImg: 1, variant: 'm8', personality: '100もんのかけ算を制覇した者の前に現れる最高神！すべての天使と悪魔を束ねる王。', favoriteFood: 'すべてのおいしい食べ物（とくに虹色パフェ）' }
+            // 【5】絶滅動物 20種類 (b81〜b100) ※添付5種を含む
+            { id: 'b81', no: '081', name: 'オオツノジカ', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'UR', svgKey: 'custom_megaloceros', habitat: '氷河期のユーラシア大陸', feature: '幅3.5メートル以上にもなる巨大な手のひら状の角をもっていた氷河期の大型のシカ。' },
+            { id: 'b82', no: '082', name: 'ドードー', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-slate-900 via-amber-950 to-stone-950', rarity: 'SAR', svgKey: 'custom_dodo', habitat: 'インド洋のモーリシャス島', feature: '天敵のいない島で翼が退化し飛べなくなった大きな鳥。丸い体と先が曲がった太いくちばしが特徴。' },
+            { id: 'b83', no: '083', name: 'サーベルタイガー', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-orange-950 via-amber-950 to-stone-950', rarity: 'SR', svgKey: 'custom_sabertooth', habitat: '氷河期の南北アメリカ大陸', feature: '剣のように長く鋭い2本の上あごの犬歯をもち、マンモスやバイソンなどの大型動物を狩っていた。' },
+            { id: 'b84', no: '084', name: 'メガロドン', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-blue-950 via-indigo-950 to-stone-950', rarity: 'MUR', svgKey: 'custom_megalodon', habitat: '約2300万〜360万年前の世界中の海', feature: '全長15〜20メートルに達した史上最大のサメ。人間の手のひらほどもある巨大な歯の化石が見つかる。' },
+            { id: 'b85', no: '085', name: 'ジャイアントモア', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-rose-950 to-stone-950', rarity: 'SR', svgKey: 'custom_moa', habitat: 'ニュージーランドの森林や草原', feature: '高さ3.6メートルにもなった史上最大級の飛べない鳥。翼が完全になく、太く頑丈な2本の足をもつ。' },
+            { id: 'b86', no: '086', name: 'ティラノサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-red-950 via-amber-950 to-stone-950', rarity: 'MUR', emoji: '🦖', habitat: '白亜紀後期の北アメリカ大陸', feature: '「暴君トカゲ」の名をもつ史上最大級の肉食恐竜。骨をも砕く強大なあごと鋭い歯をもっていた。' },
+            { id: 'b87', no: '087', name: 'ブラキオサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-emerald-950 via-teal-950 to-stone-950', rarity: 'RR', emoji: '🦕', habitat: 'ジュラ紀後期の北アメリカ・アフリカ', feature: '前足が後ろ足より長く、キリンよりもはるかに高い13メートルの高さの木の葉を食べていた大型草食恐竜。' },
+            { id: 'b88', no: '088', name: 'ケナガマンモス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-sky-950 to-stone-950', rarity: 'RR', emoji: '🦣', habitat: '氷河期のシベリア・北半球', feature: '長い体毛と大きく曲がった牙をもつゾウの仲間。永久凍土から氷漬けの標本も発見されている。' },
+            { id: 'b89', no: '089', name: 'トリケラトプス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-lime-950 via-emerald-950 to-stone-950', rarity: 'R', svgKey: 'triceratops', habitat: '白亜紀後期の北アメリカ大陸', feature: '目の上の2本の長い角と鼻の上の1本の角、首を守る大きなフリルをもった人気の草食恐竜。' },
+            { id: 'b90', no: '090', name: 'ステゴサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-green-950 via-orange-950 to-stone-950', rarity: 'R', svgKey: 'stegosaurus', habitat: 'ジュラ紀後期の北アメリカ大陸', feature: '背中に並ぶ五角形の大きな骨板と、しっぽの先端にある4本の鋭いトゲで肉食恐竜から身を守った。' },
+            { id: 'b91', no: '091', name: 'プテラノドン', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-sky-950 to-stone-950', rarity: 'U', svgKey: 'pteranodon', habitat: '白亜紀後期の北アメリカ沿岸', feature: '翼を広げると7メートル以上になる有名な翼竜。頭のとさかでバランスをとり海の上を滑空した。' },
+            { id: 'b92', no: '092', name: 'アンモナイト', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'C', svgKey: 'ammonite', habitat: '古生代〜中生代の世界中の海', feature: 'うずまき状の殻をもつイカやタコの仲間。殻の中の空気と水を調整して海の中を浮き沈みしていた。' },
+            { id: 'b93', no: '093', name: '三葉虫', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-stone-900 via-slate-900 to-stone-950', rarity: 'C', svgKey: 'trilobite', habitat: '古生代の世界中の海底', feature: '体が縦に3つの部分に分かれていることから名づけられた節足動物。約2億5000万年以上繁栄した。' },
+            { id: 'b94', no: '094', name: 'アノマロカリス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-rose-950 via-indigo-950 to-stone-950', rarity: 'AR', svgKey: 'anomalocaris', habitat: 'カンブリア紀の海', feature: '約5億年前の海で頂点に立っていた大型の捕食動物。2本の触手で三葉虫などをつかまえていた。' },
+            { id: 'b95', no: '095', name: 'ダンクルオステウス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-slate-900 via-blue-950 to-stone-950', rarity: 'R', svgKey: 'dunkleosteus', habitat: 'デボン紀後期の海', feature: '頭と胸が分厚い装甲板でおおわれた巨大な板皮類。ハサミのようなあごの骨で獲物を切り裂いた。' },
+            { id: 'b96', no: '096', name: 'スピノサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-teal-950 via-orange-950 to-stone-950', rarity: 'SAR', svgKey: 'spinosaurus', habitat: '白亜紀の北アフリカの水辺', feature: '背中に高さ1.8メートルもの大きな帆をもつ水辺の肉食恐竜。ワニのような細長い口で魚をとらえた。' },
+            { id: 'b97', no: '097', name: 'モササウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-blue-950 via-cyan-950 to-stone-950', rarity: 'SR', svgKey: 'mosasaurus', habitat: '白亜紀後期の世界中の海', feature: '全長15メートルを超える海の王者。4つのひれ足と強い尾びれで泳ぎ、恐竜時代の海を支配した。' },
+            { id: 'b98', no: '098', name: 'ケツァルコアトルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-rose-950 to-stone-950', rarity: 'UR', svgKey: 'quetzalcoatlus', habitat: '白亜紀後期の北アメリカ大陸', feature: '翼を広げると10メートルを超える史上最大の空飛ぶ動物。立ち上がるとキリンほどの高さがあった。' },
+            { id: 'b99', no: '099', name: 'フタバスズキリュウ', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-sky-950 via-indigo-950 to-stone-950', rarity: 'AR', svgKey: 'futabasaurus', habitat: '白亜紀後期の日本近海', feature: '福島県いわき市で化石が発見された首長竜。4つのひれ足で海を泳ぎ、長い首で魚をとらえた。' },
+            { id: 'b100', no: '100', name: 'アルゼンチノサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-emerald-950 via-amber-950 to-stone-950', rarity: 'UR', svgKey: 'argentinosaurus', habitat: '白亜紀の南アメリカ大陸', feature: '全長35〜40メートル、体重約80トンにもなった地球史上最大級の超巨大草食恐竜。' }
         ];
 
         // ==========================================
-        // アプリ状態管理
+        // アプリ状態管理（メモリ ＋ IndexedDB永続化）
         // ==========================================
+        const DB_NAME = 'KakezanDobutsuZukanDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'progressStore';
+        const PROGRESS_RECORD_KEY = 'saveData_v1';
+
         let clearedFlags = new Array(TOTAL_QUESTIONS).fill(false);
         let ownedCards = [];
         let currentGlobalQIdx = 0;
         let isSoundEnabled = true;
         let isProcessingAnswer = false;
         let currentAlbumFilter = 'ALL';
-        let inProgressStep = null;
 
-        // 進行状況のクラウド保存用変数
-        const rawAppId = typeof __app_id !== 'undefined' ? String(__app_id) : 'default-app-id';
-        const appId = rawAppId.replace(/\//g, '_') || 'default-app-id';
-        let db = null;
-        let auth = null;
-        let currentUser = null;
-        let firestoreDocFn = null;
-        let firestoreGetDocFn = null;
-        let firestoreSetDocFn = null;
-        let firestoreOnSnapshotFn = null;
-        let unsubscribeProgressSnapshot = null;
-        let storageReadyPromise = null;
-        let isInitialLoadDone = false;
-        let hasLocalMutation = false;
-        let userNavigatedInSession = false;
-        let pendingSaveQIdx = null;
-        let isAppInitialized = false;
-        let lastSavedTimestamp = 0;
+        let dbInstance = null;
+        let isProgressLoaded = false;
+        let saveQueuePromise = Promise.resolve();
 
-        const LOCAL_DB_NAME = 'KakezanAngelDevilDB_v1';
-        const LOCAL_STORE_NAME = 'progressStore';
-        const LOCAL_RECORD_KEY = 'userProgress';
-
-        function openLocalProgressDB() {
-            return new Promise((resolve) => {
-                try {
-                    if (typeof window === 'undefined' || !window.indexedDB) {
-                        resolve(null);
-                        return;
-                    }
-                    const req = window.indexedDB.open(LOCAL_DB_NAME, 1);
-                    req.onupgradeneeded = (event) => {
-                        const database = event.target.result;
-                        if (!database.objectStoreNames.contains(LOCAL_STORE_NAME)) {
-                            database.createObjectStore(LOCAL_STORE_NAME);
-                        }
-                    };
-                    req.onsuccess = (event) => {
-                        resolve(event.target.result);
-                    };
-                    req.onerror = () => resolve(null);
-                    req.onblocked = () => resolve(null);
-                } catch (e) {
-                    resolve(null);
+        // IndexedDB データベース接続の取得・キャッシュ
+        function openProgressDB() {
+            if (dbInstance) {
+                return Promise.resolve(dbInstance);
+            }
+            return new Promise((resolve, reject) => {
+                if (typeof indexedDB === 'undefined') {
+                    reject(new Error('IndexedDB is not supported in this environment.'));
+                    return;
                 }
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME);
+                    }
+                };
+
+                request.onsuccess = (event) => {
+                    dbInstance = event.target.result;
+                    dbInstance.onversionchange = () => {
+                        dbInstance.close();
+                        dbInstance = null;
+                    };
+                    dbInstance.onclose = () => {
+                        dbInstance = null;
+                    };
+                    resolve(dbInstance);
+                };
+
+                request.onerror = (event) => {
+                    reject(event.target.error || new Error('Failed to open IndexedDB'));
+                };
+
+                request.onblocked = () => {
+                    reject(new Error('IndexedDB open request is blocked'));
+                };
             });
         }
 
-        async function loadProgressFromLocalMemory() {
-            try {
-                const localDb = await openLocalProgressDB();
-                if (localDb) {
-                    const data = await new Promise((resolve) => {
-                        try {
-                            const tx = localDb.transaction(LOCAL_STORE_NAME, 'readonly');
-                            const store = tx.objectStore(LOCAL_STORE_NAME);
-                            const getReq = store.get(LOCAL_RECORD_KEY);
-                            getReq.onsuccess = () => resolve(getReq.result || null);
-                            getReq.onerror = () => resolve(null);
-                        } catch (e) {
-                            resolve(null);
-                        }
-                    });
-                    if (data && typeof data === 'object') {
-                        return data;
-                    }
-                }
-            } catch (e) {
-                // ignore
-            }
-            try {
-                if (typeof window !== 'undefined' && window.name && window.name.startsWith('KAD_SAVE:')) {
-                    const parsed = JSON.parse(window.name.slice('KAD_SAVE:'.length));
-                    if (parsed && typeof parsed === 'object') {
-                        return parsed;
-                    }
-                }
-            } catch (e) {
-                // ignore
-            }
-            return null;
+        // 現在のメモリ上の進行データスナップショットを生成
+        function createProgressSnapshot() {
+            return {
+                clearedFlags: clearedFlags.slice(0, TOTAL_QUESTIONS).map(Boolean),
+                ownedCards: Array.from(new Set(ownedCards)),
+                currentGlobalQIdx: Number.isInteger(currentGlobalQIdx) ? currentGlobalQIdx : 0,
+                updatedAt: Date.now()
+            };
         }
 
-        async function saveProgressToLocalMemory(payload) {
-            try {
-                if (typeof window !== 'undefined') {
-                    window.name = 'KAD_SAVE:' + JSON.stringify(payload);
-                }
-            } catch (e) {
-                // ignore
-            }
-            try {
-                const localDb = await openLocalProgressDB();
-                if (localDb) {
-                    await new Promise((resolve) => {
-                        try {
-                            const tx = localDb.transaction(LOCAL_STORE_NAME, 'readwrite');
-                            const store = tx.objectStore(LOCAL_STORE_NAME);
-                            const putReq = store.put(payload, LOCAL_RECORD_KEY);
-                            putReq.onsuccess = () => resolve(true);
-                            putReq.onerror = () => resolve(false);
-                            tx.oncomplete = () => resolve(true);
-                            tx.onerror = () => resolve(false);
-                        } catch (e) {
-                            resolve(false);
-                        }
-                    });
-                }
-            } catch (e) {
-                // ignore
-            }
-        }
-
-        function applyLoadedProgressData(data, forceOverwrite = false) {
-            if (!data || typeof data !== 'object') return;
-
-            const incomingUpdatedAt = typeof data.updatedAt === 'number' ? data.updatedAt : 0;
+        // 復元データのバリデーションとメモリへの反映
+        function applyLoadedData(data) {
+            if (!data || typeof data !== 'object') return false;
+            let restored = false;
 
             if (Array.isArray(data.clearedFlags) && data.clearedFlags.length === TOTAL_QUESTIONS) {
-                if (hasLocalMutation && !forceOverwrite) {
-                    clearedFlags = clearedFlags.map((localVal, idx) => Boolean(localVal || data.clearedFlags[idx]));
-                } else {
-                    clearedFlags = data.clearedFlags.map(Boolean);
-                }
+                clearedFlags = data.clearedFlags.map(Boolean);
+                restored = true;
             }
-
             if (Array.isArray(data.ownedCards)) {
-                const loadedCards = data.ownedCards.filter(id => typeof id === 'string');
-                if (hasLocalMutation && !forceOverwrite) {
-                    const mergedSet = new Set([...loadedCards, ...ownedCards]);
-                    ownedCards = Array.from(mergedSet);
-                } else {
-                    ownedCards = loadedCards;
+                const validIds = new Set(BAKE_CARDS.map(c => c.id));
+                ownedCards = Array.from(new Set(data.ownedCards.filter(id => validIds.has(id))));
+                restored = true;
+            }
+            if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
+                currentGlobalQIdx = Math.floor(data.currentGlobalQIdx);
+                restored = true;
+            }
+            if (clearedFlags[currentGlobalQIdx]) {
+                const nextUncleared = clearedFlags.findIndex(flag => !flag);
+                if (nextUncleared !== -1) {
+                    currentGlobalQIdx = nextUncleared;
                 }
             }
-
-            if (!userNavigatedInSession && (!hasLocalMutation || incomingUpdatedAt >= lastSavedTimestamp)) {
-                if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
-                    currentGlobalQIdx = data.currentGlobalQIdx;
-                }
-                if (data.inProgressStep) {
-                    try {
-                        const parsedStep = typeof data.inProgressStep === 'string'
-                            ? JSON.parse(data.inProgressStep)
-                            : data.inProgressStep;
-                        if (parsedStep && typeof parsedStep === 'object') {
-                            inProgressStep = parsedStep;
-                        }
-                    } catch (e) {
-                        inProgressStep = null;
-                    }
-                } else {
-                    inProgressStep = null;
-                }
-                if (incomingUpdatedAt > lastSavedTimestamp) {
-                    lastSavedTimestamp = incomingUpdatedAt;
-                }
-            }
-
-            updateCardBadge();
-            renderMenuCards();
-            if (!document.getElementById('game-screen').classList.contains('hidden')) {
-                renderQuestion();
-            }
-            if (!document.getElementById('album-screen').classList.contains('hidden')) {
-                renderAlbumFilters();
-                renderAlbumGrid();
-            }
+            return restored;
         }
 
-        function initStorage() {
-            if (storageReadyPromise) return storageReadyPromise;
-            storageReadyPromise = (async () => {
+        // IndexedDBへ進行データを確実に保存（直列化キューで競合・上書きを防止）
+        function saveProgress() {
+            if (!isProgressLoaded) {
+                return Promise.resolve();
+            }
+
+            const snapshot = createProgressSnapshot();
+
+            // 同一タブ内リロード用の補助バックアップ
+            try {
+                window.name = JSON.stringify({ [PROGRESS_RECORD_KEY]: snapshot });
+            } catch (e) {
+                // ignore
+            }
+
+            saveQueuePromise = saveQueuePromise.then(async () => {
                 try {
-                    const localData = await loadProgressFromLocalMemory();
-                    if (localData) {
-                        applyLoadedProgressData(localData);
-                    }
+                    const db = await openProgressDB();
+                    await new Promise((resolve, reject) => {
+                        const tx = db.transaction(STORE_NAME, 'readwrite');
+                        const store = tx.objectStore(STORE_NAME);
+                        const req = store.put(snapshot, PROGRESS_RECORD_KEY);
 
-                    if (typeof __firebase_config === 'undefined' || !__firebase_config) {
-                        isInitialLoadDone = true;
-                        return;
-                    }
-                    const [
-                        { initializeApp, getApps, getApp },
-                        { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged },
-                        { getFirestore, doc, getDoc, setDoc, onSnapshot }
-                    ] = await Promise.all([
-                        import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"),
-                        import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"),
-                        import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js")
-                    ]);
-
-                    const firebaseConfig = typeof __firebase_config === 'string'
-                        ? JSON.parse(__firebase_config)
-                        : __firebase_config;
-                    const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-                    db = getFirestore(app);
-                    auth = getAuth(app);
-                    firestoreDocFn = doc;
-                    firestoreGetDocFn = getDoc;
-                    firestoreSetDocFn = setDoc;
-                    firestoreOnSnapshotFn = onSnapshot;
-
-                    onAuthStateChanged(auth, (user) => {
-                        if (user) {
-                            currentUser = user;
-                        }
+                        req.onerror = (event) => {
+                            reject(event.target.error || new Error('IndexedDB put error'));
+                        };
+                        tx.oncomplete = () => {
+                            resolve();
+                        };
+                        tx.onerror = (event) => {
+                            reject(event.target.error || new Error('IndexedDB transaction error'));
+                        };
+                        tx.onabort = (event) => {
+                            reject(event.target.error || new Error('IndexedDB transaction aborted'));
+                        };
                     });
-
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        try {
-                            await signInWithCustomToken(auth, __initial_auth_token);
-                        } catch (tokenErr) {
-                            if (typeof auth.authStateReady === 'function') {
-                                await auth.authStateReady();
-                            }
-                            if (!auth.currentUser) {
-                                await signInAnonymously(auth);
-                            }
-                        }
-                    } else {
-                        if (typeof auth.authStateReady === 'function') {
-                            await auth.authStateReady();
-                        }
-                        if (!auth.currentUser) {
-                            await signInAnonymously(auth);
-                        }
-                    }
-
-                    currentUser = auth.currentUser;
-                    if (currentUser) {
-                        await loadProgressFromCloud(localData);
-                        subscribeProgressFromCloud();
-                    }
-                } catch (err) {
-                    console.error('Storage initialization error:', err);
-                } finally {
-                    isInitialLoadDone = true;
+                } catch (e) {
+                    console.warn('IndexedDBへのデータ保存に失敗しました:', e);
                 }
-            })();
-            return storageReadyPromise;
+            });
+
+            return saveQueuePromise;
         }
 
-        function subscribeProgressFromCloud() {
-            if (!db || !currentUser || !firestoreDocFn || !firestoreOnSnapshotFn) return;
-            if (unsubscribeProgressSnapshot) {
-                unsubscribeProgressSnapshot();
-            }
-            const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
-            unsubscribeProgressSnapshot = firestoreOnSnapshotFn(
-                progressRef,
-                (snap) => {
-                    if (snap.metadata && snap.metadata.hasPendingWrites) return;
-                    if (snap.exists()) {
-                        const cloudData = snap.data();
-                        applyLoadedProgressData(cloudData);
-                        saveProgressToLocalMemory({
-                            clearedFlags: clearedFlags.map(Boolean),
-                            ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
-                            currentGlobalQIdx: currentGlobalQIdx,
-                            inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
-                            updatedAt: typeof cloudData.updatedAt === 'number' ? cloudData.updatedAt : Date.now()
-                        });
-                    }
-                },
-                (err) => {
-                    console.error('Snapshot listener error:', err);
-                }
-            );
-        }
-
-        async function loadProgressFromCloud(localData) {
-            if (!db || !currentUser || !firestoreDocFn || !firestoreGetDocFn) return;
-            try {
-                const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
-                const snap = await firestoreGetDocFn(progressRef);
-                if (snap.exists()) {
-                    const cloudData = snap.data();
-                    applyLoadedProgressData(cloudData);
-                    const localUpdated = localData && typeof localData.updatedAt === 'number' ? localData.updatedAt : 0;
-                    const cloudUpdated = typeof cloudData.updatedAt === 'number' ? cloudData.updatedAt : 0;
-                    if (hasLocalMutation || localUpdated > cloudUpdated) {
-                        await saveProgressToCloud(pendingSaveQIdx !== null ? pendingSaveQIdx : currentGlobalQIdx);
-                    } else {
-                        await saveProgressToLocalMemory({
-                            clearedFlags: clearedFlags.map(Boolean),
-                            ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
-                            currentGlobalQIdx: currentGlobalQIdx,
-                            inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
-                            updatedAt: cloudUpdated || Date.now()
-                        });
-                    }
-                } else if (hasLocalMutation || localData) {
-                    await saveProgressToCloud(pendingSaveQIdx !== null ? pendingSaveQIdx : currentGlobalQIdx);
-                }
-            } catch (err) {
-                console.error('Load progress error:', err);
-            }
-        }
-
-        async function saveProgressToCloud(overrideQIdx) {
-            hasLocalMutation = true;
-            if (typeof overrideQIdx === 'number' && overrideQIdx >= 0 && overrideQIdx < TOTAL_QUESTIONS) {
-                pendingSaveQIdx = overrideQIdx;
-            } else if (pendingSaveQIdx === null) {
-                pendingSaveQIdx = currentGlobalQIdx;
-            }
-
-            const qIdxToSave = (typeof pendingSaveQIdx === 'number' && pendingSaveQIdx >= 0 && pendingSaveQIdx < TOTAL_QUESTIONS)
-                ? pendingSaveQIdx
-                : currentGlobalQIdx;
-
-            const nowTs = Date.now();
-            lastSavedTimestamp = nowTs;
-            const payload = {
-                clearedFlags: clearedFlags.map(Boolean),
-                ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
-                currentGlobalQIdx: qIdxToSave,
-                inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
-                updatedAt: nowTs
-            };
-
-            await saveProgressToLocalMemory(payload);
-
-            if (storageReadyPromise) {
-                await storageReadyPromise;
-            }
-            if (!db || !currentUser || !firestoreDocFn || !firestoreSetDocFn) return;
+        // IndexedDBから進行データを確実にロード
+        async function loadProgress() {
+            let loadedFromDB = false;
 
             try {
-                const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
-                await firestoreSetDocFn(progressRef, payload);
-            } catch (err) {
-                console.error('Save progress error:', err);
+                const db = await openProgressDB();
+                const data = await new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const req = store.get(PROGRESS_RECORD_KEY);
+
+                    req.onsuccess = (event) => {
+                        resolve(event.target.result);
+                    };
+                    req.onerror = (event) => {
+                        reject(event.target.error || new Error('IndexedDB get error'));
+                    };
+                });
+
+                if (data) {
+                    loadedFromDB = applyLoadedData(data);
+                }
+            } catch (e) {
+                console.warn('IndexedDBからのデータ読み込みに失敗しました:', e);
             }
+
+            // IndexedDBが空または利用不可時のフォールバック復元
+            if (!loadedFromDB) {
+                try {
+                    if (window.name && window.name.startsWith('{')) {
+                        const parsed = JSON.parse(window.name);
+                        if (parsed && parsed[PROGRESS_RECORD_KEY]) {
+                            applyLoadedData(parsed[PROGRESS_RECORD_KEY]);
+                        }
+                    }
+                } catch (e) {
+                    // ignore
+                }
+            }
+
+            isProgressLoaded = true;
         }
 
         // 現在の問題の筆算ステップ管理
@@ -1121,7 +890,7 @@
         let rowStates = { 1: {}, 2: {}, 3: {} };
 
         // ==========================================
-        // 音声合成 (Web Audio API) ※元の仕様を完全維持
+        // 音声合成 (Web Audio API)
         // ==========================================
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx = null;
@@ -1210,23 +979,24 @@
         // ==========================================
         // 初期化・イベント設定
         // ==========================================
-        function initApp() {
-            if (isAppInitialized) return;
-            isAppInitialized = true;
+        window.onload = async () => {
+            await loadProgress();
             setupEventListeners();
             updateCardBadge();
             renderMenuCards();
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
-            initStorage();
-        }
 
-        if (document.readyState === 'loading') {
-            window.addEventListener('DOMContentLoaded', initApp);
-            window.addEventListener('load', initApp);
-        } else {
-            initApp();
-        }
+            // 画面非表示・ページ離脱・再起動直前にも最新のメモリ状態を確実に保存
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden') {
+                    saveProgress();
+                }
+            });
+            window.addEventListener('pagehide', () => {
+                saveProgress();
+            });
+        };
 
         function setupEventListeners() {
             const soundBtn = document.getElementById('sound-toggle-btn');
@@ -1240,64 +1010,31 @@
                 });
             }
 
-            document.addEventListener('keydown', (e) => {
-                if (e.isComposing) return;
-
-                const cardGetModal = document.getElementById('card-get-modal');
-                if (cardGetModal && !cardGetModal.classList.contains('hidden')) {
-                    if (e.key === 'Enter') {
+            window.addEventListener('keydown', (e) => {
+                if (!document.getElementById('card-get-modal').classList.contains('hidden')) {
+                    if (e.key === 'Enter' || e.key === 'NumpadEnter' || e.key === ' ') {
                         e.preventDefault();
                         closeCardGetModal();
                     }
                     return;
                 }
-
-                const albumScreen = document.getElementById('album-screen');
-                const detailModal = document.getElementById('card-detail-modal');
-                const allClearModal = document.getElementById('all-clear-modal');
-                const gameScreen = document.getElementById('game-screen');
-
-                if (
-                    (albumScreen && !albumScreen.classList.contains('hidden')) ||
-                    (detailModal && !detailModal.classList.contains('hidden')) ||
-                    (allClearModal && !allClearModal.classList.contains('hidden')) ||
-                    !gameScreen || gameScreen.classList.contains('hidden')
-                ) {
-                    return;
-                }
+                if (document.getElementById('game-screen').classList.contains('hidden')) return;
+                if (!document.getElementById('album-screen').classList.contains('hidden')) return;
+                if (isProcessingAnswer) return;
 
                 if (e.key >= '0' && e.key <= '9') {
-                    e.preventDefault();
                     pressKey(e.key);
-                } else if (e.key === 'Backspace' || e.key === 'Delete') {
-                    e.preventDefault();
+                } else if (e.key === 'Backspace') {
                     pressKey('backspace');
-                } else if (e.key === 'Enter') {
+                } else if (e.key === 'Enter' || e.key === 'NumpadEnter') {
                     e.preventDefault();
-                    const isLastStep = (currentStepIdx === questionSteps.length - 1);
-                    if (isLastStep) {
-                        checkAnswer();
-                    } else {
+                    const nextBtn = document.getElementById('btn-next-step');
+                    const submitBtn = document.getElementById('btn-submit-answer');
+                    if (nextBtn && !nextBtn.disabled) {
                         handleNextStep();
+                    } else if (submitBtn && !submitBtn.disabled) {
+                        checkAnswer();
                     }
-                }
-            });
-
-            document.addEventListener('visibilitychange', () => {
-                if (document.visibilityState === 'hidden' && hasLocalMutation) {
-                    saveProgressToCloud();
-                }
-            });
-
-            window.addEventListener('pagehide', () => {
-                if (hasLocalMutation) {
-                    saveProgressToCloud();
-                }
-            });
-
-            window.addEventListener('beforeunload', () => {
-                if (hasLocalMutation) {
-                    saveProgressToCloud();
                 }
             });
         }
@@ -1317,7 +1054,7 @@
             let nextUncleared = clearedFlags.findIndex(flag => !flag);
             if (nextUncleared === -1) nextUncleared = TOTAL_QUESTIONS - 1;
 
-            const targetActiveIdx = (currentGlobalQIdx !== undefined && currentGlobalQIdx < TOTAL_QUESTIONS && !clearedFlags[currentGlobalQIdx])
+            const targetActiveIdx = (currentGlobalQIdx !== undefined && currentGlobalQIdx < TOTAL_QUESTIONS)
                 ? currentGlobalQIdx
                 : (nextUncleared !== -1 ? nextUncleared : 0);
 
@@ -1369,29 +1106,15 @@
             });
         }
 
-        async function startFromContinue() {
-            if (!isInitialLoadDone && storageReadyPromise) {
-                await Promise.race([
-                    storageReadyPromise,
-                    new Promise(resolve => setTimeout(resolve, 2500))
-                ]);
-            }
-            let targetIdx = currentGlobalQIdx;
-            if (typeof targetIdx !== 'number' || targetIdx < 0 || targetIdx >= TOTAL_QUESTIONS || clearedFlags[targetIdx]) {
-                let nextUncleared = clearedFlags.findIndex(flag => !flag);
-                if (nextUncleared === -1) nextUncleared = 0;
-                targetIdx = nextUncleared;
-            }
-            startFromQuestion(targetIdx);
+        function startFromContinue() {
+            let nextUncleared = clearedFlags.findIndex(flag => !flag);
+            if (nextUncleared === -1) nextUncleared = 0;
+            startFromQuestion(nextUncleared);
         }
 
         function startFromQuestion(globalIdx) {
-            userNavigatedInSession = true;
-            if (inProgressStep && inProgressStep.qIdx !== globalIdx) {
-                inProgressStep = null;
-            }
             currentGlobalQIdx = globalIdx;
-            saveProgressToCloud(currentGlobalQIdx);
+            saveProgress();
             document.getElementById('menu-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.remove('hidden');
             document.getElementById('game-screen').classList.add('flex');
@@ -1399,9 +1122,6 @@
         }
 
         function showMenu() {
-            if (hasLocalMutation) {
-                saveProgressToCloud(currentGlobalQIdx);
-            }
             document.getElementById('game-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.remove('flex');
             document.getElementById('menu-screen').classList.remove('hidden');
@@ -1570,19 +1290,6 @@
             currentStepInput = '';
             rowStates = { 1: {}, 2: {}, 3: {} };
 
-            if (
-                inProgressStep &&
-                inProgressStep.qIdx === currentGlobalQIdx &&
-                !clearedFlags[currentGlobalQIdx] &&
-                typeof inProgressStep.stepIdx === 'number' &&
-                inProgressStep.stepIdx > 0 &&
-                inProgressStep.stepIdx < questionSteps.length &&
-                inProgressStep.rowStates
-            ) {
-                currentStepIdx = inProgressStep.stepIdx;
-                rowStates = JSON.parse(JSON.stringify(inProgressStep.rowStates));
-            }
-
             renderAllAnswerRows();
         }
 
@@ -1749,12 +1456,6 @@
                 commitCurrentStepToState(step);
                 currentStepIdx++;
                 currentStepInput = '';
-                inProgressStep = {
-                    qIdx: currentGlobalQIdx,
-                    stepIdx: currentStepIdx,
-                    rowStates: JSON.parse(JSON.stringify(rowStates))
-                };
-                saveProgressToCloud(currentGlobalQIdx);
                 renderAllAnswerRows();
             } else {
                 triggerWrongFeedback();
@@ -1770,7 +1471,6 @@
                 isProcessingAnswer = true;
                 commitCurrentStepToState(step);
                 currentStepInput = '';
-                inProgressStep = null;
                 renderAllAnswerRows();
 
                 playSound('correct');
@@ -1786,15 +1486,7 @@
                     ownedCards.push(rewardCard.id);
                 }
 
-                let nextQIdxAfterClear = currentGlobalQIdx;
-                if (currentGlobalQIdx < TOTAL_QUESTIONS - 1) {
-                    nextQIdxAfterClear = currentGlobalQIdx + 1;
-                } else {
-                    const nextUncleared = clearedFlags.findIndex(flag => !flag);
-                    if (nextUncleared !== -1) nextQIdxAfterClear = nextUncleared;
-                }
-                saveProgressToCloud(nextQIdxAfterClear);
-
+                saveProgress();
                 updateCardBadge();
                 renderMenuCards();
 
@@ -1803,7 +1495,7 @@
 
                     const previewContainer = document.getElementById('get-card-preview-container');
                     if (previewContainer) {
-                        previewContainer.innerHTML = createCardHtml(rewardCard, true);
+                        previewContainer.innerHTML = createCardHtml(rewardCard, false);
                     }
                     playSound('card');
                     cardModal.classList.remove('hidden');
@@ -1822,7 +1514,6 @@
         function closeCardGetModal() {
             document.getElementById('card-get-modal').classList.add('hidden');
             isProcessingAnswer = false;
-            userNavigatedInSession = true;
 
             const allCleared = clearedFlags.every(Boolean);
             if (allCleared) {
@@ -1832,23 +1523,23 @@
 
             if (currentGlobalQIdx < TOTAL_QUESTIONS - 1) {
                 currentGlobalQIdx++;
-                saveProgressToCloud(currentGlobalQIdx);
+                saveProgress();
                 renderQuestion();
             } else {
                 let nextUncleared = clearedFlags.findIndex(flag => !flag);
                 if (nextUncleared !== -1) {
                     currentGlobalQIdx = nextUncleared;
-                    saveProgressToCloud(currentGlobalQIdx);
+                    saveProgress();
                     renderQuestion();
                 } else {
-                    saveProgressToCloud(currentGlobalQIdx);
+                    saveProgress();
                     showMenu();
                 }
             }
         }
 
         // ==========================================
-        // 天使と悪魔カード獲得・図鑑システム
+        // 生き物カード獲得・図鑑システム
         // ==========================================
         const RARITY_WEIGHT_MAP = {
             'C': 100, 'U': 70, 'R': 45, 'RR': 30, 'AR': 20,
@@ -1907,259 +1598,66 @@
             }
         }
 
-        // ==========================================
-        // レベル（Lv.1〜100）に応じた派手さ・キラキラ感・色鮮やかさ・大きさの計算
-        // ==========================================
-        function getLevelVisualConfig(card) {
-            const lv = card.level;
-            const isAngelSide = ['天使', '大天使'].includes(card.category);
-            const isFallen = card.category === '堕天使';
-
-            // 1. 大きさの増加（カードの幅・高さ、およびイラストの拡大倍率）
-            let cardSizeClass = '';
-            let illustBoxHeight = '';
-            let charScale = 1.0;
-
-            if (lv <= 20) {
-                // Lv.1〜20：コンパクトサイズ
-                cardSizeClass = 'w-44 h-72 sm:w-44 sm:h-74';
-                illustBoxHeight = 'h-24 sm:h-26';
-                charScale = 0.78 + (lv / 20) * 0.08;
-            } else if (lv <= 40) {
-                // Lv.21〜40：スタンダードサイズ
-                cardSizeClass = 'w-46 h-76 sm:w-48 sm:h-78';
-                illustBoxHeight = 'h-26 sm:h-28';
-                charScale = 0.88 + ((lv - 20) / 20) * 0.08;
-            } else if (lv <= 65) {
-                // Lv.41〜65：ビッグサイズ
-                cardSizeClass = 'w-48 h-80 sm:w-52 sm:h-82';
-                illustBoxHeight = 'h-28 sm:h-32';
-                charScale = 0.98 + ((lv - 40) / 25) * 0.10;
-            } else if (lv <= 85) {
-                // Lv.66〜85：スーパービッグサイズ
-                cardSizeClass = 'w-52 h-[21rem] sm:w-56 sm:h-[22rem]';
-                illustBoxHeight = 'h-32 sm:h-36';
-                charScale = 1.10 + ((lv - 65) / 20) * 0.10;
-            } else {
-                // Lv.86〜100：アルティメット特大サイズ
-                cardSizeClass = 'w-56 h-[22.5rem] sm:w-60 sm:h-[23.5rem]';
-                illustBoxHeight = 'h-36 sm:h-40';
-                charScale = 1.22 + ((lv - 85) / 15) * 0.12;
-            }
-
-            // 2. 色鮮やかさの増加（レベルが上がるほど高彩度・多色グラデーションに）
-            let bgTone = '';
-            let illustBg = '';
-            let borderStyle = '';
-            let lvBadgeStyle = '';
-
-            if (lv <= 20) {
-                bgTone = isAngelSide
-                    ? 'from-slate-800 via-sky-900 to-slate-900'
-                    : (isFallen ? 'from-slate-800 via-purple-900 to-slate-900' : 'from-stone-800 via-rose-950 to-stone-900');
-                illustBg = 'from-slate-100 via-white to-sky-50';
-                borderStyle = 'border-slate-400/80';
-                lvBadgeStyle = 'bg-slate-700 text-slate-100 border border-slate-400';
-            } else if (lv <= 40) {
-                bgTone = isAngelSide
-                    ? 'from-sky-800 via-cyan-800 to-indigo-900'
-                    : (isFallen ? 'from-indigo-900 via-purple-800 to-slate-900' : 'from-rose-900 via-red-800 to-stone-900');
-                illustBg = 'from-sky-100 via-amber-50 to-cyan-100';
-                borderStyle = 'border-sky-300';
-                lvBadgeStyle = 'bg-sky-500 text-slate-950 border border-white';
-            } else if (lv <= 65) {
-                bgTone = isAngelSide
-                    ? 'from-cyan-600 via-blue-700 to-amber-600'
-                    : (isFallen ? 'from-purple-700 via-fuchsia-800 to-indigo-900' : 'from-red-600 via-orange-600 to-purple-900');
-                illustBg = 'from-amber-100 via-yellow-50 to-pink-100';
-                borderStyle = 'border-amber-300';
-                lvBadgeStyle = 'bg-amber-400 text-slate-950 border border-white shadow';
-            } else if (lv <= 85) {
-                bgTone = isAngelSide
-                    ? 'from-amber-500 via-sky-500 to-emerald-600'
-                    : (isFallen ? 'from-fuchsia-600 via-purple-700 to-cyan-700' : 'from-rose-600 via-amber-500 to-purple-700');
-                illustBg = 'from-yellow-200 via-pink-100 to-cyan-200';
-                borderStyle = 'border-yellow-200 gold-glow';
-                lvBadgeStyle = 'bg-gradient-to-r from-amber-300 to-yellow-200 text-slate-950 border-2 border-white shadow-md';
-            } else {
-                // Lv.86〜100：極彩色プリズム＆レインボーカラー
-                bgTone = isAngelSide
-                    ? 'from-yellow-400 via-pink-500 to-cyan-500'
-                    : (isFallen ? 'from-purple-600 via-rose-500 to-amber-400' : 'from-red-600 via-amber-400 to-fuchsia-600');
-                illustBg = 'from-amber-200 via-rose-100 to-sky-200';
-                borderStyle = 'border-yellow-100 animate-rainbow-glow';
-                lvBadgeStyle = 'bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 text-slate-950 border-2 border-white shadow-lg animate-pulse';
-            }
-
-            // 3. キラキラ感の増加（箔押し・後光・星屑の数）
-            let foilClass = '';
-            let starCount = 0;
-            let hasSunburst = false;
-            let hasMagicCircle = false;
-
-            if (lv <= 19) {
-                foilClass = '';
-                starCount = 0;
-            } else if (lv <= 39) {
-                foilClass = 'card-shimmer-soft';
-                starCount = 2;
-            } else if (lv <= 59) {
-                foilClass = 'card-foil';
-                starCount = 4;
-                hasSunburst = true;
-            } else if (lv <= 79) {
-                foilClass = 'card-foil super-glow';
-                starCount = 7;
-                hasSunburst = true;
-                hasMagicCircle = true;
-            } else {
-                foilClass = 'card-foil-ultra';
-                starCount = 12;
-                hasSunburst = true;
-                hasMagicCircle = true;
-            }
-
-            return {
-                cardSizeClass,
-                illustBoxHeight,
-                charScale: charScale.toFixed(2),
-                bgTone,
-                illustBg,
-                borderStyle,
-                lvBadgeStyle,
-                foilClass,
-                starCount,
-                hasSunburst,
-                hasMagicCircle
-            };
-        }
-
-        // キラキラ星屑と後光オーラのオーバーレイHTML生成
-        function buildSparkleOverlayHtml(vis, lv) {
-            const starPositions = [
-                { top: '8%', left: '10%', delay: '0s', size: 'text-xs' },
-                { top: '12%', left: '84%', delay: '0.4s', size: 'text-sm' },
-                { top: '76%', left: '12%', delay: '0.8s', size: 'text-sm' },
-                { top: '72%', left: '82%', delay: '0.2s', size: 'text-xs' },
-                { top: '25%', left: '22%', delay: '0.6s', size: 'text-base' },
-                { top: '30%', left: '75%', delay: '1.0s', size: 'text-base' },
-                { top: '55%', left: '8%', delay: '0.3s', size: 'text-sm' },
-                { top: '50%', left: '88%', delay: '0.9s', size: 'text-sm' },
-                { top: '14%', left: '48%', delay: '0.5s', size: 'text-base' },
-                { top: '82%', left: '50%', delay: '1.1s', size: 'text-base' },
-                { top: '38%', left: '14%', delay: '0.7s', size: 'text-lg' },
-                { top: '42%', left: '80%', delay: '1.3s', size: 'text-lg' }
-            ];
-
-            let html = '';
-
-            // 放射状サンバースト後光（Lv.40以上）
-            if (vis.hasSunburst) {
-                const rayColor = lv >= 85 ? 'rgba(255, 215, 0, 0.45)' : 'rgba(255, 230, 120, 0.32)';
-                html += `
-                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-80">
-                        <svg class="w-44 h-44 animate-spin-slow" viewBox="0 0 100 100">
-                            <g fill="${rayColor}">
-                                <polygon points="50,50 45,0 55,0"/>
-                                <polygon points="50,50 95,20 100,30"/>
-                                <polygon points="50,50 100,70 95,80"/>
-                                <polygon points="50,50 55,100 45,100"/>
-                                <polygon points="50,50 5,80 0,70"/>
-                                <polygon points="50,50 0,30 5,20"/>
-                            </g>
-                        </svg>
-                    </div>
-                `;
-            }
-
-            // 回転魔法陣リング（Lv.60以上）
-            if (vis.hasMagicCircle) {
-                const ringStroke = lv >= 85 ? '#f43f5e' : '#f59e0b';
-                html += `
-                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-55">
-                        <svg class="w-36 h-36 animate-spin-slow" style="animation-direction: reverse;" viewBox="0 0 100 100" fill="none" stroke="${ringStroke}" stroke-width="1.5">
-                            <circle cx="50" cy="50" r="42" stroke-dasharray="4 3"/>
-                            <circle cx="50" cy="50" r="34"/>
-                            <polygon points="50,10 85,70 15,70"/>
-                            <polygon points="50,90 85,30 15,30"/>
-                        </svg>
-                    </div>
-                `;
-            }
-
-            // キラキラ星屑
-            const activeStars = starPositions.slice(0, vis.starCount);
-            activeStars.forEach((st, idx) => {
-                const symbol = idx % 2 === 0 ? '✦' : '✨';
-                const color = lv >= 80 ? 'text-yellow-400 drop-shadow-[0_0_4px_rgba(255,255,255,1)]' : 'text-amber-400';
-                html += `<span class="absolute pointer-events-none twinkle-star ${st.size} ${color} font-black select-none" style="top:${st.top}; left:${st.left}; animation-delay:${st.delay};">${symbol}</span>`;
-            });
-
-            return html;
-        }
-
-        // 天使と悪魔カードHTML生成（性格・好きな食べ物・レベル別派手さ対応）
+        // 生き物カードHTML生成（HPや技は外し、イラスト・生息地・特徴を掲載）
         function createCardHtml(card, isModal = false) {
-            const vis = getLevelVisualConfig(card);
+            const scaleClass = isModal ? 'w-60 h-[23rem] sm:w-64 sm:h-[26rem]' : 'w-48 h-76 sm:h-80';
             const rarityBadgeMap = {
                 'C': '● C', 'U': '◆ U', 'R': '★ R', 'RR': '★★ RR',
                 'AR': '🎨 AR', 'SR': '輝 SR', 'SAR': '✨ SAR', 'UR': '🏆 UR', 'MUR': '👑 MUR'
             };
             const rarityBadge = rarityBadgeMap[card.rarity] || card.rarity;
 
-            // モーダル拡大時はさらに大きく迫力表示
-            const containerSize = isModal
-                ? (card.level >= 80 ? 'w-72 h-[29.5rem] sm:w-80 sm:h-[31rem]' : (card.level >= 45 ? 'w-68 h-[27.5rem] sm:w-72 sm:h-[29rem]' : 'w-64 h-[26rem] sm:w-68 sm:h-[27.5rem]'))
-                : `${vis.cardSizeClass} max-w-full`;
+            const isFoilRarity = ['AR', 'SR', 'SAR', 'UR', 'MUR'].includes(card.rarity);
+            let extraEffectClass = isFoilRarity ? 'card-foil' : '';
+            let borderStyle = 'border-amber-500/80';
 
-            const illustAreaHeight = isModal
-                ? (card.level >= 80 ? 'h-44 sm:h-48' : 'h-38 sm:h-42')
-                : vis.illustBoxHeight;
+            if (card.rarity === 'MUR') {
+                extraEffectClass = 'card-foil animate-rainbow-glow';
+                borderStyle = 'border-yellow-200';
+            } else if (card.rarity === 'UR') {
+                extraEffectClass = 'card-foil';
+                borderStyle = 'border-yellow-400 gold-glow';
+            } else if (card.rarity === 'SAR' || card.rarity === 'SR') {
+                extraEffectClass = 'card-foil';
+                borderStyle = 'border-pink-300 super-glow';
+            }
 
             const nameClass = isModal
-                ? 'text-sm sm:text-base tracking-wide text-amber-100 drop-shadow-md leading-tight font-black break-words'
-                : 'text-xs sm:text-sm tracking-wide leading-tight drop-shadow-md text-amber-100 font-black break-words';
+                ? 'text-xs sm:text-sm tracking-wide text-amber-200 drop-shadow-md leading-tight font-black truncate max-w-[145px]'
+                : 'text-xs sm:text-sm tracking-wide truncate max-w-[115px] drop-shadow-md text-amber-200 font-black';
 
-            const illustrationSvg = getAngelDevilSvgIllustration(card, vis.charScale, isModal);
-            const sparkleOverlay = buildSparkleOverlayHtml(vis, card.level);
+            const illustrationHtml = card.emoji
+                ? `<span class="${isModal ? 'text-7xl sm:text-8xl' : 'text-6xl'} drop-shadow-md select-none transform transition-transform">${card.emoji}</span>`
+                : getCreatureSvgIllustration(card, isModal);
 
-            const textSizeClass = isModal
-                ? 'text-[11px] sm:text-xs leading-snug'
-                : 'text-[10px] leading-tight';
+            const featureTextClass = isModal
+                ? 'text-[11px] sm:text-xs leading-relaxed text-slate-100 font-medium text-left'
+                : 'text-[10px] leading-snug text-slate-100 font-medium text-left line-clamp-3';
 
             return `
-                <div class="relative ${containerSize} rounded-2xl p-2.5 bg-gradient-to-b ${vis.bgTone} border-4 ${vis.borderStyle} shadow-2xl flex flex-col justify-between ${vis.foilClass} text-white overflow-hidden select-none transition-all duration-300">
-                    <!-- ヘッダー：キャラクター名＆レベル＆種族 -->
-                    <div class="flex flex-col z-10 font-black border-b border-white/25 pb-1 gap-0.5 shrink-0">
-                        <div class="flex justify-between items-center gap-1">
-                            <span class="text-[10px] px-1.5 py-0.5 rounded-md font-black shrink-0 ${vis.lvBadgeStyle}">Lv.${card.level}</span>
-                            <span class="text-[10px] px-1.5 py-0.5 rounded-full ${card.typeBg} font-extrabold shadow-sm shrink-0">${card.category}</span>
-                        </div>
-                        <div class="${nameClass} text-left" title="${card.name}">${card.name}</div>
+                <div class="relative ${scaleClass} rounded-2xl p-2.5 bg-gradient-to-b ${card.bgTone} border-4 ${borderStyle} shadow-2xl flex flex-col justify-between ${extraEffectClass} text-white overflow-hidden select-none">
+                    <!-- ヘッダー：生き物の名前＆カテゴリー -->
+                    <div class="flex justify-between items-center z-10 font-black border-b border-white/20 pb-1 gap-1">
+                        <span class="${nameClass}" title="${card.name}">${card.name}</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded-full ${card.typeBg} font-extrabold shadow-sm shrink-0">${card.category}</span>
                     </div>
 
-                    <!-- イラストエリア（レベルが上がるほど大きく・色鮮やかに・キラキラに！） -->
-                    <div class="my-1.5 ${illustAreaHeight} rounded-xl bg-gradient-to-b ${vis.illustBg} border-2 border-white/60 flex items-center justify-center relative overflow-hidden shadow-inner shrink-0">
-                        ${sparkleOverlay}
-                        <div class="relative z-10 flex items-center justify-center w-full h-full transition-transform duration-300" style="transform: scale(${vis.charScale});">
-                            ${illustrationSvg}
-                        </div>
+                    <!-- イラストエリア（明るい図鑑背景で黒線や色彩がくっきり映える） -->
+                    <div class="my-1.5 ${isModal ? 'h-36 sm:h-40' : 'h-28'} rounded-xl bg-gradient-to-b from-amber-50 via-white to-sky-100 border-2 border-white/40 flex items-center justify-center relative overflow-hidden shadow-inner shrink-0">
+                        ${illustrationHtml}
                     </div>
 
-                    <!-- 性格＆好きな食べ物プロフィールエリア -->
-                    <div class="flex-1 bg-stone-950/85 rounded-xl p-1.5 sm:p-2 border border-white/20 z-10 flex flex-col justify-center space-y-1 overflow-hidden">
-                        <div class="${textSizeClass} text-left">
-                            <span class="font-black text-pink-300">💖 せいかく：</span>
-                            <span class="text-slate-100 font-medium ${isModal ? '' : 'line-clamp-2'}">${card.personality}</span>
+                    <!-- 生息地＆特徴エリア -->
+                    <div class="flex-1 bg-stone-950/85 rounded-xl p-1.5 border border-white/15 z-10 flex flex-col justify-start space-y-1 overflow-hidden">
+                        <div class="flex items-center gap-1 text-[10px] font-extrabold text-amber-300 border-b border-white/10 pb-0.5 truncate">
+                            <span class="shrink-0">📍</span>
+                            <span class="truncate" title="${card.habitat}">${card.habitat}</span>
                         </div>
-                        <div class="${textSizeClass} text-left border-t border-white/10 pt-1">
-                            <span class="font-black text-amber-300">🍽️ すきなたべもの：</span>
-                            <span class="text-yellow-100 font-bold ${isModal ? '' : 'line-clamp-1'}">${card.favoriteFood}</span>
-                        </div>
+                        <p class="${featureTextClass}">${card.feature}</p>
                     </div>
 
                     <!-- フッター：レア度＆図鑑No. -->
-                    <div class="flex justify-between items-center z-10 text-[10px] text-amber-200 pt-1 font-extrabold shrink-0">
+                    <div class="flex justify-between items-center z-10 text-[10px] text-amber-200/90 pt-1 font-bold shrink-0">
                         <span>${rarityBadge}</span>
                         <span class="tracking-widest text-amber-300">No.${card.no}</span>
                     </div>
@@ -2168,323 +1666,264 @@
         }
 
         // ==========================================
-        // アップロードされた6枚のイラストをベースにした100種類SVG生成システム
+        // 生き物SVGイラスト作画（添付5種の忠実再現 ＋ 絵文字なし種の作画）
         // ==========================================
-        function getPaletteForCard(card) {
-            const num = parseInt(card.no, 10);
-            const lv = card.level;
+        function getCreatureSvgIllustration(card, isModal = false) {
+            const sizeClass = isModal ? 'w-32 h-32 sm:w-36 sm:h-36' : 'w-24 h-24 sm:w-28 sm:h-28';
+            const key = card.svgKey;
 
-            // 6枚の忠実再現カード用の専用カラーパレット
-            if (card.variant === 'exact1') {
-                return { body: '#ef4444', sub: '#fca5a5', wing: '#7f1d1d', horn: '#fef08a', eye: '#fef08a', aura: '#f97316', accent: '#facc15' };
-            }
-            if (card.variant === 'exact2') {
-                return { body: '#fef3c7', sub: '#38bdf8', wing: '#7dd3fc', horn: '#fde047', eye: '#0284c7', aura: '#bae6fd', accent: '#f472b6' };
-            }
-            if (card.variant === 'exact3') {
-                return { body: '#e0f2fe', sub: '#fbbf24', wing: '#60a5fa', horn: '#fde047', eye: '#2563eb', aura: '#f97316', accent: '#38bdf8' };
-            }
-            if (card.variant === 'exact4') {
-                return { body: '#a855f7', sub: '#f472b6', wing: '#581c87', horn: '#facc15', eye: '#fde047', aura: '#ec4899', accent: '#38bdf8' };
-            }
-            if (card.variant === 'exact5') {
-                return { body: '#bae6fd', sub: '#ffffff', wing: '#38bdf8', horn: '#fde047', eye: '#0369a1', aura: '#fef08a', accent: '#fb7185' };
-            }
-            if (card.variant === 'exact6') {
-                return { body: '#f43f5e', sub: '#fda4af', wing: '#9f1239', horn: '#fde047', eye: '#fef08a', aura: '#fbbf24', accent: '#38bdf8' };
-            }
+            // ---------------------------------------------------------
+            // ★ 添付イラスト忠実再現 5種（絶滅動物）★
+            // ---------------------------------------------------------
 
-            // カテゴリー＆番号＆レベルに応じた色鮮やかなパレット生成
-            const angelPalettes = [
-                { body: '#e0f2fe', sub: '#ffffff', wing: '#7dd3fc', horn: '#fde047', eye: '#0284c7', aura: '#bae6fd', accent: '#f472b6' },
-                { body: '#fef9c3', sub: '#ffffff', wing: '#fde047', horn: '#f59e0b', eye: '#b45309', aura: '#fef08a', accent: '#38bdf8' },
-                { body: '#fce7f3', sub: '#ffffff', wing: '#f9a8d4', horn: '#fde047', eye: '#be185d', aura: '#fbcfe8', accent: '#34d399' },
-                { body: '#d1fae5', sub: '#ffffff', wing: '#6ee7b7', horn: '#fde047', eye: '#047857', aura: '#a7f3d0', accent: '#fbbf24' },
-                { body: '#ede9fe', sub: '#ffffff', wing: '#c4b5fd', horn: '#fde047', eye: '#6d28d9', aura: '#ddd6fe', accent: '#f43f5e' }
-            ];
-
-            const fallenPalettes = [
-                { body: '#6366f1', sub: '#c7d2fe', wing: '#312e81', horn: '#facc15', eye: '#f472b6', aura: '#818cf8', accent: '#38bdf8' },
-                { body: '#9333ea', sub: '#e9d5ff', wing: '#4c1d95', horn: '#fde047', eye: '#22d3ee', aura: '#c084fc', accent: '#fb7185' },
-                { body: '#475569', sub: '#cbd5e1', wing: '#1e293b', horn: '#f59e0b', eye: '#ef4444', aura: '#94a3b8', accent: '#a855f7' },
-                { body: '#be185d', sub: '#fbcfe8', wing: '#500724', horn: '#fde047', eye: '#38bdf8', aura: '#f43f5e', accent: '#facc15' }
-            ];
-
-            const demonPalettes = [
-                { body: '#ef4444', sub: '#fecaca', wing: '#7f1d1d', horn: '#fde047', eye: '#fef08a', aura: '#f97316', accent: '#facc15' },
-                { body: '#f97316', sub: '#fed7aa', wing: '#7c2d12', horn: '#fef08a', eye: '#fef08a', aura: '#ef4444', accent: '#22d3ee' },
-                { body: '#db2777', sub: '#fbcfe8', wing: '#831843', horn: '#fde047', eye: '#fef08a', aura: '#a855f7', accent: '#38bdf8' },
-                { body: '#7c3aed', sub: '#ddd6fe', wing: '#2e1065', horn: '#facc15', eye: '#4ade80', aura: '#ec4899', accent: '#f59e0b' },
-                { body: '#059669', sub: '#a7f3d0', wing: '#064e3b', horn: '#fde047', eye: '#facc15', aura: '#10b981', accent: '#f43f5e' }
-            ];
-
-            let list = demonPalettes;
-            if (card.category === '天使' || card.category === '大天使') list = angelPalettes;
-            else if (card.category === '堕天使') list = fallenPalettes;
-
-            const basePal = { ...list[num % list.length] };
-
-            // レベル80以上は黄金・極彩色にブースト！
-            if (lv >= 90) {
-                basePal.horn = '#fef08a';
-                basePal.accent = '#f43f5e';
-                basePal.aura = '#fde047';
-            }
-            return basePal;
-        }
-
-        function getAngelDevilSvgIllustration(card, charScale, isModal) {
-            const pal = getPaletteForCard(card);
-            const num = parseInt(card.no, 10);
-            const lv = card.level;
-            const sizeClass = isModal ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-26 h-26 sm:w-28 sm:h-28';
-            const glowFilter = lv >= 75 ? 'filter: drop-shadow(0 0 6px rgba(255, 200, 0, 0.85));' : '';
-
-            // 堕天使・高レベル用の追加オプション（天使の輪や王冠）
-            const isAngel = ['天使', '大天使'].includes(card.category);
-            const isFallen = card.category === '堕天使';
-            const isBoss = ['大天使', '魔王'].includes(card.category) || lv >= 75;
-
-            const extraHalo = (isAngel || isFallen) ? `
-                <ellipse cx="110" cy="14" rx="22" ry="6" fill="none" stroke="${isFallen ? '#c084fc' : '#facc15'}" stroke-width="3"/>
-                ${lv >= 60 ? `<ellipse cx="110" cy="8" rx="14" ry="4" fill="none" stroke="#fef08a" stroke-width="2"/>` : ''}
-            ` : '';
-
-            const extraCrown = (lv >= 85) ? `
-                <polygon points="94,24 98,10 105,19 110,7 115,19 122,10 126,24" fill="#facc15" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
-            ` : '';
-
-            // =========================================================================
-            // ベース1：アップロード画像1枚目（角・ギザ翼・シックスパック腹筋・矢印しっぽ悪魔）
-            // =========================================================================
-            if (card.baseImg === 1) {
-                const packCount = (card.name.includes('エイト')) ? 8 : 6;
-                const hornScale = isBoss ? 1.15 : 0.95;
+            // 1. オオツノジカ（添付画像「オオツノジカ.jpg」を元に作画）
+            // 正面を向いた丸い顔、大きな縁取りの目、ペロッと出た舌、左右に大きく広がる手のひら状の角（先端にトゲ）、4本の足
+            if (key === 'custom_megaloceros') {
                 return `
-                    <svg class="${sizeClass}" style="${glowFilter}" viewBox="0 0 220 190">
-                        <!-- 矢印の悪魔しっぽ -->
-                        <path d="M 92 152 C 68 164, 46 152, 28 162 L 22 156 L 14 168 L 28 172 L 26 166 C 48 158, 70 170, 94 158 Z" fill="${pal.body}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                        <!-- 左のギザギザ悪魔翼 -->
-                        <path d="M 86 76 C 60 54, 28 42, 8 48 C 22 60, 34 72, 46 84 C 36 86, 36 96, 48 100 C 42 106, 46 116, 58 116 C 58 124, 68 128, 76 118 L 88 94 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                        <path d="M 28 48 L 36 66 M 48 54 L 54 74 M 66 64 L 70 82" stroke="#111" stroke-width="2"/>
-                        <!-- 右のギザギザ悪魔翼 -->
-                        <path d="M 134 76 C 160 54, 192 42, 212 48 C 198 60, 186 72, 174 84 C 184 86, 184 96, 172 100 C 178 106, 174 116, 162 116 C 162 124, 152 128, 144 118 L 132 94 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                        <path d="M 192 48 L 184 66 M 172 54 L 166 74 M 154 64 L 150 82" stroke="#111" stroke-width="2"/>
-                        <!-- 胴体と両腕・両足 -->
-                        <path d="M 86 74 L 62 112 L 54 136 L 70 140 L 82 114 L 92 98 L 92 154 L 82 178 L 96 180 L 108 162 L 120 180 L 134 178 L 126 154 L 128 98 L 138 116 L 150 156 L 168 152 L 156 112 L 134 74 Z" fill="${pal.body}" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
-                        <!-- 腕の筋肉線 -->
-                        <path d="M 74 96 Q 78 104 72 110 M 144 96 Q 140 104 146 110" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
-                        <!-- 胸の丸いコアと紐ライン -->
-                        <circle cx="110" cy="92" r="8" fill="${pal.accent}" stroke="#111" stroke-width="2.2"/>
-                        <path d="M 102 80 L 106 86 M 118 80 L 114 86 M 106 100 L 102 114 M 114 100 L 118 114" stroke="#111" stroke-width="2"/>
-                        <!-- シックスパック（またはエイトパック）腹筋！ -->
-                        <g fill="${pal.sub}" stroke="#111" stroke-width="2">
-                            <rect x="100" y="116" width="8" height="7" rx="1.5"/>
-                            <rect x="111" y="116" width="8" height="7" rx="1.5"/>
-                            <rect x="100" y="125" width="8" height="7" rx="1.5"/>
-                            <rect x="111" y="125" width="8" height="7" rx="1.5"/>
-                            <rect x="100" y="134" width="8" height="7" rx="1.5"/>
-                            <rect x="111" y="134" width="8" height="7" rx="1.5"/>
-                            ${packCount === 8 ? '<rect x="100" y="143" width="8" height="6" rx="1.5"/><rect x="111" y="143" width="8" height="6" rx="1.5"/>' : ''}
-                        </g>
-                        <!-- 大きな2本の角 -->
-                        <g transform="translate(110,42) scale(${hornScale}) translate(-110,-42)">
-                            <path d="M 90 42 C 72 38, 62 22, 68 8 C 72 18, 80 28, 94 34 Z" fill="${pal.horn}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                            <path d="M 130 42 C 148 38, 158 22, 152 8 C 148 18, 140 28, 126 34 Z" fill="${pal.horn}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                        </g>
-                        <!-- モヒカン風の逆立ち髪 -->
-                        <path d="M 94 38 L 98 14 L 106 24 L 112 10 L 118 24 L 126 16 L 128 38 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.3" stroke-linejoin="round"/>
+                    <svg class="${sizeClass}" viewBox="0 0 220 180">
+                        <!-- 左の巨大な手のひら状の角 -->
+                        <path d="M 82 65 C 55 62, 32 52, 32 36 C 32 27, 22 25, 22 14 C 22 9, 25 6, 30 12 C 33 8, 37 2, 41 11 C 46 6, 51 2, 54 11 C 61 7, 68 3, 73 10 C 66 16, 61 23, 57 32 C 53 41, 63 50, 86 54 Z" fill="#e7d3b5" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 右の巨大な手のひら状の角 -->
+                        <path d="M 134 55 C 148 52, 144 38, 148 26 C 151 17, 155 12, 161 12 C 163 6, 167 4, 169 12 C 175 11, 180 5, 184 12 C 189 9, 193 4, 196 12 C 201 11, 204 6, 206 13 C 211 11, 214 7, 216 14 C 216 24, 206 38, 194 46 C 184 52, 174 37, 161 38 C 152 39, 153 58, 134 61 Z" fill="#e7d3b5" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 胴体（洋ナシ型） -->
+                        <path d="M 94 94 C 76 105, 70 128, 78 144 C 84 152, 132 152, 138 144 C 146 128, 140 105, 122 94 Z" fill="#f5ebe0" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 後ろ足（左右2本） -->
+                        <path d="M 81 142 C 72 148, 70 172, 78 175 C 85 177, 87 154, 86 144" fill="#e6ccb2" stroke="#111" stroke-width="2.6" stroke-linecap="round"/>
+                        <path d="M 134 142 C 142 148, 143 170, 136 173 C 129 175, 128 154, 129 144" fill="#e6ccb2" stroke="#111" stroke-width="2.6" stroke-linecap="round"/>
+                        <!-- お腹のラインと前足（2本） -->
+                        <path d="M 103 102 L 103 134 L 116 134" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M 94 103 C 88 110, 88 128, 95 130 C 101 131, 105 118, 105 106" fill="#eddcd2" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
+                        <path d="M 124 103 C 130 110, 130 128, 123 130 C 117 131, 113 118, 113 106" fill="#eddcd2" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
+                        <!-- 左右の耳 -->
+                        <ellipse cx="84" cy="61" rx="13" ry="7" transform="rotate(-12 84 61)" fill="#e6ccb2" stroke="#111" stroke-width="2.5"/>
+                        <ellipse cx="134" cy="59" rx="13" ry="7" transform="rotate(-14 134 59)" fill="#e6ccb2" stroke="#111" stroke-width="2.5"/>
                         <!-- 頭部 -->
-                        <rect x="88" y="34" width="44" height="42" rx="14" fill="${pal.body}" stroke="#111" stroke-width="2.6"/>
-                        <!-- 鋭い目とギザ歯のニヤリ口 -->
-                        <polygon points="93,48 106,52 95,55" fill="${pal.eye}" stroke="#111" stroke-width="1.8"/>
-                        <polygon points="127,48 114,52 125,55" fill="${pal.eye}" stroke="#111" stroke-width="1.8"/>
-                        <circle cx="99" cy="51" r="2" fill="#111"/>
-                        <circle cx="121" cy="51" r="2" fill="#111"/>
-                        <path d="M 94 62 Q 110 64 126 60 Q 120 72 104 72 Q 94 70 94 62 Z" fill="#fff" stroke="#111" stroke-width="2"/>
-                        <path d="M 100 62 L 100 71 M 106 63 L 106 72 M 112 63 L 112 71 M 118 62 L 118 69 M 95 66 L 124 65" stroke="#111" stroke-width="1.6"/>
-                        ${extraHalo}
-                        ${extraCrown}
+                        <path d="M 92 55 C 102 52, 116 52, 126 57 C 135 66, 134 86, 121 94 C 112 98, 102 98, 94 94 C 82 86, 82 66, 92 55 Z" fill="#f5ebe0" stroke="#111" stroke-width="2.6"/>
+                        <!-- 目の周りの大きな輪郭 -->
+                        <path d="M 86 73 C 86 61, 105 61, 105 71 C 105 78, 92 78, 86 75" fill="#fff" stroke="#111" stroke-width="2.2"/>
+                        <path d="M 111 71 C 111 61, 131 61, 131 73 C 125 77, 111 77, 111 71" fill="#fff" stroke="#111" stroke-width="2.2"/>
+                        <!-- 黒目と右眉の太線 -->
+                        <ellipse cx="96" cy="69" rx="4.5" ry="3.2" fill="#111"/>
+                        <ellipse cx="120" cy="69" rx="5" ry="3.5" fill="#111"/>
+                        <path d="M 113 63 Q 121 60 128 64" fill="none" stroke="#111" stroke-width="3.2" stroke-linecap="round"/>
+                        <!-- 口とペロッと出た舌 -->
+                        <path d="M 98 87 Q 107 85 115 88" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
+                        <path d="M 102 87 L 102 96 C 102 102, 112 102, 112 96 L 112 88 Z" fill="#f48fb1" stroke="#111" stroke-width="2.3"/>
                     </svg>
                 `;
             }
 
-            // =========================================================================
-            // ベース2：アップロード画像2枚目（二重天使の輪・笑顔・うねる3本の光のリボン翼）
-            // =========================================================================
-            if (card.baseImg === 2) {
+            // 2. ドードー（添付画像「ドードー.jpg」を元に作画）
+            // 左向き、太く長く下にカーブして先端に渦巻きのあるくちばし、頭の飾り羽、波線の胴体、モコモコ尾羽、2本の長い足
+            if (key === 'custom_dodo') {
                 return `
-                    <svg class="${sizeClass}" style="${glowFilter}" viewBox="0 0 220 190">
-                        <!-- 背景の光オーラ -->
-                        ${lv >= 50 ? `<circle cx="130" cy="95" r="68" fill="${pal.aura}" opacity="0.35"/>` : ''}
-                        <!-- 左下へ大きく優雅にうねる3本の光のリボン翼と体 -->
-                        <path d="M 126 62 C 118 48, 102 48, 100 66 C 98 84, 72 96, 16 128 C 8 134, 12 146, 24 140 C 64 118, 96 98, 114 96 C 102 114, 74 128, 72 146 C 72 158, 88 156, 104 138 C 120 120, 134 102, 152 98 C 138 124, 96 158, 34 166 C 58 178, 118 168, 152 128 C 166 112, 174 106, 166 122 C 156 138, 164 152, 180 144 C 202 132, 208 82, 198 42 C 192 68, 188 98, 182 110 C 178 90, 184 56, 188 34 C 178 52, 172 78, 168 94 L 154 74 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                        <!-- リボン内部のハイライト線 -->
-                        <path d="M 28 134 Q 78 106 112 88 M 54 164 Q 112 156 146 118" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-                        <!-- 頭部 -->
-                        <ellipse cx="156" cy="54" rx="20" ry="24" fill="${pal.body}" stroke="#111" stroke-width="2.5"/>
-                        <!-- 前髪 -->
-                        <path d="M 136 46 Q 144 38 152 44 Q 160 36 168 44 Q 174 40 176 46 Q 174 30 156 30 Q 138 30 136 46 Z" fill="${pal.horn}" stroke="#111" stroke-width="2.2"/>
-                        <!-- パッチリ目とウインク目、ニカッと歯を見せる笑顔 -->
-                        <ellipse cx="147" cy="50" rx="5.5" ry="4" fill="#fff" stroke="#111" stroke-width="1.8"/>
-                        <circle cx="147" cy="50" r="2.5" fill="${pal.eye}"/>
-                        <path d="M 159 50 Q 165 46 170 50 Q 165 55 159 50 Z" fill="${pal.accent}" stroke="#111" stroke-width="1.8"/>
-                        <path d="M 145 61 Q 157 63 169 59 Q 165 71 155 71 Q 146 70 145 61 Z" fill="#fff" stroke="#111" stroke-width="2"/>
-                        <path d="M 151 61 L 151 70 M 157 62 L 157 71 M 163 61 L 163 69 M 146 65 L 168 64" stroke="#111" stroke-width="1.5"/>
-                        <!-- 頭上の二重の天使の輪（ヘイロー） -->
-                        <ellipse cx="156" cy="20" rx="19" ry="7" fill="none" stroke="${pal.horn}" stroke-width="3.2"/>
-                        <ellipse cx="156" cy="18" rx="9" ry="3.5" fill="none" stroke="#111" stroke-width="2"/>
-                        ${isFallen ? `<path d="M 140 34 L 132 20 L 145 30 M 172 34 L 180 20 L 167 30" fill="#7e22ce" stroke="#111" stroke-width="2"/>` : ''}
-                        ${extraCrown}
+                    <svg class="${sizeClass}" viewBox="0 0 210 190">
+                        <!-- 奥の足 -->
+                        <path d="M 112 128 L 96 158 L 80 172 M 96 158 L 95 176 M 96 158 L 108 174" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- 手前の足 -->
+                        <path d="M 134 128 L 128 160 L 114 176 M 128 160 L 128 179 M 128 160 L 143 175" fill="none" stroke="#111" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- モコモコの丸い尾羽 -->
+                        <path d="M 152 84 C 156 70, 168 68, 174 76 C 184 72, 194 82, 188 92 C 196 100, 190 114, 178 114 C 174 122, 160 120, 154 110 Z" fill="#e2e8f0" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
+                        <path d="M 160 85 Q 170 92 164 104 Q 176 102 180 90" fill="none" stroke="#111" stroke-width="1.8"/>
+                        <!-- 胴体と首・頭の飾り羽 -->
+                        <path d="M 55 34 C 55 18, 92 16, 104 34 C 114 48, 108 66, 94 74 C 98 84, 134 80, 154 88 C 164 98, 162 122, 146 128 C 122 134, 72 134, 56 120 C 44 108, 52 94, 66 88 C 66 72, 56 54, 55 34 Z" fill="#cbd5e1" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 頭・首の装飾ライン -->
+                        <path d="M 78 24 Q 88 34 84 46 Q 96 52 90 66 Q 82 76 92 84" fill="none" stroke="#111" stroke-width="2"/>
+                        <!-- 胴体の波打つ羽模様 -->
+                        <path d="M 66 102 Q 82 94 96 102 T 126 102 T 152 100" fill="none" stroke="#111" stroke-width="2.1"/>
+                        <path d="M 60 114 Q 80 106 98 114 T 134 114 T 154 112" fill="none" stroke="#111" stroke-width="2.1"/>
+                        <!-- 顔と目 -->
+                        <path d="M 56 34 C 70 30, 82 42, 76 58 C 72 66, 62 66, 56 60" fill="#f8fafc" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="65" cy="43" r="4.5" fill="#fff" stroke="#111" stroke-width="2"/>
+                        <circle cx="64" cy="42" r="2.2" fill="#111"/>
+                        <!-- 太く長く下にカーブしたくちばし -->
+                        <path d="M 57 52 C 48 64, 44 82, 32 90 C 24 94, 24 104, 34 106 C 48 108, 62 90, 68 68 C 70 60, 64 52, 57 52 Z" fill="#fbbf24" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <path d="M 59 58 C 52 72, 46 86, 36 94" fill="none" stroke="#111" stroke-width="2"/>
+                        <!-- くちばし先端の渦巻き・丸み -->
+                        <circle cx="31" cy="96" r="8" fill="#f59e0b" stroke="#111" stroke-width="2.4"/>
+                        <path d="M 27 94 Q 32 90 35 96 Q 31 101 27 97" fill="none" stroke="#111" stroke-width="1.8"/>
                     </svg>
                 `;
             }
 
-            // =========================================================================
-            // ベース3：アップロード画像3枚目（大きな光輪＋小角・竜翼・炎の右腕・聖剣の左手）
-            // =========================================================================
-            if (card.baseImg === 3) {
+            // 3. サーベルタイガー（添付画像「サーベルタイガー.jpg」を元に作画）
+            // 左向きで大きく口を開け、2本の長い牙、ギザギザの縞模様の胴体、4本の足に鋭い爪、ピンと伸びたしっぽ
+            if (key === 'custom_sabertooth') {
                 return `
-                    <svg class="${sizeClass}" style="${glowFilter}" viewBox="0 0 220 190">
-                        <!-- 頭上の大きな光輪オーラ -->
-                        <ellipse cx="108" cy="36" rx="34" ry="22" fill="${pal.aura}" fill-opacity="0.35" stroke="${pal.horn}" stroke-width="3.5"/>
-                        <!-- 左右の竜翼のような波打つ翼 -->
-                        <path d="M 88 74 C 62 66, 46 42, 14 44 C 24 56, 42 74, 84 88 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
-                        <polygon points="56,56 64,46 66,60" fill="${pal.accent}" stroke="#111" stroke-width="1.8"/>
-                        <path d="M 128 74 C 154 66, 174 46, 206 52 C 194 66, 172 80, 132 88 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
-                        <polygon points="164,58 158,46 154,62" fill="${pal.accent}" stroke="#111" stroke-width="1.8"/>
-                        <!-- 胴体とマント・両足 -->
-                        <path d="M 88 72 L 76 138 L 96 138 L 108 156 L 120 138 L 146 168 L 148 112 L 128 72 Z" fill="${pal.body}" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
-                        <path d="M 84 138 L 76 178 M 104 152 L 98 178 M 114 152 L 120 178 M 136 154 L 144 178" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
-                        <!-- 胸当て＆ブロック腹筋アーマー -->
-                        <g fill="${pal.sub}" stroke="#111" stroke-width="2">
-                            <rect x="93" y="84" width="13" height="10" rx="2"/>
-                            <rect x="109" y="84" width="13" height="10" rx="2"/>
-                            <rect x="98" y="98" width="9" height="8" rx="1.5"/>
-                            <rect x="109" y="98" width="9" height="8" rx="1.5"/>
-                            <rect x="97" y="108" width="9" height="8" rx="1.5"/>
-                            <rect x="108" y="108" width="9" height="8" rx="1.5"/>
-                            <rect x="96" y="118" width="9" height="8" rx="1.5"/>
-                            <rect x="107" y="118" width="9" height="8" rx="1.5"/>
-                        </g>
-                        <!-- 右腕（画面左）と燃え上がる炎オーラ -->
-                        <path d="M 88 76 L 52 132 L 68 140 L 94 94 Z" fill="${pal.sub}" stroke="#111" stroke-width="2.3"/>
-                        <path d="M 56 116 L 48 92 L 62 104 L 68 82 L 78 102 L 88 94 L 82 126 L 68 148 L 44 142 L 42 120 Z" fill="${pal.aura}" fill-opacity="0.7" stroke="${pal.accent}" stroke-width="2" stroke-linejoin="round"/>
-                        <!-- 左腕（画面右）と長い聖剣（ソード） -->
-                        <path d="M 126 76 L 146 128 L 134 134 L 120 96 Z" fill="${pal.sub}" stroke="#111" stroke-width="2.3"/>
-                        <polygon points="134,132 162,72 142,136" fill="#ffffff" stroke="#111" stroke-width="2.2" stroke-linejoin="round"/>
-                        <polygon points="122,126 154,142 152,146 120,130" fill="${pal.horn}" stroke="#111" stroke-width="2"/>
-                        <rect x="132" y="136" width="8" height="12" transform="rotate(25 132 136)" fill="${pal.accent}" stroke="#111" stroke-width="2"/>
-                        <!-- 頭部と小さな2本角飾り -->
-                        <ellipse cx="108" cy="54" rx="16" ry="18" fill="${pal.body}" stroke="#111" stroke-width="2.5"/>
-                        <path d="M 96 42 L 88 26 L 102 36 L 108 26 L 114 36 L 128 26 L 120 42 Z" fill="${pal.horn}" stroke="#111" stroke-width="2.1" stroke-linejoin="round"/>
-                        <circle cx="103" cy="44" r="3" fill="#fff" stroke="#111" stroke-width="1.6"/>
-                        <circle cx="103" cy="44" r="1.4" fill="#111"/>
-                        <circle cx="113" cy="44" r="3" fill="#fff" stroke="#111" stroke-width="1.6"/>
-                        <circle cx="113" cy="44" r="1.4" fill="#111"/>
-                        <path d="M 98 58 Q 108 54 118 59" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
-                        ${extraCrown}
+                    <svg class="${sizeClass}" viewBox="0 0 220 175">
+                        <!-- しっぽ -->
+                        <path d="M 172 44 C 182 32, 198 40, 208 54 C 202 54, 190 44, 174 48 Z" fill="#f59e0b" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
+                        <!-- 4本の足と鋭い爪 -->
+                        <!-- 奥前足 -->
+                        <path d="M 86 84 C 82 98, 74 104, 66 112 L 56 122 L 64 130 L 74 120 C 82 110, 90 100, 93 86" fill="#d97706" stroke="#111" stroke-width="2.4"/>
+                        <polygon points="56,122 50,130 60,126" fill="#fff" stroke="#111" stroke-width="1.5"/>
+                        <polygon points="60,126 55,135 64,130" fill="#fff" stroke="#111" stroke-width="1.5"/>
+                        <!-- 手前前足 -->
+                        <path d="M 102 86 C 102 104, 96 118, 92 128 L 84 138 L 96 144 L 106 130 C 110 116, 112 100, 112 86" fill="#f59e0b" stroke="#111" stroke-width="2.5"/>
+                        <polygon points="84,138 76,146 88,142" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <polygon points="89,142 83,152 94,145" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <polygon points="94,144 91,154 99,145" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <!-- 奥後ろ足 -->
+                        <path d="M 140 82 C 138 98, 128 106, 134 122 L 136 136 L 148 136 L 146 120 C 142 106, 148 96, 148 82" fill="#d97706" stroke="#111" stroke-width="2.4"/>
+                        <polygon points="136,136 128,146 140,139" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <polygon points="141,138 136,149 146,139" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <!-- 手前後ろ足 -->
+                        <path d="M 172 74 C 184 92, 192 112, 184 128 L 178 136 L 192 138 L 198 126 C 204 108, 194 86, 180 68" fill="#f59e0b" stroke="#111" stroke-width="2.5"/>
+                        <polygon points="178,136 170,145 182,139" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <polygon points="184,138 179,148 189,140" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <polygon points="190,138 188,148 195,139" fill="#fff" stroke="#111" stroke-width="1.6"/>
+                        <!-- 胴体（ギザギザ毛並みシルエット） -->
+                        <path d="M 62 46 C 78 36, 114 34, 146 32 C 166 32, 182 44, 180 62 C 178 78, 152 86, 124 86 C 98 86, 78 82, 72 68 Z" fill="#fbbf24" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 胴体のギザギザ縞模様 -->
+                        <path d="M 88 42 L 96 52 L 86 60 L 96 68 L 88 76" fill="none" stroke="#451a03" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 114 38 L 124 48 L 112 58 L 124 68 L 114 78" fill="none" stroke="#451a03" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 140 38 L 150 48 L 138 58 L 150 68 L 140 78" fill="none" stroke="#451a03" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 162 42 L 170 52 L 160 60 L 168 68" fill="none" stroke="#451a03" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- 頭部と大きく開いた口 -->
+                        <path d="M 32 48 C 36 38, 54 38, 64 48 C 72 62, 64 94, 44 106 C 32 112, 26 102, 34 94 C 46 86, 52 72, 46 62 L 28 64 C 24 58, 28 52, 32 48 Z" fill="#fbbf24" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 口の中の暗い空洞と下顎のギザギザ歯 -->
+                        <path d="M 32 64 C 48 64, 56 76, 44 96 C 36 102, 32 98, 38 92 C 44 84, 42 74, 32 70 Z" fill="#7f1d1d" stroke="#111" stroke-width="2"/>
+                        <path d="M 34 96 L 37 91 L 40 96 L 43 91 L 46 95" fill="none" stroke="#fff" stroke-width="1.8"/>
+                        <!-- 耳・目・鼻 -->
+                        <path d="M 28 48 C 22 42, 24 35, 32 40" fill="#f59e0b" stroke="#111" stroke-width="2.3"/>
+                        <path d="M 44 41 C 44 33, 52 33, 52 41" fill="#f59e0b" stroke="#111" stroke-width="2.3"/>
+                        <ellipse cx="35" cy="51" rx="2.5" ry="3.5" fill="#fff" stroke="#111" stroke-width="1.8"/>
+                        <ellipse cx="44" cy="51" rx="2.5" ry="3.5" fill="#fff" stroke="#111" stroke-width="1.8"/>
+                        <ellipse cx="31" cy="62" rx="4" ry="2.5" fill="#111"/>
+                        <!-- 2本の巨大なサーベル牙！ -->
+                        <path d="M 27 64 C 24 76, 26 88, 34 96 C 31 84, 31 74, 33 65 Z" fill="#ffffff" stroke="#111" stroke-width="2.2" stroke-linejoin="round"/>
+                        <path d="M 36 65 C 34 78, 36 90, 44 98 C 41 85, 41 75, 42 66 Z" fill="#ffffff" stroke="#111" stroke-width="2.2" stroke-linejoin="round"/>
                     </svg>
                 `;
             }
 
-            // =========================================================================
-            // ベース4：アップロード画像4枚目（5本炎髪・右目五芒星・渦巻き大耳・クロス胸）
-            // =========================================================================
-            if (card.baseImg === 4) {
+            // 4. メガロドン（添付画像「メガロドン.jpg」を元に作画）
+            // 左向き、頭頂部にちょこんと立った突起、ギザギザの大きな口、背びれ・胸びれ(X交差線)・腹びれ、尾びれ
+            if (key === 'custom_megalodon') {
                 return `
-                    <svg class="${sizeClass}" style="${glowFilter}" viewBox="0 0 220 190">
-                        <!-- 左右のトゲ付き翼 -->
-                        <path d="M 84 96 L 14 114 L 38 94 L 44 82 L 52 92 L 86 86 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
-                        <path d="M 142 96 L 210 86 L 188 94 L 180 78 L 170 92 L 138 88 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
-                        <!-- 胴体・太い両腕・2本の足 -->
-                        <path d="M 92 78 L 80 112 L 80 156 L 98 156 L 98 118 L 106 114 L 104 166 L 120 166 L 122 134 L 130 134 L 132 172 L 148 168 L 144 116 L 154 156 L 172 152 L 160 106 L 138 78 Z" fill="${pal.body}" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
-                        <!-- 両肩の目玉トゲ突起 -->
-                        <polygon points="88,82 94,64 104,80" fill="${pal.sub}" stroke="#111" stroke-width="2.2"/>
-                        <circle cx="95" cy="75" r="2.5" fill="${pal.eye}"/>
-                        <polygon points="134,80 144,64 148,82" fill="${pal.sub}" stroke="#111" stroke-width="2.2"/>
-                        <circle cx="142" cy="75" r="2.5" fill="${pal.eye}"/>
-                        <!-- 胸のクロス（×）タスキ＆ギザギザベルト -->
-                        <path d="M 102 88 L 136 136 M 134 86 L 106 134" stroke="${pal.accent}" stroke-width="3.5" stroke-linecap="round"/>
-                        <path d="M 80 114 L 96 112 M 104 118 L 134 118 M 146 114 L 162 114" stroke="#111" stroke-width="2"/>
-                        <!-- 渦巻き状の巨大なエネルギー耳（左右） -->
-                        <ellipse cx="82" cy="48" rx="18" ry="22" transform="rotate(-18 82 48)" fill="${pal.aura}" stroke="#111" stroke-width="2.4"/>
-                        <path d="M 82 48 C 86 44, 90 50, 84 54 C 76 58, 70 46, 80 38 C 92 32, 98 52, 84 62" fill="none" stroke="#111" stroke-width="2"/>
-                        <ellipse cx="158" cy="48" rx="18" ry="22" transform="rotate(18 158 48)" fill="${pal.aura}" stroke="#111" stroke-width="2.4"/>
-                        <path d="M 158 48 C 154 44, 150 50, 156 54 C 164 58, 170 46, 160 38 C 148 32, 142 52, 156 62" fill="none" stroke="#111" stroke-width="2"/>
-                        <!-- 5本逆立った炎の髪 -->
-                        <path d="M 96 34 L 92 22 L 104 28 L 106 10 L 116 24 L 126 6 L 132 24 L 144 16 L 138 36 Z" fill="${pal.horn}" stroke="#111" stroke-width="2.3" stroke-linejoin="round"/>
-                        <!-- 頭部 -->
-                        <circle cx="118" cy="54" r="24" fill="${pal.body}" stroke="#111" stroke-width="2.6"/>
-                        <!-- 右目の五芒星（☆）マーク！ -->
-                        <polygon points="105,40 107,46 113,46 108,50 110,56 105,52 100,56 102,50 97,46 103,46" fill="${pal.eye}" stroke="#111" stroke-width="1.5"/>
-                        <!-- 左目のバイザー瞳とニッコリ口 -->
-                        <rect x="118" y="42" width="18" height="10" rx="2" fill="#fff" stroke="#111" stroke-width="2"/>
-                        <circle cx="127" cy="47" r="3" fill="#111"/>
-                        <path d="M 106 62 Q 118 72 132 60" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
-                        ${extraHalo}
-                        ${extraCrown}
+                    <svg class="${sizeClass}" viewBox="0 0 220 150">
+                        <!-- 後ろへ伸びる尾びれ -->
+                        <path d="M 142 74 C 158 72, 174 62, 184 46 L 194 46 C 190 64, 192 84, 204 102 L 194 104 C 182 88, 164 84, 142 84 Z" fill="#3b82f6" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 背びれ -->
+                        <path d="M 76 46 C 88 28, 108 22, 126 32 C 114 34, 104 42, 102 50 Z" fill="#2563eb" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 腹びれ -->
+                        <path d="M 74 108 C 84 124, 98 132, 112 134 C 102 122, 98 112, 104 102 Z" fill="#2563eb" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 胴体と頭頂部の角状突起＆大きな口 -->
+                        <path d="M 22 66 C 28 52, 38 46, 46 44 C 48 34, 46 26, 52 25 C 57 25, 55 36, 53 44 C 68 44, 82 48, 92 46 C 106 44, 128 52, 144 64 C 150 72, 148 84, 140 88 C 118 92, 96 98, 76 110 C 56 122, 26 122, 18 110 C 14 102, 16 94, 20 88 L 46 88 L 36 80 L 48 72 L 22 66 Z" fill="#60a5fa" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 大きな目 -->
+                        <ellipse cx="42" cy="55" rx="6.5" ry="5" fill="#fff" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="43" cy="55" r="3.5" fill="#111"/>
+                        <!-- ギザギザの歯（上あご・下あご） -->
+                        <polyline points="20,66 24,75 29,67 34,76 40,66 46,75 51,64" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="20,96 24,86 30,96 36,86 42,96 48,86 52,94" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- 胴体中央のX字交差ライン（胸びれ・エラの表現） -->
+                        <path d="M 78 52 C 76 72, 92 88, 114 94" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M 106 50 C 104 72, 88 86, 70 92" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
                     </svg>
                 `;
             }
 
-            // =========================================================================
-            // ベース5：アップロード画像5枚目（二重輪・背びれ付きの翼腕・包帯足の天使）
-            // =========================================================================
-            if (card.baseImg === 5) {
+            // 5. ジャイアントモア（添付画像「ジャイアントモア.jpg」を元に作画）
+            // 左向き、下向きにカーブした鋭いくちばし、首と大きな丸い胴体に波打つ羽毛模様、2本の太い足と扇状の指
+            if (key === 'custom_moa') {
                 return `
-                    <svg class="${sizeClass}" style="${glowFilter}" viewBox="0 0 220 190">
-                        <!-- 左右にT字型に広げた背びれ付きの翼腕＆胴体・2本足 -->
-                        <path d="M 100 68 L 100 94 L 62 62 L 62 78 L 22 82 L 10 102 L 18 100 L 14 112 L 24 106 L 34 98 L 96 114 L 92 156 C 92 166, 106 166, 108 154 L 112 134 L 122 168 L 136 164 L 128 112 L 126 92 L 194 96 L 198 88 L 190 86 L 200 80 L 188 78 L 166 78 L 160 62 L 152 78 L 122 78 L 122 68 Z" fill="${pal.body}" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
-                        <!-- 翼腕内部のライン -->
-                        <path d="M 26 92 L 98 98 M 126 84 L 192 94 M 100 98 L 124 98" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
-                        <!-- 左足のぐるぐるバンテージ（包帯）模様 -->
-                        <path d="M 118 144 L 132 138 M 120 154 L 134 148 M 122 162 L 136 158" stroke="${pal.accent}" stroke-width="3" stroke-linecap="round"/>
-                        <!-- 頭部 -->
-                        <ellipse cx="112" cy="48" rx="18" ry="22" fill="${pal.sub}" stroke="#111" stroke-width="2.6"/>
-                        <!-- ギザギザ前髪 -->
-                        <path d="M 94 42 L 100 34 L 106 42 L 112 35 L 118 42 L 124 36 L 130 42 C 128 26, 96 26, 94 42 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.2"/>
-                        <!-- 大きな両目とニッコリ口 -->
-                        <circle cx="104" cy="48" r="5" fill="#fff" stroke="#111" stroke-width="2"/>
-                        <circle cx="104" cy="48" r="2.2" fill="#111"/>
-                        <ellipse cx="120" cy="48" rx="5.5" ry="4" fill="#fff" stroke="#111" stroke-width="2"/>
-                        <circle cx="121" cy="48" r="2.2" fill="#111"/>
-                        <path d="M 103 58 Q 112 62 122 57" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
-                        <!-- 頭上の二重の天使の輪 -->
-                        <ellipse cx="112" cy="17" rx="18" ry="7" fill="none" stroke="${pal.horn}" stroke-width="3.2"/>
-                        <ellipse cx="112" cy="17" rx="8" ry="3.5" fill="none" stroke="#111" stroke-width="2"/>
-                        ${isFallen ? `<path d="M 96 32 L 88 18 L 100 28 M 128 32 L 136 18 L 124 28" fill="#7e22ce" stroke="#111" stroke-width="2"/>` : ''}
-                        ${extraCrown}
+                    <svg class="${sizeClass}" viewBox="0 0 210 190">
+                        <!-- 奥の足 -->
+                        <path d="M 116 122 C 110 136, 102 152, 108 168" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M 116 122 C 110 136, 102 152, 108 168" fill="none" stroke="#d97706" stroke-width="4.5" stroke-linecap="round"/>
+                        <path d="M 108 168 L 96 180 M 108 168 L 103 182 M 108 168 L 111 182 M 108 168 L 118 180" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
+                        <!-- 手前の足 -->
+                        <path d="M 136 122 C 132 138, 144 152, 138 168" fill="none" stroke="#111" stroke-width="8.5" stroke-linecap="round"/>
+                        <path d="M 136 122 C 132 138, 144 152, 138 168" fill="none" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M 138 168 L 126 180 M 138 168 L 134 182 M 138 168 L 142 182 M 138 168 L 150 180" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
+                        <!-- 大きなラグビーボール型の胴体と長い首・頭 -->
+                        <path d="M 44 18 C 56 14, 68 18, 66 28 C 64 34, 68 42, 82 54 C 102 44, 142 44, 168 62 C 192 78, 194 108, 172 120 C 144 132, 84 128, 62 104 C 46 86, 44 58, 48 36 C 42 30, 38 22, 44 18 Z" fill="#a16207" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
+                        <!-- 下にカーブした鋭いくちばし -->
+                        <path d="M 44 22 C 30 26, 20 36, 18 48 C 26 42, 36 38, 48 34 Z" fill="#fde047" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
+                        <path d="M 22 44 Q 34 36 46 30" fill="none" stroke="#111" stroke-width="1.8"/>
+                        <!-- 目 -->
+                        <ellipse cx="54" cy="22" rx="4" ry="2.5" fill="#fff" stroke="#111" stroke-width="1.8"/>
+                        <circle cx="54" cy="22" r="1.8" fill="#111"/>
+                        <!-- 首から胴体にかけての波打つ羽毛模様 -->
+                        <path d="M 52 44 Q 62 40 60 50 Q 70 48 68 58 Q 84 56 80 68 Q 96 64 94 78" fill="none" stroke="#451a03" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M 96 58 Q 112 54 114 68 Q 132 60 136 74 Q 154 64 162 78" fill="none" stroke="#451a03" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M 66 86 Q 88 78 106 88 T 146 88 T 178 86" fill="none" stroke="#451a03" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M 74 104 Q 98 96 122 106 T 168 104" fill="none" stroke="#451a03" stroke-width="2.2" stroke-linecap="round"/>
                     </svg>
                 `;
             }
 
-            // =========================================================================
-            // ベース6：アップロード画像6枚目（もこもこ頭・ニヤリ鼻口・バルーン右腕・ぷっくり足）
-            // =========================================================================
-            return `
-                <svg class="${sizeClass}" style="${glowFilter}" viewBox="0 0 220 190">
-                    <!-- 左右の翼腕（左は波打つコウモリ翼、右は先端が大きく風船のようにふくらむバルーン腕！） -->
-                    <path d="M 82 72 L 62 72 L 46 52 L 36 74 L 16 68 L 10 92 L 32 104 L 78 96 L 62 124 C 54 148, 72 172, 86 164 C 98 156, 98 134, 106 134 C 114 134, 108 164, 122 174 C 136 182, 152 152, 140 124 L 114 96 L 154 114 C 176 124, 206 112, 208 86 C 210 62, 184 52, 168 72 C 160 82, 152 78, 148 64 L 138 44 L 128 66 L 104 70 Z" fill="${pal.body}" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/>
-                    <!-- 翼腕の中の波線とバルーンのハイライト -->
-                    <path d="M 18 88 Q 34 78 52 88 T 84 86" fill="none" stroke="#111" stroke-width="2"/>
-                    <path d="M 104 72 L 156 102 C 174 110, 194 98, 192 80" fill="none" stroke="${pal.accent}" stroke-width="2.5" stroke-linecap="round"/>
-                    <ellipse cx="188" cy="74" rx="8" ry="5" transform="rotate(-25 188 74)" fill="#fff" opacity="0.65"/>
-                    <!-- 頭部 -->
-                    <ellipse cx="94" cy="44" rx="20" ry="24" fill="${pal.sub}" stroke="#111" stroke-width="2.6"/>
-                    <!-- もこもこ波線前髪 -->
-                    <path d="M 74 36 Q 80 40 86 36 Q 94 40 102 36 Q 108 40 114 36 C 114 16, 74 16, 74 36 Z" fill="${pal.wing}" stroke="#111" stroke-width="2.3"/>
-                    <!-- トロンとした半目・くるんと曲がった鼻・ニヤリ口 -->
-                    <path d="M 78 42 Q 84 48 90 42 Z" fill="#fff" stroke="#111" stroke-width="1.8"/>
-                    <circle cx="84" cy="43" r="1.8" fill="#111"/>
-                    <path d="M 98 42 Q 104 48 110 42 Z" fill="#fff" stroke="#111" stroke-width="1.8"/>
-                    <circle cx="104" cy="43" r="1.8" fill="#111"/>
-                    <path d="M 92 44 Q 98 50 88 52" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
-                    <path d="M 82 56 Q 96 64 108 52 Q 104 64 88 62 Z" fill="${pal.accent}" stroke="#111" stroke-width="2"/>
-                    ${isFallen ? `<ellipse cx="94" cy="12" rx="16" ry="5" fill="none" stroke="#c084fc" stroke-width="2.8"/>` : ''}
-                    ${extraCrown}
-                </svg>
-            `;
+            // ---------------------------------------------------------
+            // ★ 絵文字がない生き物たちのカスタムSVG作画 ★
+            // ---------------------------------------------------------
+            const customSvgs = {
+                // どうぶつ
+                capybara: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="62" cy="60" rx="36" ry="22" fill="#a16207" stroke="#111" stroke-width="2.5"/><rect x="36" y="74" width="8" height="14" rx="4" fill="#854d0e" stroke="#111" stroke-width="2"/><rect x="78" y="74" width="8" height="14" rx="4" fill="#854d0e" stroke="#111" stroke-width="2"/><rect x="16" y="34" width="32" height="24" rx="10" fill="#b45309" stroke="#111" stroke-width="2.5"/><circle cx="42" cy="34" r="4" fill="#78350f" stroke="#111" stroke-width="2"/><line x1="26" y1="44" x2="33" y2="44" stroke="#111" stroke-width="2.5" stroke-linecap="round"/><circle cx="19" cy="48" r="2" fill="#111"/></svg>`,
+                red_panda: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M74 68 Q106 54 104 76 Q102 90 72 80" fill="#ea580c" stroke="#111" stroke-width="2.5"/><path d="M84 65 L86 78 M94 63 L94 78" stroke="#451a03" stroke-width="3.5"/><ellipse cx="60" cy="64" rx="22" ry="16" fill="#c2410c" stroke="#111" stroke-width="2.5"/><circle cx="40" cy="44" r="18" fill="#ea580c" stroke="#111" stroke-width="2.5"/><circle cx="26" cy="30" r="6" fill="#fff" stroke="#111" stroke-width="2"/><circle cx="54" cy="30" r="6" fill="#fff" stroke="#111" stroke-width="2"/><ellipse cx="32" cy="48" rx="5" ry="4" fill="#fff"/><ellipse cx="48" cy="48" rx="5" ry="4" fill="#fff"/><circle cx="33" cy="44" r="2.5" fill="#111"/><circle cx="47" cy="44" r="2.5" fill="#111"/><circle cx="40" cy="50" r="3" fill="#111"/></svg>`,
+                platypus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="92" cy="62" rx="18" ry="8" fill="#78350f" stroke="#111" stroke-width="2.2"/><ellipse cx="58" cy="58" rx="26" ry="15" fill="#92400e" stroke="#111" stroke-width="2.5"/><path d="M34 54 L12 58 Q10 66 34 66 Z" fill="#475569" stroke="#111" stroke-width="2.2"/><circle cx="36" cy="50" r="2.5" fill="#111"/><path d="M42 70 L36 78 M72 70 L78 78" stroke="#111" stroke-width="3" stroke-linecap="round"/></svg>`,
+                snow_leopard: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M82 62 Q112 52 108 76 Q104 88 86 82" fill="none" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round"/><path d="M82 62 Q112 52 108 76 Q104 88 86 82" fill="none" stroke="#111" stroke-width="2" stroke-dasharray="4 4"/><ellipse cx="62" cy="60" rx="26" ry="15" fill="#e2e8f0" stroke="#111" stroke-width="2.5"/><circle cx="32" cy="44" r="13" fill="#f1f5f9" stroke="#111" stroke-width="2.5"/><circle cx="24" cy="33" r="4" fill="#cbd5e1" stroke="#111" stroke-width="2"/><circle cx="40" cy="33" r="4" fill="#cbd5e1" stroke="#111" stroke-width="2"/><circle cx="28" cy="43" r="2" fill="#111"/><circle cx="36" cy="43" r="2" fill="#111"/><circle cx="56" cy="56" r="2.5" fill="#475569"/><circle cx="68" cy="62" r="2.5" fill="#475569"/><rect x="42" y="72" width="6" height="14" rx="3" fill="#cbd5e1" stroke="#111" stroke-width="2"/><rect x="74" y="72" width="6" height="14" rx="3" fill="#cbd5e1" stroke="#111" stroke-width="2"/></svg>`,
+                okapi: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="64" cy="58" rx="26" ry="15" fill="#7f1d1d" stroke="#111" stroke-width="2.5"/><path d="M44 52 L28 24 L38 22 L50 48" fill="#7f1d1d" stroke="#111" stroke-width="2.5"/><ellipse cx="28" cy="24" rx="10" ry="6" fill="#991b1b" stroke="#111" stroke-width="2"/><path d="M76 50 L88 54 M78 58 L90 62" stroke="#fff" stroke-width="3"/><rect x="44" y="70" width="6" height="18" rx="2" fill="#fff" stroke="#111" stroke-width="2"/><rect x="76" y="70" width="6" height="18" rx="2" fill="#fff" stroke="#111" stroke-width="2"/><circle cx="25" cy="23" r="2" fill="#111"/></svg>`,
+
+                // さかな
+                whale_shark: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M12 52 Q36 32 86 46 L108 32 L102 54 L108 72 L86 60 Q36 72 12 52 Z" fill="#1e3a8a" stroke="#111" stroke-width="2.5"/><polygon points="56,38 66,22 72,41" fill="#1d4ed8" stroke="#111" stroke-width="2"/><circle cx="42" cy="48" r="2" fill="#fff"/><circle cx="52" cy="52" r="2" fill="#fff"/><circle cx="62" cy="48" r="2" fill="#fff"/><circle cx="72" cy="52" r="2" fill="#fff"/><circle cx="22" cy="49" r="2.2" fill="#fff"/></svg>`,
+                sunfish: `<svg class="${sizeClass}" viewBox="0 0 120 100"><polygon points="64,26 74,6 82,28" fill="#94a3b8" stroke="#111" stroke-width="2.2"/><polygon points="64,74 74,94 82,72" fill="#94a3b8" stroke="#111" stroke-width="2.2"/><ellipse cx="56" cy="50" rx="30" ry="26" fill="#cbd5e1" stroke="#111" stroke-width="2.5"/><circle cx="38" cy="44" r="4" fill="#fff" stroke="#111" stroke-width="2"/><circle cx="38" cy="44" r="2" fill="#111"/><ellipse cx="26" cy="52" rx="4" ry="3" fill="#64748b" stroke="#111" stroke-width="1.5"/></svg>`,
+                seahorse: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M56 18 C72 18 74 36 62 44 C74 52 72 68 58 74 C50 78 52 88 62 86 C68 85 68 78 62 78" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/><path d="M56 18 C72 18 74 36 62 44 C74 52 72 68 58 74 C50 78 52 88 62 86" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/><path d="M52 24 L38 26 L52 30" fill="#fbbf24" stroke="#111" stroke-width="2"/><circle cx="56" cy="24" r="2" fill="#111"/></svg>`,
+                anglerfish: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="62" cy="56" rx="28" ry="22" fill="#312e81" stroke="#111" stroke-width="2.5"/><path d="M46 36 Q32 16 22 28" fill="none" stroke="#111" stroke-width="2.5"/><circle cx="22" cy="28" r="5" fill="#fde047" stroke="#f59e0b" stroke-width="2"/><path d="M36 56 L54 56 L46 68 Z" fill="#1e1b4b" stroke="#111" stroke-width="2"/><polyline points="38,56 41,62 44,56 47,62 50,56" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="44" cy="46" r="3" fill="#fff"/></svg>`,
+                coelacanth: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="58" cy="52" rx="34" ry="18" fill="#1e40af" stroke="#111" stroke-width="2.5"/><polygon points="90,52 108,38 106,52 108,66" fill="#1d4ed8" stroke="#111" stroke-width="2.2"/><polygon points="46,34 56,20 62,34" fill="#3b82f6" stroke="#111" stroke-width="2"/><polygon points="48,68 42,82 54,70" fill="#3b82f6" stroke="#111" stroke-width="2"/><circle cx="34" cy="48" r="3.5" fill="#fde047" stroke="#111" stroke-width="1.5"/></svg>`,
+                oarfish: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M18 46 Q42 36 64 52 T108 48" fill="none" stroke="#e2e8f0" stroke-width="12" stroke-linecap="round"/><path d="M18 46 Q42 36 64 52 T108 48" fill="none" stroke="#111" stroke-width="2"/><path d="M22 38 L16 20 M26 38 L24 18" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/><circle cx="22" cy="45" r="2.5" fill="#111"/></svg>`,
+                electric_eel: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M16 54 Q38 34 60 54 T104 54" fill="none" stroke="#334155" stroke-width="13" stroke-linecap="round"/><path d="M16 54 Q38 34 60 54 T104 54" fill="none" stroke="#111" stroke-width="2"/><polyline points="48,26 42,36 50,36 44,46" fill="none" stroke="#facc15" stroke-width="3" stroke-linecap="round"/><polyline points="74,24 68,34 76,34 70,44" fill="none" stroke="#facc15" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="52" r="2" fill="#fff"/></svg>`,
+                flying_fish: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="58" cy="54" rx="32" ry="11" fill="#0284c7" stroke="#111" stroke-width="2.2"/><polygon points="88,54 106,42 100,54 108,68" fill="#0369a1" stroke="#111" stroke-width="2"/><polygon points="44,50 76,24 84,48" fill="#7dd3fc" stroke="#111" stroke-width="2"/><circle cx="34" cy="51" r="2.5" fill="#fff"/></svg>`,
+                piranha: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="58" cy="52" rx="28" ry="22" fill="#991b1b" stroke="#111" stroke-width="2.5"/><path d="M30 52 Q58 72 86 52 Q58 74 30 52 Z" fill="#ef4444"/><polygon points="84,52 102,38 102,66" fill="#7f1d1d" stroke="#111" stroke-width="2.2"/><polyline points="30,52 34,48 38,52 42,48" fill="none" stroke="#fff" stroke-width="2"/><circle cx="40" cy="42" r="3.5" fill="#fde047" stroke="#111" stroke-width="1.5"/></svg>`,
+                manta: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M16 48 Q60 22 104 48 Q74 62 60 72 Q46 62 16 48 Z" fill="#1e293b" stroke="#111" stroke-width="2.5"/><line x1="60" y1="72" x2="60" y2="94" stroke="#111" stroke-width="2.5"/><path d="M48 36 L44 26 M72 36 L76 26" stroke="#111" stroke-width="3" stroke-linecap="round"/></svg>`,
+                moray_eel: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M96 82 C96 52 72 64 64 46 C56 30 34 32 24 44 L42 48 L26 54" fill="none" stroke="#65a30d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><path d="M96 82 C96 52 72 64 64 46 C56 30 34 32 24 44" fill="none" stroke="#111" stroke-width="2.2"/><circle cx="34" cy="39" r="2.5" fill="#fde047"/></svg>`,
+                swordfish: `<svg class="${sizeClass}" viewBox="0 0 120 100"><polygon points="4,48 38,44 38,52" fill="#cbd5e1" stroke="#111" stroke-width="2"/><ellipse cx="64" cy="48" rx="28" ry="12" fill="#1d4ed8" stroke="#111" stroke-width="2.5"/><polygon points="54,36 62,18 70,36" fill="#2563eb" stroke="#111" stroke-width="2"/><polygon points="90,48 110,34 102,48 110,62" fill="#1e40af" stroke="#111" stroke-width="2"/><circle cx="42" cy="46" r="2.5" fill="#fff"/></svg>`,
+                koi: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="58" cy="50" rx="30" ry="14" fill="#fff" stroke="#111" stroke-width="2.5"/><ellipse cx="46" cy="46" rx="10" ry="6" fill="#ef4444"/><ellipse cx="70" cy="52" rx="9" ry="5" fill="#ef4444"/><polygon points="86,50 106,36 102,50 106,64" fill="#fff" stroke="#111" stroke-width="2.2"/><circle cx="35" cy="47" r="2.5" fill="#111"/></svg>`,
+                frilled_shark: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M14 52 Q44 38 78 52 T110 48" fill="none" stroke="#475569" stroke-width="14" stroke-linecap="round"/><path d="M14 52 Q44 38 78 52 T110 48" fill="none" stroke="#111" stroke-width="2"/><path d="M34 44 L34 58 M39 44 L39 58 M44 44 L44 58" stroke="#ef4444" stroke-width="2"/><circle cx="22" cy="49" r="2.5" fill="#fde047"/></svg>`,
+
+                // とり
+                ostrich: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="56" y1="64" x2="50" y2="92" stroke="#fca5a5" stroke-width="4"/><line x1="68" y1="64" x2="74" y2="92" stroke="#fca5a5" stroke-width="4"/><ellipse cx="62" cy="54" rx="20" ry="14" fill="#1e293b" stroke="#111" stroke-width="2.5"/><path d="M46 48 L42 18" stroke="#fca5a5" stroke-width="6" stroke-linecap="round"/><circle cx="42" cy="16" r="6" fill="#fca5a5" stroke="#111" stroke-width="2"/><polygon points="36,16 26,18 36,20" fill="#facc15" stroke="#111" stroke-width="1.5"/></svg>`,
+                hummingbird: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="62" cy="54" rx="14" ry="10" fill="#10b981" stroke="#111" stroke-width="2.2"/><circle cx="48" cy="44" r="8" fill="#059669" stroke="#111" stroke-width="2.2"/><line x1="40" y1="44" x2="16" y2="42" stroke="#111" stroke-width="2.5" stroke-linecap="round"/><path d="M62 46 L86 24 L74 50" fill="#34d399" stroke="#111" stroke-width="2"/><circle cx="46" cy="43" r="2" fill="#fff"/></svg>`,
+                kingfisher: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="60" cy="56" rx="16" ry="13" fill="#f97316" stroke="#111" stroke-width="2.2"/><path d="M48 48 Q64 42 78 60 Q60 64 48 48 Z" fill="#0284c7" stroke="#111" stroke-width="2"/><circle cx="48" cy="40" r="10" fill="#0284c7" stroke="#111" stroke-width="2.2"/><polygon points="38,40 16,42 38,45" fill="#1e293b" stroke="#111" stroke-width="2"/><circle cx="45" cy="39" r="2" fill="#fff"/></svg>`,
+                toucan: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="66" cy="58" rx="16" ry="18" fill="#1e293b" stroke="#111" stroke-width="2.5"/><circle cx="58" cy="40" r="11" fill="#1e293b" stroke="#111" stroke-width="2.5"/><path d="M48 34 Q20 32 16 46 Q32 48 48 44 Z" fill="#f97316" stroke="#111" stroke-width="2.2"/><circle cx="55" cy="38" r="2.5" fill="#fff"/></svg>`,
+                shoebill: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="60" y1="68" x2="58" y2="94" stroke="#475569" stroke-width="3.5"/><line x1="68" y1="68" x2="70" y2="94" stroke="#475569" stroke-width="3.5"/><ellipse cx="64" cy="56" rx="15" ry="18" fill="#64748b" stroke="#111" stroke-width="2.5"/><circle cx="56" cy="32" r="11" fill="#94a3b8" stroke="#111" stroke-width="2.5"/><path d="M46 28 Q22 28 24 42 Q38 44 48 38 Z" fill="#cbd5e1" stroke="#111" stroke-width="2.5"/><circle cx="52" cy="30" r="2.5" fill="#fde047"/></svg>`,
+                kiwi: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="56" y1="72" x2="54" y2="88" stroke="#d97706" stroke-width="3"/><line x1="68" y1="72" x2="70" y2="88" stroke="#d97706" stroke-width="3"/><ellipse cx="62" cy="56" rx="22" ry="18" fill="#78350f" stroke="#111" stroke-width="2.5"/><circle cx="42" cy="48" r="10" fill="#92400e" stroke="#111" stroke-width="2.2"/><line x1="32" y1="50" x2="10" y2="62" stroke="#fde047" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="46" r="2" fill="#111"/></svg>`,
+                pelican: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="68" cy="60" rx="20" ry="14" fill="#f8fafc" stroke="#111" stroke-width="2.5"/><circle cx="52" cy="38" r="9" fill="#f8fafc" stroke="#111" stroke-width="2.5"/><path d="M44 36 L14 40 Q24 56 46 44 Z" fill="#fbbf24" stroke="#111" stroke-width="2.2"/><circle cx="50" cy="36" r="2" fill="#111"/></svg>`,
+                swallow: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M24 52 Q56 38 88 52 L106 38 L92 54 L106 70 L88 56 Q56 64 24 52 Z" fill="#1e3a8a" stroke="#111" stroke-width="2.2"/><polygon points="48,46 68,20 74,46" fill="#1d4ed8" stroke="#111" stroke-width="2"/><circle cx="34" cy="49" r="2" fill="#fff"/></svg>`,
+                crane: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="60" y1="66" x2="58" y2="94" stroke="#111" stroke-width="3"/><line x1="68" y1="66" x2="70" y2="94" stroke="#111" stroke-width="3"/><ellipse cx="64" cy="54" rx="20" ry="13" fill="#fff" stroke="#111" stroke-width="2.5"/><path d="M46 50 Q38 34 42 20" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/><path d="M46 50 Q38 34 42 20" fill="none" stroke="#111" stroke-width="2"/><circle cx="42" cy="18" r="5" fill="#fff" stroke="#111" stroke-width="2"/><path d="M39 14 Q42 12 45 14" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/><polygon points="37,18 24,20 37,22" fill="#fde047" stroke="#111" stroke-width="1.5"/></svg>`,
+                kakapo: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="60" cy="56" rx="22" ry="24" fill="#65a30d" stroke="#111" stroke-width="2.5"/><circle cx="60" cy="36" r="14" fill="#84cc16" stroke="#111" stroke-width="2.5"/><polygon points="56,38 64,38 60,45" fill="#fef08a" stroke="#111" stroke-width="1.8"/><circle cx="54" cy="34" r="2.5" fill="#111"/><circle cx="66" cy="34" r="2.5" fill="#111"/></svg>`,
+                secretarybird: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="58" y1="60" x2="56" y2="94" stroke="#f97316" stroke-width="3"/><line x1="66" y1="60" x2="68" y2="94" stroke="#f97316" stroke-width="3"/><ellipse cx="62" cy="50" rx="16" ry="12" fill="#cbd5e1" stroke="#111" stroke-width="2.2"/><circle cx="50" cy="28" r="8" fill="#e2e8f0" stroke="#111" stroke-width="2.2"/><path d="M56 24 L72 16 M58 28 L74 24" stroke="#111" stroke-width="2.5" stroke-linecap="round"/><polygon points="42,28 32,31 42,32" fill="#facc15" stroke="#111" stroke-width="1.5"/></svg>`,
+                quetzal: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M68 62 Q82 82 96 94 M64 62 Q74 84 86 96" stroke="#10b981" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="60" cy="50" rx="14" ry="16" fill="#ef4444" stroke="#111" stroke-width="2.2"/><circle cx="56" cy="30" r="10" fill="#10b981" stroke="#111" stroke-width="2.2"/><polygon points="46,30 36,32 46,34" fill="#facc15" stroke="#111" stroke-width="1.5"/><circle cx="53" cy="29" r="2" fill="#fff"/></svg>`,
+
+                // むし
+                stag_beetle: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="60" cy="64" rx="16" ry="20" fill="#292524" stroke="#111" stroke-width="2.5"/><rect x="46" y="38" width="28" height="12" rx="5" fill="#1c1917" stroke="#111" stroke-width="2.5"/><path d="M50 38 Q42 16 54 14 M70 38 Q78 16 66 14" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/><path d="M44 52 L28 46 M44 64 L26 64 M46 76 L30 84 M76 52 L92 46 M76 64 L94 64 M74 76 L90 84" stroke="#111" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+                hercules: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="72" cy="56" rx="26" ry="15" fill="#eab308" stroke="#111" stroke-width="2.5"/><circle cx="72" cy="52" r="2.5" fill="#111"/><circle cx="82" cy="58" r="2.5" fill="#111"/><path d="M48 48 L12 36 L18 42" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/><path d="M46 58 L20 52" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/><path d="M56 70 L50 84 M72 70 L70 84 M86 68 L90 82" stroke="#111" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+                giraffe_stag: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="76" cy="54" rx="22" ry="13" fill="#1e293b" stroke="#111" stroke-width="2.5"/><path d="M54 48 L14 42 L20 46 M54 58 L14 62 L20 58" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/><path d="M64 66 L58 80 M78 66 L76 80 M90 64 L94 78" stroke="#111" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+                oomurasaki: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M58 50 L22 22 Q14 44 38 54 L26 76 Q48 80 58 56 Z" fill="#6d28d9" stroke="#111" stroke-width="2.2"/><path d="M62 50 L98 22 Q106 44 82 54 L94 76 Q72 80 62 56 Z" fill="#6d28d9" stroke="#111" stroke-width="2.2"/><circle cx="34" cy="36" r="3" fill="#fff"/><circle cx="86" cy="36" r="3" fill="#fff"/><rect x="58" y="34" width="4" height="32" rx="2" fill="#111"/></svg>`,
+                morpho: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M58 50 L20 20 Q12 46 36 56 L24 78 Q48 82 58 56 Z" fill="#0284c7" stroke="#111" stroke-width="2.5"/><path d="M62 50 L100 20 Q108 46 84 56 L96 78 Q72 82 62 56 Z" fill="#0284c7" stroke="#111" stroke-width="2.5"/><rect x="58" y="34" width="4" height="32" rx="2" fill="#111"/></svg>`,
+                mantis: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="74" cy="58" rx="24" ry="8" transform="rotate(-15 74 58)" fill="#65a30d" stroke="#111" stroke-width="2.2"/><line x1="52" y1="54" x2="36" y2="34" stroke="#65a30d" stroke-width="6" stroke-linecap="round"/><polygon points="30,30 42,28 36,38" fill="#84cc16" stroke="#111" stroke-width="2"/><polyline points="42,44 26,56 34,68" fill="none" stroke="#4d7c0f" stroke-width="3.5" stroke-linecap="round"/><line x1="66" y1="62" x2="62" y2="84" stroke="#4d7c0f" stroke-width="2.5"/><line x1="82" y1="58" x2="88" y2="82" stroke="#4d7c0f" stroke-width="2.5"/></svg>`,
+                dragonfly: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="36" y1="50" x2="104" y2="50" stroke="#111" stroke-width="5" stroke-linecap="round"/><line x1="46" y1="50" x2="98" y2="50" stroke="#facc15" stroke-width="3" stroke-dasharray="4 4"/><ellipse cx="52" cy="32" rx="6" ry="18" transform="rotate(-20 52 32)" fill="#e0f2fe" stroke="#111" stroke-width="1.5"/><ellipse cx="64" cy="32" rx="6" ry="18" transform="rotate(15 64 32)" fill="#e0f2fe" stroke="#111" stroke-width="1.5"/><ellipse cx="52" cy="68" rx="6" ry="18" transform="rotate(20 52 68)" fill="#e0f2fe" stroke="#111" stroke-width="1.5"/><ellipse cx="64" cy="68" rx="6" ry="18" transform="rotate(-15 64 68)" fill="#e0f2fe" stroke="#111" stroke-width="1.5"/><circle cx="32" cy="50" r="6" fill="#10b981" stroke="#111" stroke-width="2"/></svg>`,
+                firefly: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="58" cy="48" rx="12" ry="18" fill="#1e293b" stroke="#111" stroke-width="2.2"/><circle cx="58" cy="66" r="8" fill="#bef264" stroke="#84cc16" stroke-width="2"/><circle cx="58" cy="28" r="6" fill="#ef4444" stroke="#111" stroke-width="2"/></svg>`,
+                cicada: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="60" cy="48" rx="14" ry="18" fill="#78350f" stroke="#111" stroke-width="2.2"/><ellipse cx="48" cy="60" rx="8" ry="22" transform="rotate(15 48 60)" fill="#d97706" stroke="#111" stroke-width="2"/><ellipse cx="72" cy="60" rx="8" ry="22" transform="rotate(-15 72 60)" fill="#d97706" stroke="#111" stroke-width="2"/><circle cx="48" cy="34" r="3" fill="#111"/><circle cx="72" cy="34" r="3" fill="#111"/></svg>`,
+                stick_insect: `<svg class="${sizeClass}" viewBox="0 0 120 100"><line x1="20" y1="50" x2="100" y2="50" stroke="#78350f" stroke-width="5" stroke-linecap="round"/><polyline points="38,50 28,28 16,24" fill="none" stroke="#78350f" stroke-width="2.5"/><polyline points="56,50 52,76 44,86" fill="none" stroke="#78350f" stroke-width="2.5"/><polyline points="78,50 86,76 96,84" fill="none" stroke="#78350f" stroke-width="2.5"/></svg>`,
+                orchid_mantis: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="70" cy="58" rx="22" ry="11" fill="#f472b6" stroke="#111" stroke-width="2.2"/><ellipse cx="56" cy="70" rx="10" ry="6" fill="#fbcfe8" stroke="#111" stroke-width="1.8"/><ellipse cx="78" cy="70" rx="10" ry="6" fill="#fbcfe8" stroke="#111" stroke-width="1.8"/><line x1="50" y1="52" x2="36" y2="34" stroke="#f472b6" stroke-width="6" stroke-linecap="round"/><polygon points="30,30 42,28 36,38" fill="#fdf2f8" stroke="#111" stroke-width="2"/></svg>`,
+                rainbow_stag: `<svg class="${sizeClass}" viewBox="0 0 120 100"><defs><linearGradient id="rbStag" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#10b981"/><stop offset="50%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><ellipse cx="60" cy="64" rx="16" ry="20" fill="url(#rbStag)" stroke="#111" stroke-width="2.5"/><rect x="46" y="38" width="28" height="12" rx="5" fill="#10b981" stroke="#111" stroke-width="2.5"/><path d="M50 38 Q40 16 54 14 M70 38 Q80 16 66 14" fill="none" stroke="#a855f7" stroke-width="4.5" stroke-linecap="round"/></svg>`,
+
+                // 絶滅動物（添付5種以外）
+                triceratops: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="68" cy="60" rx="26" ry="16" fill="#65a30d" stroke="#111" stroke-width="2.5"/><circle cx="44" cy="48" r="14" fill="#84cc16" stroke="#111" stroke-width="2.5"/><ellipse cx="34" cy="56" rx="12" ry="9" fill="#65a30d" stroke="#111" stroke-width="2.2"/><line x1="32" y1="48" x2="14" y2="38" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="24" y1="54" x2="16" y2="48" stroke="#fff" stroke-width="3" stroke-linecap="round"/><rect x="48" y="72" width="7" height="14" rx="3" fill="#4d7c0f" stroke="#111" stroke-width="2"/><rect x="78" y="72" width="7" height="14" rx="3" fill="#4d7c0f" stroke="#111" stroke-width="2"/></svg>`,
+                stegosaurus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><polygon points="44,44 50,26 56,44" fill="#f97316" stroke="#111" stroke-width="2"/><polygon points="58,42 66,22 74,42" fill="#f97316" stroke="#111" stroke-width="2"/><polygon points="74,44 82,28 88,46" fill="#f97316" stroke="#111" stroke-width="2"/><ellipse cx="64" cy="58" rx="28" ry="16" fill="#15803d" stroke="#111" stroke-width="2.5"/><ellipse cx="28" cy="60" rx="10" ry="6" fill="#16a34a" stroke="#111" stroke-width="2.2"/><path d="M90 58 L112 52 L114 44 M110 56 L116 50" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><rect x="46" y="70" width="7" height="14" rx="3" fill="#166534" stroke="#111" stroke-width="2"/><rect x="76" y="70" width="7" height="14" rx="3" fill="#166534" stroke="#111" stroke-width="2"/></svg>`,
+                pteranodon: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M10 46 Q56 26 110 46 L72 56 L48 56 Z" fill="#d97706" stroke="#111" stroke-width="2.2"/><polygon points="52,44 32,48 52,52" fill="#facc15" stroke="#111" stroke-width="2"/><polygon points="58,44 76,34 62,48" fill="#b45309" stroke="#111" stroke-width="2"/></svg>`,
+                ammonite: `<svg class="${sizeClass}" viewBox="0 0 120 100"><circle cx="60" cy="50" r="28" fill="#d97706" stroke="#111" stroke-width="2.5"/><path d="M60 50 C60 44 68 44 68 50 C68 60 52 60 52 48 C52 34 76 34 76 52 C76 70 44 70 44 46 C44 26 84 26 84 52" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+                trilobite: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="60" cy="52" rx="22" ry="30" fill="#78716c" stroke="#111" stroke-width="2.5"/><line x1="52" y1="24" x2="52" y2="80" stroke="#111" stroke-width="2"/><line x1="68" y1="24" x2="68" y2="80" stroke="#111" stroke-width="2"/><line x1="40" y1="44" x2="80" y2="44" stroke="#111" stroke-width="2"/><line x1="38" y1="56" x2="82" y2="56" stroke="#111" stroke-width="2"/><line x1="42" y1="68" x2="78" y2="68" stroke="#111" stroke-width="2"/></svg>`,
+                anomalocaris: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="64" cy="50" rx="30" ry="12" fill="#e11d48" stroke="#111" stroke-width="2.2"/><path d="M36 48 Q20 44 16 58 M36 54 Q22 54 20 66" fill="none" stroke="#be123c" stroke-width="4" stroke-linecap="round"/><circle cx="38" cy="42" r="4" fill="#fde047" stroke="#111" stroke-width="1.8"/><path d="M44 62 L52 66 L60 62 L68 66 L76 62 L84 66" fill="none" stroke="#fda4af" stroke-width="3"/></svg>`,
+                dunkleosteus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M16 50 Q42 26 84 44 L106 32 L100 50 L106 68 L84 58 Q42 74 16 50 Z" fill="#475569" stroke="#111" stroke-width="2.5"/><path d="M22 52 L42 52 L34 64 Z" fill="#1e293b" stroke="#111" stroke-width="2"/><polygon points="24,52 28,58 32,52 36,58 40,52" fill="#fff"/><circle cx="34" cy="42" r="3" fill="#fde047"/></svg>`,
+                spinosaurus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M42 52 C42 22 86 22 86 52 Z" fill="#ea580c" stroke="#111" stroke-width="2.5"/><ellipse cx="64" cy="58" rx="26" ry="12" fill="#0d9488" stroke="#111" stroke-width="2.5"/><polygon points="40,54 14,50 14,56 40,60" fill="#14b8a6" stroke="#111" stroke-width="2"/><rect x="54" y="68" width="6" height="16" rx="2" fill="#0f766e" stroke="#111" stroke-width="2"/><rect x="70" y="68" width="6" height="16" rx="2" fill="#0f766e" stroke="#111" stroke-width="2"/></svg>`,
+                mosasaurus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M12 50 Q46 34 86 50 L110 38 L104 52 L110 64 L86 56 Q46 66 12 50 Z" fill="#1e3a8a" stroke="#111" stroke-width="2.5"/><polygon points="42,56 32,74 52,60" fill="#2563eb" stroke="#111" stroke-width="2"/><polygon points="72,56 66,72 80,58" fill="#2563eb" stroke="#111" stroke-width="2"/><circle cx="28" cy="47" r="2.5" fill="#fde047"/></svg>`,
+                quetzalcoatlus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><path d="M8 46 Q56 22 112 46 L74 58 L46 58 Z" fill="#b45309" stroke="#111" stroke-width="2.2"/><polygon points="54,44 26,46 54,52" fill="#fbbf24" stroke="#111" stroke-width="2"/><polygon points="58,44 74,36 62,48" fill="#92400e" stroke="#111" stroke-width="2"/></svg>`,
+                futabasaurus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="72" cy="58" rx="22" ry="12" fill="#0284c7" stroke="#111" stroke-width="2.5"/><path d="M52 54 Q34 44 22 26" fill="none" stroke="#0284c7" stroke-width="7" stroke-linecap="round"/><path d="M52 54 Q34 44 22 26" fill="none" stroke="#111" stroke-width="2"/><ellipse cx="20" cy="24" rx="7" ry="4" fill="#0369a1" stroke="#111" stroke-width="2"/><polygon points="58,66 48,82 64,68" fill="#38bdf8" stroke="#111" stroke-width="2"/><polygon points="80,66 74,82 88,68" fill="#38bdf8" stroke="#111" stroke-width="2"/></svg>`,
+                argentinosaurus: `<svg class="${sizeClass}" viewBox="0 0 120 100"><ellipse cx="66" cy="58" rx="28" ry="16" fill="#65a30d" stroke="#111" stroke-width="2.5"/><path d="M42 52 Q26 36 16 18" fill="none" stroke="#65a30d" stroke-width="8" stroke-linecap="round"/><path d="M42 52 Q26 36 16 18" fill="none" stroke="#111" stroke-width="2"/><ellipse cx="14" cy="18" rx="6" ry="4" fill="#84cc16" stroke="#111" stroke-width="2"/><path d="M92 56 L114 64" stroke="#65a30d" stroke-width="7" stroke-linecap="round"/><rect x="46" y="70" width="8" height="18" rx="3" fill="#4d7c0f" stroke="#111" stroke-width="2"/><rect x="76" y="70" width="8" height="18" rx="3" fill="#4d7c0f" stroke="#111" stroke-width="2"/></svg>`
+            };
+
+            return customSvgs[key] || `<span class="text-5xl">🐾</span>`;
         }
 
         function showAlbum() {
@@ -2550,7 +1989,7 @@
                 wrapper.className = "flex justify-center items-center cursor-pointer transform hover:scale-105 transition-transform duration-200";
 
                 if (isOwned) {
-                    wrapper.innerHTML = createCardHtml(card, false);
+                    wrapper.innerHTML = createCardHtml(card);
                     wrapper.onclick = () => showCardDetailModal(card);
                 } else {
                     wrapper.innerHTML = `
@@ -2688,11 +2127,9 @@
 
         function restartAll() {
             document.getElementById('all-clear-modal').classList.add('hidden');
-            userNavigatedInSession = true;
             clearedFlags = new Array(TOTAL_QUESTIONS).fill(false);
             currentGlobalQIdx = 0;
-            inProgressStep = null;
-            saveProgressToCloud(0);
+            saveProgress();
             renderMenuCards();
             showMenu();
         }
