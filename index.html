@@ -584,120 +584,121 @@
         const CATEGORY_ORDER = ['どうぶつ', 'さかな', 'とり', 'むし', '絶滅動物'];
 
         const BAKE_CARDS = [
-            // 【1】どうぶつ 20種類 (b1〜b20)
-            { id: 'b1', no: '001', name: 'ライオン', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-amber-950 via-orange-950 to-stone-950', rarity: 'RR', emoji: '🦁', habitat: 'アフリカのサバンナ', feature: '「百獣の王」とよばれ、オスにはりっぱなたてがみがある。群れで協力して狩りをする。' },
-            { id: 'b2', no: '002', name: 'アフリカゾウ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-stone-900 via-amber-950 to-stone-950', rarity: 'MUR', emoji: '🐘', habitat: 'アフリカのサバンナや森林', feature: '陸上で最大の動物。長い鼻は水浴びや食事だけでなく、仲間とのあいさつにも使う。' },
-            { id: 'b3', no: '003', name: 'キリン', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-yellow-950 via-amber-950 to-stone-950', rarity: 'U', emoji: '🦒', habitat: 'アフリカの草原', feature: '世界でいちばん背が高い動物。高い木の葉を食べるために首と舌がとても長い。' },
-            { id: 'b4', no: '004', name: 'ジャイアントパンダ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-emerald-950 via-stone-900 to-stone-950', rarity: 'SR', emoji: '🐼', habitat: '中国の竹林', feature: '白と黒の模様が特徴。1日のほとんどを竹やササを食べたり、眠ったりして過ごす。' },
-            { id: 'b5', no: '005', name: 'コアラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-teal-950 via-stone-900 to-stone-950', rarity: 'C', emoji: '🐨', habitat: 'オーストラリアのユーカリ林', feature: 'ユーカリの葉を食べて暮らす有袋類。消化にエネルギーを使うため1日20時間ほど眠る。' },
-            { id: 'b6', no: '006', name: 'カンガルー', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-orange-950 via-amber-950 to-stone-950', rarity: 'C', emoji: '🦘', habitat: 'オーストラリアの草原', feature: '発達した後ろ足と太いしっぽでバランスをとり、時速60キロ以上でジャンプして走る。' },
-            { id: 'b7', no: '007', name: 'ゴリラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-emerald-950 via-slate-900 to-stone-950', rarity: 'R', emoji: '🦍', habitat: 'アフリカの熱帯雨林', feature: '大きな体をしているがとても穏やかな性格。植物を中心に食べ、家族の群れで暮らす。' },
-            { id: 'b8', no: '008', name: 'トラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-orange-950 via-red-950 to-stone-950', rarity: 'RR', emoji: '🐯', habitat: 'アジアの森林や草原', feature: 'ネコ科最大の猛獣。しま模様は草むらに身を隠すのに役立ち、泳ぎもとても得意。' },
-            { id: 'b9', no: '009', name: 'オオカミ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-slate-900 via-indigo-950 to-stone-950', rarity: 'R', emoji: '🐺', habitat: '北半球の森林やツンドラ', feature: '家族を中心とした群れ（パック）をつくり、遠吠えで遠くの仲間と連絡を取り合う。' },
-            { id: 'b10', no: '010', name: 'キツネ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-amber-950 via-yellow-950 to-stone-950', rarity: 'C', emoji: '🦊', habitat: '森・草原・人里近く', feature: 'ふさふさのしっぽととがった耳をもつ。聴力がすぐれ、雪の下のネズミの音も聞き分ける。' },
-            { id: 'b11', no: '011', name: 'ホッキョクグマ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-sky-950 via-slate-900 to-stone-950', rarity: 'SR', emoji: '🐻‍❄️', habitat: '北極圏の海氷・沿岸', feature: '分厚い脂肪と透明な毛皮で極寒に耐える。氷の上を歩き、何十キロも海を泳ぐことができる。' },
-            { id: 'b12', no: '012', name: 'カバ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-purple-950 via-stone-900 to-stone-950', rarity: 'U', emoji: '🦛', habitat: 'アフリカの川や湖', feature: '昼間は水中で涼み、夜に陸へ上がって草を食べる。大きく開く口と鋭い牙をもつ。' },
-            { id: 'b13', no: '013', name: 'サイ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-stone-900 via-slate-900 to-stone-950', rarity: 'R', emoji: '🦏', habitat: 'アフリカ・アジアの草原や森', feature: '鼻の上にある大きな角と、よろいのように硬く分厚い皮膚をもつ草食動物。' },
-            { id: 'b14', no: '014', name: 'シマウマ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-slate-900 via-stone-900 to-stone-950', rarity: 'C', emoji: '🦓', habitat: 'アフリカのサバンナ', feature: '白と黒のしま模様は1頭ずつちがう。群れで行動すると敵から輪郭がわかりにくくなる。' },
-            { id: 'b15', no: '015', name: 'ナマケモノ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-emerald-950 via-lime-950 to-stone-950', rarity: 'U', emoji: '🦥', habitat: '中南米の熱帯雨林', feature: '長いカギ爪で木の枝にぶら下がって生活する。動きがとてもゆっくりで省エネ上手。' },
-            { id: 'b16', no: '016', name: 'カピバラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-amber-950 via-emerald-950 to-stone-950', rarity: 'AR', svgKey: 'capybara', habitat: '南米の水辺の草原', feature: '世界最大のネズミの仲間。指の間に水かきがあり、泳ぎや潜水がとても上手。' },
-            { id: 'b17', no: '017', name: 'レッサーパンダ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-orange-950 via-amber-950 to-stone-950', rarity: 'AR', svgKey: 'red_panda', habitat: 'ヒマラヤ山脈周辺の森林', feature: 'しま模様の長いしっぽでバランスをとり、木登りが得意。後ろ足で立ち上がることもある。' },
-            { id: 'b18', no: '018', name: 'カモノハシ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-teal-950 via-amber-950 to-stone-950', rarity: 'SAR', svgKey: 'platypus', habitat: 'オーストラリア東部の川', feature: '卵を産んで子育てする珍しい哺乳類。くちばしで水中の生き物の微弱な電気を感じとる。' },
-            { id: 'b19', no: '019', name: 'ユキヒョウ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-sky-950 via-indigo-950 to-stone-950', rarity: 'UR', svgKey: 'snow_leopard', habitat: '中央アジアの高山帯', feature: '岩場にまぎれる灰白色の毛並みと、寒さから顔を守る太く長いしっぽをもつ山のハンター。' },
-            { id: 'b20', no: '020', name: 'オカピ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', bgTone: 'from-rose-950 via-amber-950 to-stone-950', rarity: 'SAR', svgKey: 'okapi', habitat: 'コンゴ民主共和国の熱帯雨林', feature: 'おしりから足にかけてしま模様があるが、シマウマではなくキリンの仲間。「森の貴婦人」とよばれる。' },
+            // どうぶつ (20種: b1〜b20)
+            { id: 'b1', no: '001', name: 'ライオン', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'R', emoji: '🦁', habitat: 'アフリカの サバンナ', feature: '「百獣の王」とよばれる ネコ科の どうぶつ。オスには 立派な たてがみが あるよ。', bgTone: 'from-amber-950 via-orange-950 to-stone-950' },
+            { id: 'b2', no: '002', name: 'アフリカゾウ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'R', emoji: '🐘', habitat: 'アフリカの 草原や 森林', feature: '陸の上で もっとも 大きな どうぶつ。長い 鼻を 手のように 器用に つかうよ。', bgTone: 'from-stone-900 via-slate-800 to-stone-950' },
+            { id: 'b3', no: '003', name: 'キリン', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'U', emoji: '🦒', habitat: 'アフリカの サバンナ', feature: '世界で いちばん 背が 高い どうぶつ。長い 首で 高い 木の 葉っぱを 食べるよ。', bgTone: 'from-amber-950 via-yellow-900 to-stone-950' },
+            { id: 'b4', no: '004', name: 'ジャイアントパンダ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'SR', emoji: '🐼', habitat: '中国の 山奥の 竹林', feature: '白と 黒の もようが 特徴。1日の ほとんどを 大好きな 竹や ササを 食べて すごすよ。', bgTone: 'from-emerald-950 via-stone-900 to-stone-950' },
+            { id: 'b5', no: '005', name: 'コアラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'U', emoji: '🐨', habitat: 'オーストラリアの ユーカリ林', feature: '1日の うち 18〜20時間も 木の 上で 眠って すごす。ユーカリの 葉っぱが 大好き。', bgTone: 'from-slate-900 via-emerald-950 to-stone-950' },
+            { id: 'b6', no: '006', name: 'カンガルー', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'U', emoji: '🦘', habitat: 'オーストラリアの 草原', feature: 'おなかの 袋で 赤ちゃんを 育てる。太い しっぽで バランスを とり 大きく ジャンプするよ。', bgTone: 'from-orange-950 via-amber-950 to-stone-950' },
+            { id: 'b7', no: '007', name: 'チーター', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'RR', emoji: '🐆', habitat: 'アフリカの サバンナ', feature: '陸の どうぶつで 世界一 足が 速く、時速100キロメートル 以上で 走ることが できるよ。', bgTone: 'from-yellow-950 via-amber-900 to-stone-950' },
+            { id: 'b8', no: '008', name: 'ホッキョクグマ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'SR', emoji: '🐻‍❄️', habitat: '北極圏の 氷の上', feature: '寒い 北極で くらす 大きな クマ。白い 毛の 下の 皮膚は 太陽の 熱を 集めるため 黒いよ。', bgTone: 'from-sky-950 via-cyan-950 to-stone-950' },
+            { id: 'b9', no: '009', name: 'ゴリラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'RR', emoji: '🦍', habitat: 'アフリカの 熱帯雨林', feature: 'とても 力が 強いけれど 性格は やさしい 森の 巨人。群れで 仲良く くらしているよ。', bgTone: 'from-stone-900 via-emerald-950 to-stone-950' },
+            { id: 'b10', no: '010', name: 'カバ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'U', emoji: '🦛', habitat: 'アフリカの 川や 湖', feature: '昼間は 水の 中で すごし、夜に なると 陸に 上がって 草を 食べる 大きな どうぶつ。', bgTone: 'from-purple-950 via-slate-900 to-stone-950' },
+            { id: 'b11', no: '011', name: 'サイ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'R', emoji: '🦏', habitat: 'アフリカや アジアの 草原', feature: '鼻の 上に 大きな ツノを もつ どうぶつ。分厚い 皮膚は まるで よろいの ように 頑丈だよ。', bgTone: 'from-stone-900 via-zinc-800 to-stone-950' },
+            { id: 'b12', no: '012', name: 'シマウマ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'C', emoji: '🦓', habitat: 'アフリカの サバンナ', feature: '白と 黒の しまもようが 特徴。しまの 並び方は 人間の 指紋のように 1頭ずつ 違うよ。', bgTone: 'from-slate-900 via-stone-800 to-stone-950' },
+            { id: 'b13', no: '013', name: 'ラッコ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'AR', emoji: '🦦', habitat: '北太平洋の 沿岸の 海', feature: 'おなかの 上に 貝を のせ、石で 割って 食べる。流されないよう 海藻を 体に 巻いて 眠るよ。', bgTone: 'from-cyan-950 via-sky-950 to-stone-950' },
+            { id: 'b14', no: '014', name: 'ナマケモノ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'C', emoji: '🦥', habitat: '中南米の 熱帯雨林', feature: '木の 枝に ぶらさがって くらす。動きが とても ゆっくりで 1日に 数メートルしか 動かないよ。', bgTone: 'from-emerald-950 via-amber-950 to-stone-950' },
+            { id: 'b15', no: '015', name: 'ハリネズミ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'C', emoji: '🦔', habitat: 'ヨーロッパや アジアの 森林', feature: '背中に たくさんの 硬い 針を もつ 小さな どうぶつ。敵に おそわれると 丸く なって 身を 守るよ。', bgTone: 'from-amber-950 via-stone-900 to-stone-950' },
+            { id: 'b16', no: '016', name: 'カピバラ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'capybara', habitat: '南アメリカの 川辺や 湿地', feature: '世界で いちばん 大きな ネズミの 仲間。泳ぎが とくいで 温泉に つかる 姿も 人気だよ。', bgTone: 'from-amber-950 via-orange-950 to-stone-950' },
+            { id: 'b17', no: '017', name: 'レッサーパンダ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'red_panda', habitat: 'ヒマラヤや 中国の 森林', feature: 'ふさふさの しましまの しっぽが かわいい どうぶつ。木の ぼりが とても じょうずだよ。', bgTone: 'from-orange-950 via-red-950 to-stone-950' },
+            { id: 'b18', no: '018', name: 'カモノハシ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'SAR', emoji: null, svgKey: 'platypus', habitat: 'オーストラリアの 川や 湖', feature: 'カモの ような くちばしと ビーバーの ような しっぽを もち、卵を 産む めずらしい 哺乳類だよ。', bgTone: 'from-teal-950 via-amber-950 to-stone-950' },
+            { id: 'b19', no: '019', name: 'ユキヒョウ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'snow_leopard', habitat: '中央アジアの 高い 山岳地帯', feature: '雪山で くらす 幻の ヒョウ。ふかふかの 毛皮と 長い しっぽで 寒い 山でも 元気に 動けるよ。', bgTone: 'from-slate-900 via-sky-950 to-stone-950' },
+            { id: 'b20', no: '020', name: 'オカピ', category: 'どうぶつ', typeBg: 'bg-amber-500 text-stone-950', rarity: 'SAR', emoji: null, svgKey: 'okapi', habitat: 'アフリカの コンゴの 深い 森', feature: 'おしりの しまもようから シマウマの 仲間に 見えるけれど、実は キリンの 仲間なんだよ。', bgTone: 'from-rose-950 via-amber-950 to-stone-950' },
 
-            // 【2】さかな 20種類 (b21〜b40)
-            { id: 'b21', no: '021', name: 'クロマグロ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-sky-950 to-stone-950', rarity: 'R', emoji: '🐟', habitat: '世界中の外洋', feature: '泳ぎ続けることでエラに水を通し呼吸する高速スイマー。世界中の海を大回遊する。' },
-            { id: 'b22', no: '022', name: 'カクレクマノミ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-orange-950 via-sky-950 to-stone-950', rarity: 'C', emoji: '🐠', habitat: 'インド洋・太平洋のサンゴ礁', feature: '毒のあるイソギンチャクと共生し、外敵から身を守ってもらうかわりにエサを運ぶ。' },
-            { id: 'b23', no: '023', name: 'ハリセンボン', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-amber-950 via-sky-950 to-stone-950', rarity: 'C', emoji: '🐡', habitat: '世界中の暖かい海', feature: '危険を感じると水や空気を飲みこんで丸くふくらみ、体中のトゲを立てて身を守る。' },
-            { id: 'b24', no: '024', name: 'ホオジロザメ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-slate-900 via-blue-950 to-stone-950', rarity: 'RR', emoji: '🦈', habitat: '世界中の温帯〜熱帯の海', feature: '三角形の鋭い歯が何列も並び、抜け落ちても次々と新しい歯が生えてくる海のハンター。' },
-            { id: 'b25', no: '025', name: 'ナンヨウハギ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-cyan-950 to-stone-950', rarity: 'C', emoji: '🐠', habitat: 'インド洋・太平洋のサンゴ礁', feature: '鮮やかな青い体と黄色い尾びれが特徴。尾びれの付け根に鋭いトゲを隠しもつ。' },
-            { id: 'b26', no: '026', name: 'ベニザケ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-rose-950 via-sky-950 to-stone-950', rarity: 'U', emoji: '🐟', habitat: '北太平洋・北日本の川と海', feature: '川で生まれて海で大きく育ち、産卵の時期になるとにおいをたよりに生まれた川へ戻ってくる。' },
-            { id: 'b27', no: '027', name: 'ジンベエザメ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-indigo-950 to-stone-950', rarity: 'MUR', svgKey: 'whale_shark', habitat: '世界中の熱帯・亜熱帯の海', feature: '体長10メートルを超える世界最大の魚。大きな口を開けて海水ごとプランクトンをこしとる。' },
-            { id: 'b28', no: '028', name: 'マンボウ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-sky-950 via-slate-900 to-stone-950', rarity: 'AR', svgKey: 'sunfish', habitat: '世界中の温帯・熱帯の外洋', feature: '尾びれがなく円盤のようなユニークな形をした巨魚。海面で横になって日向ぼっこをすることがある。' },
-            { id: 'b29', no: '029', name: 'タツノオトシゴ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-amber-950 via-teal-950 to-stone-950', rarity: 'U', svgKey: 'seahorse', habitat: '世界中の浅い海の藻場', feature: 'しっぽを海藻に巻きつけて体を支える魚。オスのおなかにある袋で卵を育てて出産する。' },
-            { id: 'b30', no: '030', name: 'チョウチンアンコウ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-indigo-950 via-purple-950 to-stone-950', rarity: 'R', svgKey: 'anglerfish', habitat: '水深1000m前後の深海', feature: '頭の先から伸びた発光器をちょうちんのように光らせ、暗い深海で獲物をおびき寄せる。' },
-            { id: 'b31', no: '031', name: 'シーラカンス', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-stone-900 to-stone-950', rarity: 'UR', svgKey: 'coelacanth', habitat: 'アフリカ東岸・インドネシアの深海', feature: '約4億年前からほとんど姿が変わっていない「生きた化石」。手足のような肉質のひれをもつ。' },
-            { id: 'b32', no: '032', name: 'リュウグウノツカイ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-rose-950 via-indigo-950 to-stone-950', rarity: 'SAR', svgKey: 'oarfish', habitat: '世界中の深海', feature: '銀色の細長い体と赤い背びれをもつ神秘的な深海魚。立ち泳ぎをしながらエサを食べる。' },
-            { id: 'b33', no: '033', name: 'デンキウナギ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-yellow-950 via-slate-900 to-stone-950', rarity: 'RR', svgKey: 'electric_eel', habitat: '南米アマゾン川流域', feature: '体の発電器官から最大800ボルトもの強い電気を出し、獲物をしびれさせて捕らえる。' },
-            { id: 'b34', no: '034', name: 'トビウオ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-cyan-950 via-blue-950 to-stone-950', rarity: 'C', svgKey: 'flying_fish', habitat: '世界中の暖かい海', feature: '大きな胸びれを翼のように広げて海上を滑空し、数百メートルも飛んで敵から逃げる。' },
-            { id: 'b35', no: '035', name: 'ピラニア', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-red-950 via-stone-900 to-stone-950', rarity: 'U', svgKey: 'piranha', habitat: '南米アマゾン川などの河川', feature: 'カミソリのように鋭い歯と強いあごをもつ肉食魚。普段は臆病で群れをつくって暮らす。' },
-            { id: 'b36', no: '036', name: 'オニイトマキエイ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-slate-900 via-sky-950 to-stone-950', rarity: 'SR', svgKey: 'manta', habitat: '世界中の熱帯・亜熱帯の海', feature: '「マンタ」の名で知られる世界最大のエイ。空を飛ぶように優雅に海を泳ぐ。' },
-            { id: 'b37', no: '037', name: 'ウツボ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-lime-950 via-stone-900 to-stone-950', rarity: 'U', svgKey: 'moray_eel', habitat: '暖かい海の岩礁やサンゴ礁', feature: '岩のすき間に身をひそめ、のどの奥にある第2のあご（咽頭顎）で獲物を引きこむ。' },
-            { id: 'b38', no: '038', name: 'メカジキ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-blue-950 via-cyan-950 to-stone-950', rarity: 'R', svgKey: 'swordfish', habitat: '世界中の温帯〜熱帯の外洋', feature: '剣のように長く鋭くとがった上あごをもつ。泳ぐスピードがとても速く、ジャンプもする。' },
-            { id: 'b39', no: '039', name: 'ニシキゴイ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-red-950 via-amber-950 to-stone-950', rarity: 'AR', svgKey: 'koi', habitat: '日本の池や庭園', feature: '新潟県発祥の観賞魚。「泳ぐ宝石」とよばれ、紅白や黄金など美しい模様が世界中で愛される。' },
-            { id: 'b40', no: '040', name: 'ラブカ', category: 'さかな', typeBg: 'bg-sky-500 text-stone-950', bgTone: 'from-stone-950 via-rose-950 to-stone-950', rarity: 'SR', svgKey: 'frilled_shark', habitat: '世界中の深海', feature: 'ウナギのように細長い体と6対のフリルのようなエラをもつ古代ザメ。生きた化石とよばれる。' },
+            // さかな (20種: b21〜b40)
+            { id: 'b21', no: '021', name: 'カクレクマノミ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'C', emoji: '🐠', habitat: '暖かい 海の サンゴ礁', feature: '毒を もつ イソギンチャクの 中に 隠れて 身を 守る、オレンジと 白の しまもようの 魚。', bgTone: 'from-sky-950 via-orange-950 to-stone-950' },
+            { id: 'b22', no: '022', name: 'マグロ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'U', emoji: '🐟', habitat: '世界中の 広い 外洋', feature: '時速80キロメートル 以上の スピードで 泳ぎつづける 魚。止まると 呼吸が できなく なるよ。', bgTone: 'from-blue-950 via-sky-950 to-stone-950' },
+            { id: 'b23', no: '023', name: 'ハリセンボン', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'U', emoji: '🐡', habitat: '暖かい 海の 沿岸や サンゴ礁', feature: '危険を 感じると 水や 空気を 吸いこんで 体を 大きく ふくらませ、全身の トゲを 立てるよ。', bgTone: 'from-amber-950 via-sky-950 to-stone-950' },
+            { id: 'b24', no: '024', name: 'ホオジロザメ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'RR', emoji: '🦈', habitat: '世界中の 温帯・熱帯の 海', feature: '鋭い 三角形の 歯が 何列も 並んでいる 大型の サメ。遠くの においを かぎ分ける 力が すごいよ。', bgTone: 'from-slate-900 via-blue-950 to-stone-950' },
+            { id: 'b25', no: '025', name: 'ジンベエザメ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'whale_shark', habitat: '世界中の 暖かい 海', feature: '世界で いちばん 大きな 魚。全長10メートルを こえるけれど、小さな プランクトンを 食べる おとなしい 魚だよ。', bgTone: 'from-blue-950 via-indigo-950 to-stone-950' },
+            { id: 'b26', no: '026', name: 'マンボウ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'R', emoji: null, svgKey: 'sunfish', habitat: '世界中の 暖かい 海', feature: '尾びれが なく 丸くて 平べったい 不思議な 形の 魚。海面に 浮かんで ひなたぼっこを することも あるよ。', bgTone: 'from-sky-950 via-slate-900 to-stone-950' },
+            { id: 'b27', no: '027', name: 'タツノオトシゴ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'seahorse', habitat: '日本や 世界中の 浅い 海の 藻場', feature: '馬の ような 顔をした 魚の 仲間。しっぽを 海藻に 巻きつけて 流されないように しているよ。', bgTone: 'from-amber-950 via-teal-950 to-stone-950' },
+            { id: 'b28', no: '028', name: 'チョウチンアンコウ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'R', emoji: null, svgKey: 'anglerfish', habitat: '太陽の 光が 届かない 深海', feature: '頭の 先から 伸びた 発光器を ちょうちんの ように 光らせて、暗闇で 獲物を おびき寄せる 深海魚。', bgTone: 'from-indigo-950 via-stone-950 to-stone-950' },
+            { id: 'b29', no: '029', name: 'シーラカンス', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'coelacanth', habitat: 'アフリカや インドネシアの 深海', feature: '約4億年前から 姿が ほとんど 変わっていない「生きた化石」。手足の ような 頑丈な ヒレを もつよ。', bgTone: 'from-blue-950 via-slate-950 to-stone-950' },
+            { id: 'b30', no: '030', name: 'リュウグウノツカイ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'SAR', emoji: null, svgKey: 'oarfish', habitat: '世界中の 深い 海', feature: '銀色の 細長い 体と 赤い 背びれを もつ 神秘的な 深海魚。人魚伝説の モデルとも いわれているよ。', bgTone: 'from-indigo-950 via-rose-950 to-stone-950' },
+            { id: 'b31', no: '031', name: 'デンキウナギ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'RR', emoji: null, svgKey: 'electric_eel', habitat: '南アメリカの アマゾン川', feature: '体の中に 発電器官を もち、最大800ボルトもの 強い 電気を 出して 獲物を しびれさせるよ。', bgTone: 'from-yellow-950 via-slate-900 to-stone-950' },
+            { id: 'b32', no: '032', name: 'トビウオ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'C', emoji: null, svgKey: 'flying_fish', habitat: '世界中の 暖かい 海', feature: '大きな 胸びれを 翼の ように 広げて、海面の上を 100メートル 以上も 滑空する ことが できるよ。', bgTone: 'from-sky-950 via-cyan-950 to-stone-950' },
+            { id: 'b33', no: '033', name: 'ピラニア', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'U', emoji: null, svgKey: 'piranha', habitat: '南アメリカの アマゾン川など', feature: 'カミソリの ように 鋭い 歯と 強い アゴを もつ 肉食の 川魚。群れを つくって 行動するよ。', bgTone: 'from-red-950 via-stone-900 to-stone-950' },
+            { id: 'b34', no: '034', name: 'オニイトマキエイ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'SR', emoji: null, svgKey: 'manta', habitat: '熱帯・亜熱帯の 珊瑚礁の 海', feature: '「マンタ」と よばれる 世界最大の エイ。翼を 広げると 7メートルを こえ、海の中を 飛ぶように 泳ぐよ。', bgTone: 'from-slate-900 via-sky-950 to-stone-950' },
+            { id: 'b35', no: '035', name: 'ウツボ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'C', emoji: null, svgKey: 'moray_eel', habitat: '暖かい 海の 岩場や サンゴ礁', feature: '岩の すき間に 隠れて くらす 細長い 魚。口が 大きく 鋭い 歯を もち、「海のギャング」とも よばれるよ。', bgTone: 'from-lime-950 via-stone-900 to-stone-950' },
+            { id: 'b36', no: '036', name: 'カジキマグロ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'R', emoji: null, svgKey: 'swordfish', habitat: '世界中の 広い 海', feature: '剣の ように 長く 鋭い 上アゴを もつ 大型の 魚。時速100キロメートル 近い スピードで 泳ぐよ。', bgTone: 'from-blue-950 via-cyan-950 to-stone-950' },
+            { id: 'b37', no: '037', name: 'ニシキゴイ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'koi', habitat: '日本の 池や 川', feature: '赤や 白、黒などの 美しい 模様を もつ 日本生まれの 観賞魚。「泳ぐ宝石」と よばれて 世界中で 人気だよ。', bgTone: 'from-rose-950 via-amber-950 to-stone-950' },
+            { id: 'b38', no: '038', name: 'ラブカ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'SR', emoji: null, svgKey: 'frilled_shark', habitat: '世界中の 深海', feature: 'ウナギの ように 細長い 体を もつ 古代ザメ。6対の エラが フリルの ように 見える めずらしい サメだよ。', bgTone: 'from-slate-950 via-indigo-950 to-stone-950' },
+            { id: 'b39', no: '039', name: 'サケ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'C', emoji: '🐟', habitat: '北太平洋の 海と 日本の 川', feature: '川で 生まれて 海へ 下り、大きく 育つと 自分の 生まれた 川へ 戻って 卵を 産む 不思議な 魚。', bgTone: 'from-teal-950 via-blue-950 to-stone-950' },
+            { id: 'b40', no: '040', name: 'フグ', category: 'さかな', typeBg: 'bg-sky-400 text-stone-950', rarity: 'U', emoji: '🐡', habitat: '日本近海や 暖かい 海', feature: '敵に おそわれると おなかを ぷっくり ふくらませる 魚。歯が とても 丈夫で 貝殻も 噛みくだくよ。', bgTone: 'from-cyan-950 via-slate-900 to-stone-950' },
 
-            // 【3】とり 20種類 (b41〜b60)
-            { id: 'b41', no: '041', name: 'オオワシ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-stone-900 to-stone-950', rarity: 'SR', emoji: '🦅', habitat: '極東ロシア・冬の北海道', feature: '翼を広げると2.4メートルにもなる日本最大のワシ。強い爪でサケなどの魚をつかむ。' },
-            { id: 'b42', no: '042', name: 'フクロウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-indigo-950 via-amber-950 to-stone-950', rarity: 'R', emoji: '🦉', habitat: '世界中の森林', feature: '羽音を立てずに飛び、暗い夜でもよく見える大きな目とすぐれた聴力で獲物をとらえる。' },
-            { id: 'b43', no: '043', name: 'コウテイペンギン', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-blue-950 to-stone-950', rarity: 'RR', emoji: '🐧', habitat: '南極大陸の氷上と海', feature: 'ペンギンの中で最も体が大きい。極寒の南極の冬にオスが足の上で卵を温めてかえす。' },
-            { id: 'b44', no: '044', name: 'フラミンゴ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-pink-950 via-rose-950 to-stone-950', rarity: 'U', emoji: '🦩', habitat: 'アフリカ・南米などの塩湖', feature: '食べる藻やエビに含まれる色素によって羽がピンク色になる。片足で立って休む習性がある。' },
-            { id: 'b45', no: '045', name: 'インドクジャク', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-teal-950 via-emerald-950 to-stone-950', rarity: 'AR', emoji: '🦚', habitat: 'インド・スリランカの森林', feature: 'オスは目玉模様の美しい飾り羽を扇のように大きく広げ、ふるわせてメスにアピールする。' },
-            { id: 'b46', no: '046', name: 'コブハクチョウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-slate-900 to-stone-950', rarity: 'C', emoji: '🦢', habitat: 'ヨーロッパ〜アジアの湖や川', feature: '優雅な白い羽とS字に曲がった長い首をもつ大型の水鳥。長い助走をつけて水面から飛び立つ。' },
-            { id: 'b47', no: '047', name: 'コンゴウインコ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-red-950 via-yellow-950 to-stone-950', rarity: 'R', emoji: '🦜', habitat: '中南米の熱帯雨林', feature: '赤・青・黄色の鮮やかな羽をもつ大型のインコ。硬い木の実も割る頑丈なくちばしをもつ。' },
-            { id: 'b48', no: '048', name: 'マガモ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-emerald-950 via-teal-950 to-stone-950', rarity: 'C', emoji: '🦆', habitat: '北半球の湖・池・川', feature: 'オスの頭は光沢のある美しい緑色。水面におしりを突き出して水草や虫を食べる。' },
-            { id: 'b49', no: '049', name: 'ダチョウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'RR', svgKey: 'ostrich', habitat: 'アフリカのサバンナ', feature: '空は飛べないが世界最大の鳥。2本の指の強い足で時速70キロもの速さで走ることができる。' },
-            { id: 'b50', no: '050', name: 'ハチドリ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-emerald-950 via-cyan-950 to-stone-950', rarity: 'U', svgKey: 'hummingbird', habitat: '南北アメリカ大陸', feature: '1秒間に約50回も羽ばたいて空中で静止（ホバリング）し、細長いくちばしで花の蜜を吸う。' },
-            { id: 'b51', no: '051', name: 'カワセミ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-orange-950 to-stone-950', rarity: 'AR', svgKey: 'kingfisher', habitat: '日本やユーラシアの川や池', feature: '「渓流の宝石」とよばれるコバルトブルーの美しい鳥。水面にダイブして小魚をとらえる。' },
-            { id: 'b52', no: '052', name: 'オニオオハシ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-orange-950 via-stone-900 to-stone-950', rarity: 'U', svgKey: 'toucan', habitat: '南米の熱帯雨林', feature: '体ほどもある大きなオレンジ色のくちばしをもつ。中はスポンジ状で軽く、体温調節にも役立つ。' },
-            { id: 'b53', no: '053', name: 'ハシビロコウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-slate-900 via-teal-950 to-stone-950', rarity: 'SR', svgKey: 'shoebill', habitat: 'アフリカ中東部の湿地', feature: '木ぐつのように大きなくちばしをもつ。「動かない鳥」として有名で、魚が浮上するのをじっと待つ。' },
-            { id: 'b54', no: '054', name: 'キーウィ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-amber-950 via-lime-950 to-stone-950', rarity: 'R', svgKey: 'kiwi', habitat: 'ニュージーランドの森林', feature: '翼が退化して飛べない夜行性の鳥。くちばしの先端に鼻の穴があり、土の中のミミズを探す。' },
-            { id: 'b55', no: '055', name: 'ペリカン', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-sky-950 via-amber-950 to-stone-950', rarity: 'C', svgKey: 'pelican', habitat: '暖かい地域の海辺や湖', feature: '下くちばしに大きく伸びる袋（咽喉嚢）をもち、海水ごと魚をすくい取って水を吐き出し飲みこむ。' },
-            { id: 'b56', no: '056', name: 'ツバメ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-blue-950 via-indigo-950 to-stone-950', rarity: 'C', svgKey: 'swallow', habitat: '春〜夏に日本へ渡ってくる地域', feature: '細長い翼と二股の尾羽でアクロバットのように飛び、空中で虫をとらえる。民家の軒先に巣を作る。' },
-            { id: 'b57', no: '057', name: 'タンチョウ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-rose-950 via-slate-900 to-stone-950', rarity: 'UR', svgKey: 'crane', habitat: '北海道の湿原・東アジア', feature: '純白の羽に頭のてっぺんの赤い皮膚が映える日本の特別天然記念物。冬に求愛ダンスを踊る。' },
-            { id: 'b58', no: '058', name: 'カカポ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-lime-950 via-emerald-950 to-stone-950', rarity: 'SAR', svgKey: 'kakapo', habitat: 'ニュージーランドの保護島', feature: '世界で唯一飛ぶことができない夜行性の大型オウム。コケのような緑色の羽で森に溶けこむ。' },
-            { id: 'b59', no: '059', name: 'ヘビクイワシ', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-slate-900 via-amber-950 to-stone-950', rarity: 'R', svgKey: 'secretarybird', habitat: 'アフリカのサバンナ', feature: '長いまつげと後頭部の飾り羽をもつ猛禽類。長い足で毒ヘビを踏みつけて仕留めるハンター。' },
-            { id: 'b60', no: '060', name: 'ケツァール', category: 'とり', typeBg: 'bg-emerald-500 text-stone-950', bgTone: 'from-emerald-950 via-rose-950 to-stone-950', rarity: 'UR', svgKey: 'quetzal', habitat: '中米の雲霧林', feature: '「世界一美しい鳥」とよばれる神秘の鳥。オスは体長より長いエメラルドグリーンの飾り尾をもつ。' },
+            // とり (20種: b41〜b60)
+            { id: 'b41', no: '041', name: 'ワシ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'RR', emoji: '🦅', habitat: '山岳地帯や 森林、海岸', feature: '大きな 翼と 鋭い ツメを もつ 鳥の 王様。はるか 上空から 地面の 小さな 獲物を 見つける 視力が あるよ。', bgTone: 'from-amber-950 via-stone-900 to-stone-950' },
+            { id: 'b42', no: '042', name: 'フクロウ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'R', emoji: '🦉', habitat: '世界中の 森林', feature: '夜に 活動する 森の 賢者。羽音を 立てずに 静かに 飛び、首を 270度も 回す ことが できるよ。', bgTone: 'from-indigo-950 via-amber-950 to-stone-950' },
+            { id: 'b43', no: '043', name: 'コウテイペンギン', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'SR', emoji: '🐧', habitat: '南極大陸の 氷の上', feature: 'ペンギンの なかで いちばん 体が 大きい。マイナス60度の 極寒の 南極で オスが 卵を 温めて 育てるよ。', bgTone: 'from-sky-950 via-slate-900 to-stone-950' },
+            { id: 'b44', no: '044', name: 'フラミンゴ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'U', emoji: '🦩', habitat: 'アフリカや 南米の 塩湖', feature: '鮮やかな ピンク色の 羽と 長い 脚が 特徴。冷たい 水から 体温を 守るため 片足立ちで 眠ることが あるよ。', bgTone: 'from-pink-950 via-rose-950 to-stone-950' },
+            { id: 'b45', no: '045', name: 'クジャク', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'SR', emoji: '🦚', habitat: 'インドや 東南アジアの 森林', feature: 'オスは 目玉模様が 並んだ 美しい 飾り羽を 扇の ように 大きく 広げて メスに アピールするよ。', bgTone: 'from-emerald-950 via-teal-950 to-stone-950' },
+            { id: 'b46', no: '046', name: 'ハクチョウ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'U', emoji: '🦢', habitat: '湖や 沼、川', feature: '真っ白な 羽と 長く 優雅な 首を もつ 大きな 水鳥。冬に なると 遠く シベリアから 日本へ 渡ってくるよ。', bgTone: 'from-sky-950 via-indigo-950 to-stone-950' },
+            { id: 'b47', no: '047', name: 'オウム', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'R', emoji: '🦜', habitat: 'オーストラリアや 熱帯の 森林', feature: '頭の上に 立てられる 冠羽（かんう）を もつ 賢い 鳥。人間の 言葉や いろいろな 音の まねが とても じょうずだよ。', bgTone: 'from-red-950 via-emerald-950 to-stone-950' },
+            { id: 'b48', no: '048', name: 'ハト', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'C', emoji: '🕊️', habitat: '街の 公園や 森林', feature: '平和の 象徴と される 身近な 鳥。遠く 離れた 場所からでも 自分の 巣へ 戻れる すごい 方向感覚を もつよ。', bgTone: 'from-slate-900 via-sky-950 to-stone-950' },
+            { id: 'b49', no: '049', name: 'ダチョウ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'R', emoji: null, svgKey: 'ostrich', habitat: 'アフリカの サバンナや 砂漠', feature: '世界で いちばん 大きく 重い 鳥。空は 飛べないけれど、時速70キロメートルで 走る ことが できるよ。', bgTone: 'from-amber-950 via-orange-950 to-stone-950' },
+            { id: 'b50', no: '050', name: 'ハチドリ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'hummingbird', habitat: '南北アメリカの 森林や 花畑', feature: '世界で いちばん 小さな 鳥の 仲間。1秒間に 約50回も 羽ばたいて 空中で 止まったまま 花の 蜜を 吸うよ。', bgTone: 'from-emerald-950 via-pink-950 to-stone-950' },
+            { id: 'b51', no: '051', name: 'カワセミ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'kingfisher', habitat: '日本の きれいな 川や 池', feature: '「渓流の宝石」と よばれる 鮮やかな 青と オレンジ色の 鳥。水中に 飛びこんで 小魚を つかまえるよ。', bgTone: 'from-sky-950 via-teal-950 to-stone-950' },
+            { id: 'b52', no: '052', name: 'オオハシ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'U', emoji: null, svgKey: 'toucan', habitat: '中南米の 熱帯雨林', feature: '体ほども ある 大きく カラフルな くちばしが 特徴。見た目は 重そうだけれど、中身は スポンジ状で とても 軽いよ。', bgTone: 'from-orange-950 via-emerald-950 to-stone-950' },
+            { id: 'b53', no: '053', name: 'ハシビロコウ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'SR', emoji: null, svgKey: 'shoebill', habitat: 'アフリカ中部の 大きな 湿地', feature: '木靴の ような 巨大なくちばしを もつ 鳥。獲物の 魚が 水面に 浮かぶまで 何時間も じっと 動かずに 待つよ。', bgTone: 'from-slate-900 via-teal-950 to-stone-950' },
+            { id: 'b54', no: '054', name: 'キーウィ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'kiwi', habitat: 'ニュージーランドの 森林', feature: '翼が 退化して 飛べない 夜行性の 鳥。細長いくちばしの 先端に 鼻の 穴が あり、土の中の 虫を 探すよ。', bgTone: 'from-amber-950 via-emerald-950 to-stone-950' },
+            { id: 'b55', no: '055', name: 'ペリカン', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'C', emoji: null, svgKey: 'pelican', habitat: '暖かい 地域の 湖や 海岸', feature: '下くちばしに 大きく ふくらむ 袋を もつ 水鳥。魚を 水ごと 大きな 袋で すくい取って つかまえるよ。', bgTone: 'from-sky-950 via-amber-950 to-stone-950' },
+            { id: 'b56', no: '056', name: 'ツバメ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'C', emoji: null, svgKey: 'swallow', habitat: '日本の 街や 農村（夏鳥）', feature: '春に 南の 国から やってきて 家の 軒先などに 泥と 枯れ草で 巣を 作る。飛びながら 虫を つかまえるよ。', bgTone: 'from-blue-950 via-sky-950 to-stone-950' },
+            { id: 'b57', no: '057', name: 'タンチョウ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'crane', habitat: '北海道の 湿原', feature: '頭の てっぺんが 赤い 日本の 特別天然記念物。翼を 広げると 2メートルを こえ、雪原で 美しい ダンスを 踊るよ。', bgTone: 'from-rose-950 via-slate-900 to-stone-950' },
+            { id: 'b58', no: '058', name: 'カカポ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'SAR', emoji: null, svgKey: 'kakapo', habitat: 'ニュージーランドの 森林', feature: '世界で 唯一の「飛べない オウム」。フクロウの ような 顔をしていて、夜に 歩いて 木の実を 探すよ。', bgTone: 'from-lime-950 via-emerald-950 to-stone-950' },
+            { id: 'b59', no: '059', name: 'ヘビクイワシ', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'RR', emoji: null, svgKey: 'secretarybird', habitat: 'アフリカの サバンナ', feature: 'まつげが 長く モデルの ような 姿をした 鳥。長い 脚の 強烈な キックで 毒ヘビを 退治するよ。', bgTone: 'from-amber-950 via-slate-900 to-stone-950' },
+            { id: 'b60', no: '060', name: 'ケツァール', category: 'とり', typeBg: 'bg-emerald-400 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'quetzal', habitat: '中米の 雲霧林', feature: '「世界で もっとも 美しい 鳥」と よばれる エメラルド色の 鳥。オスは 1メートル 近い 長い 飾り尾羽を もつよ。', bgTone: 'from-emerald-950 via-rose-950 to-stone-950' },
 
-            // 【4】むし 20種類 (b61〜b80)
-            { id: 'b61', no: '061', name: 'ヤマトカブトムシ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'RR', emoji: '🪲', habitat: '日本の雑木林', feature: 'りっぱな角と硬いよろいをもち、自分の体重の20倍もの重さを引く力持ちの昆虫。' },
-            { id: 'b62', no: '062', name: 'セイヨウミツバチ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-amber-950 to-stone-950', rarity: 'C', emoji: '🐝', habitat: '世界中の花畑や草原', feature: '花の蜜を集めてハチミツを作り、8の字ダンスで仲間に蜜のある場所の方向と距離を伝える。' },
-            { id: 'b63', no: '063', name: 'ナナホシテントウ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-red-950 via-lime-950 to-stone-950', rarity: 'C', emoji: '🐞', habitat: '草むらや畑', feature: '赤い羽に7つの黒い星をもつ。植物につくアブラムシをたくさん食べてくれる益虫。' },
-            { id: 'b64', no: '064', name: 'キアゲハ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-emerald-950 to-stone-950', rarity: 'U', emoji: '🦋', habitat: '草原・河原・山地の花畑', feature: '黄色と黒の美しい模様をもつ大型のチョウ。幼虫はニンジンやセリなどの葉を食べて育つ。' },
-            { id: 'b65', no: '065', name: 'トノサマバッタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-lime-950 via-green-950 to-stone-950', rarity: 'C', emoji: '🦗', habitat: '河原や日当たりのよい草原', feature: 'たくましい後ろ足で高くジャンプし、羽を広げて遠くまで飛ぶことができる日本の大型バッタ。' },
-            { id: 'b66', no: '066', name: 'クロオオアリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-stone-900 via-amber-950 to-stone-950', rarity: 'C', emoji: '🐜', habitat: '公園・庭・森の土の中', feature: '女王アリを中心に大きな巣を作り、働きアリが役割を分担してエサ集めや子育てを行う。' },
-            { id: 'b67', no: '067', name: 'ダイオウサソリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-purple-950 via-stone-900 to-stone-950', rarity: 'R', emoji: '🦂', habitat: '西アフリカの熱帯雨林', feature: '体長20センチにもなる世界最大級のサソリ。大きなハサミをもち、ブラックライトを当てると青く光る。' },
-            { id: 'b68', no: '068', name: 'ジョロウグモ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-indigo-950 to-stone-950', rarity: 'U', emoji: '🕷️', habitat: '日本の林や公園の木々', feature: '黄色と黒と赤の鮮やかな模様をもつクモ。三重構造の丈夫なクモの巣を張って虫をとらえる。' },
-            { id: 'b69', no: '069', name: 'オオクワガタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-stone-950 via-amber-950 to-stone-950', rarity: 'SR', svgKey: 'stag_beetle', habitat: '日本のクヌギやナラの雑木林', feature: '太く湾曲した大あごと黒い輝きをもつ人気のクワガタ。「黒いダイヤ」とよばれ寿命も長い。' },
-            { id: 'b70', no: '070', name: 'ヘラクレスオオカブト', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-yellow-900 to-stone-950', rarity: 'MUR', svgKey: 'hercules', habitat: '中南米の熱帯雨林', feature: '体長17センチを超える世界最大のカブトムシ。長い胸角と頭角で相手をはさんで投げ飛ばす。' },
-            { id: 'b71', no: '071', name: 'ギラファノコギリクワガタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-slate-900 via-amber-950 to-stone-950', rarity: 'UR', svgKey: 'giraffe_stag', habitat: '東南アジアの熱帯雨林', feature: 'キリン（ギラファ）のように長く伸びた大あごをもつ世界最長のクワガタムシ。' },
-            { id: 'b72', no: '072', name: 'オオムラサキ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-purple-950 via-indigo-950 to-stone-950', rarity: 'SAR', svgKey: 'oomurasaki', habitat: '日本や東アジアの雑木林', feature: '日本の国蝶に指定されている美しいチョウ。オスの羽は光の角度によって鮮やかな青紫色に輝く。' },
-            { id: 'b73', no: '073', name: 'モルフォチョウ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-sky-950 via-blue-950 to-stone-950', rarity: 'AR', svgKey: 'morpho', habitat: '中南米の熱帯雨林', feature: '「生きた宝石」とよばれるメタリックブルーのチョウ。羽のうろこが光を反射して輝く。' },
-            { id: 'b74', no: '074', name: 'オオカマキリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-lime-950 via-emerald-950 to-stone-950', rarity: 'U', svgKey: 'mantis', habitat: '日本の草原や林のふち', feature: 'トゲの並んだ前足（カマ）で獲物を素早くつかまえる肉食昆虫。秋にスポンジ状の卵のうを産む。' },
-            { id: 'b75', no: '075', name: 'オニヤンマ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-yellow-950 via-emerald-950 to-stone-950', rarity: 'R', svgKey: 'dragonfly', habitat: '日本の里山の小川や林', feature: '黒と黄色のしま模様をもつ日本最大のトンボ。時速70キロで飛び、空中で他の虫をとらえる。' },
-            { id: 'b76', no: '076', name: 'ゲンジボタル', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-lime-950 via-slate-900 to-stone-950', rarity: 'AR', svgKey: 'firefly', habitat: 'きれいな水が流れる日本の川辺', feature: '初夏の夜におしりを黄緑色に光らせて飛び、光のリズムで仲間に合図を送る日本の固有種。' },
-            { id: 'b77', no: '077', name: 'アブラゼミ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'C', svgKey: 'cicada', habitat: '日本の公園や雑木林', feature: '羽が茶色く不透明な珍しいセミ。数年を土の中で幼虫として過ごし、夏に地上へ出て鳴く。' },
-            { id: 'b78', no: '078', name: 'ナナフシモドキ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-amber-950 via-lime-950 to-stone-950', rarity: 'U', svgKey: 'stick_insect', habitat: '日本の雑木林の木の葉や枝', feature: '木の小枝にそっくりな細長い体で敵の目をあざむく擬態の名人。風で揺れる枝のまねもする。' },
-            { id: 'b79', no: '079', name: 'ハナカマキリ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-pink-950 via-rose-950 to-stone-950', rarity: 'SAR', svgKey: 'orchid_mantis', habitat: '東南アジアの熱帯雨林', feature: 'ランの花びらのような白やピンクの美しい体をもち、花に擬態して蜜を吸いに来た虫をとらえる。' },
-            { id: 'b80', no: '080', name: 'ニジイロクワガタ', category: 'むし', typeBg: 'bg-lime-500 text-stone-950', bgTone: 'from-emerald-950 via-purple-950 to-stone-950', rarity: 'UR', svgKey: 'rainbow_stag', habitat: 'オーストラリア北東部の熱帯雨林', feature: '緑・赤・紫など虹色に輝く「世界一美しいクワガタ」。上向きにカーブしたあごをもつ。' },
+            // むし (20種: b61〜b80)
+            { id: 'b61', no: '061', name: 'カブトムシ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'R', emoji: '🪲', habitat: '日本の 雑木林', feature: '立派な ツノを もつ「森の王様」。夏の 夜に クヌギや コナラの 木の 樹液を 吸いに 集まって くるよ。', bgTone: 'from-amber-950 via-stone-900 to-stone-950' },
+            { id: 'b62', no: '062', name: 'ミツバチ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'C', emoji: '🐝', habitat: '世界中の 花畑や 草原', feature: '花の 蜜や 花粉を 集めて 甘い ハチミツを 作る 働き者。ダンスを 踊って 仲間に 花の 場所を 教えるよ。', bgTone: 'from-yellow-950 via-amber-900 to-stone-950' },
+            { id: 'b63', no: '063', name: 'ナナホシテントウ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'C', emoji: '🐞', habitat: '草原や 畑、公園', feature: '赤い 背中に 7つの 黒い 星が ある かわいい 虫。植物を 荒らす アブラムシを たくさん 食べて くれるよ。', bgTone: 'from-red-950 via-emerald-950 to-stone-950' },
+            { id: 'b64', no: '064', name: 'アゲハチョウ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'U', emoji: '🦋', habitat: '公園や 庭、野原', feature: '美しい 羽を ひらひらさせて 花の 蜜を 吸う チョウ。幼虫は ミカンや サンショウの 葉っぱを 食べて 育つよ。', bgTone: 'from-sky-950 via-indigo-950 to-stone-950' },
+            { id: 'b65', no: '065', name: 'クロオオアリ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'C', emoji: '🐜', habitat: '地面の 中や 草原', feature: '女王アリを 中心に たくさんの 仲間と 協力して くらす。自分の 体重より 何十倍も 重い ものを 運べるよ。', bgTone: 'from-stone-900 via-amber-950 to-stone-950' },
+            { id: 'b66', no: '066', name: 'トノサマバッタ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'U', emoji: '🦗', habitat: '日当たりの よい 草原', feature: '後ろ脚が とても 発達した 大きな バッタ。ピンチに なると 大きく ジャンプして 羽を 広げて 遠くまで 飛ぶよ。', bgTone: 'from-lime-950 via-emerald-950 to-stone-950' },
+            { id: 'b67', no: '067', name: 'クワガタムシ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'R', emoji: null, svgKey: 'stag_beetle', habitat: '日本の 雑木林', feature: 'ハサミの ような 大きな 大アゴを もつ 人気の 昆虫。カブトムシと 樹液の 場所を めぐって 力比べを するよ。', bgTone: 'from-stone-900 via-amber-950 to-stone-950' },
+            { id: 'b68', no: '068', name: 'ヘラクレスオオカブト', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'hercules', habitat: '中南米の 熱帯雨林', feature: '世界最大の カブトムシ。頭と 胸から 伸びた 2本の 長い ツノで 相手を はさんで 投げ飛ばす 怪力の 持ち主。', bgTone: 'from-yellow-950 via-amber-950 to-stone-950' },
+            { id: 'b69', no: '069', name: 'ギラファノコギリクワガタ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'SR', emoji: null, svgKey: 'giraffe_stag', habitat: '東南アジアの 森林', feature: '世界で いちばん 長い 大アゴを もつ クワガタ。全長は 12センチメートルを こえ、ノコギリの ような ギザギザが あるよ。', bgTone: 'from-slate-900 via-amber-950 to-stone-950' },
+            { id: 'b70', no: '070', name: 'オオムラサキ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'SR', emoji: null, svgKey: 'oomurasaki', habitat: '日本の 雑木林', feature: '日本の「国蝶（こくちょう）」に 指定されている 大きな チョウ。オスの 羽は 光が 当たると 美しい 紫色に 輝くよ。', bgTone: 'from-purple-950 via-indigo-950 to-stone-950' },
+            { id: 'b71', no: '071', name: 'モルフォチョウ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'SAR', emoji: null, svgKey: 'morpho', habitat: '中南米の 熱帯雨林', feature: '「生きた宝石」と よばれる チョウ。羽の 表面の 細かい 構造に 光が 反射して、まばゆい メタリックブルーに 輝くよ。', bgTone: 'from-blue-950 via-cyan-950 to-stone-950' },
+            { id: 'b72', no: '072', name: 'オオカマキリ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'U', emoji: null, svgKey: 'mantis', habitat: '草むらや 林の ふち', feature: 'カマの ような 前脚で 獲物を 素早く つかまえる 昆虫の ハンター。三角形の 頭を 動かして 周りを よく 見るよ。', bgTone: 'from-lime-950 via-green-950 to-stone-950' },
+            { id: 'b73', no: '073', name: 'オニヤンマ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'R', emoji: null, svgKey: 'dragonfly', habitat: '小川や 池の まわり', feature: '日本最大の トンボ。黒と 黄色の しまもようと 緑色の 大きな 目を もち、空中で 他の 虫を つかまえるよ。', bgTone: 'from-yellow-950 via-emerald-950 to-stone-950' },
+            { id: 'b74', no: '074', name: 'ゲンジボタル', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'firefly', habitat: 'きれいな 川が 流れる 水辺', feature: '初夏の 夜に おしりを 淡い 緑色に 光らせて 飛ぶ 虫。光の 点滅で 仲間と 会話を しているんだよ。', bgTone: 'from-indigo-950 via-lime-950 to-stone-950' },
+            { id: 'b75', no: '075', name: 'アブラゼミ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'C', emoji: null, svgKey: 'cicada', habitat: '公園や 雑木林', feature: '土の中で 何年も 幼虫として すごし、夏に 地上へ 出て 羽化する。「ジージージー」と 大きな 声で 鳴くよ。', bgTone: 'from-amber-950 via-stone-900 to-stone-950' },
+            { id: 'b76', no: '076', name: 'ナナフシ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'AR', emoji: null, svgKey: 'stick_insect', habitat: '森林や 雑木林の 木の上', feature: '木の 小枝に そっくりな 姿を して 敵の 目を ごまかす 擬態（ぎたい）の 名人。昼間は じっと 動かないよ。', bgTone: 'from-amber-950 via-emerald-950 to-stone-950' },
+            { id: 'b77', no: '077', name: 'ハナカマキリ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'SAR', emoji: null, svgKey: 'orchid_mantis', habitat: '東南アジアの 熱帯雨林', feature: '美しい ランの 花びらに そっくりな 姿を した カマキリ。花に 変身して 蜜を 吸いに 来た チョウや ハチを 捕まえるよ。', bgTone: 'from-pink-950 via-rose-950 to-stone-950' },
+            { id: 'b78', no: '078', name: 'ニジイロクワガタ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'UR', emoji: null, svgKey: 'rainbow_stag', habitat: 'オーストラリア北部の 熱帯雨林', feature: '「世界で もっとも 美しい クワガタ」と よばれる。緑・赤・紫など 見る 角度に よって 虹色に 輝くよ。', bgTone: 'from-purple-950 via-emerald-950 to-stone-950' },
+            { id: 'b79', no: '079', name: 'ミノムシ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'C', emoji: '🐛', habitat: '庭や 公園の 木の 枝', feature: '枯れ葉や 小枝を 糸で つづって 作った「みの」の 中に 隠れて くらす ガの 幼虫。とても 居心地が よい 家だよ。', bgTone: 'from-emerald-950 via-stone-900 to-stone-950' },
+            { id: 'b80', no: '080', name: 'サソリ', category: 'むし', typeBg: 'bg-lime-400 text-stone-950', rarity: 'RR', emoji: '🦂', habitat: '砂漠や 乾燥した 岩場', feature: 'ハサミと 毒針の ついた しっぽを もつ 生き物。暗い 場所で ブラックライトを 当てると 青白く 光る 性質が あるよ。', bgTone: 'from-amber-950 via-red-950 to-stone-950' },
 
-            // 【5】絶滅動物 20種類 (b81〜b100) ※添付5種を含む
-            { id: 'b81', no: '081', name: 'オオツノジカ', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'UR', svgKey: 'custom_megaloceros', habitat: '氷河期のユーラシア大陸', feature: '幅3.5メートル以上にもなる巨大な手のひら状の角をもっていた氷河期の大型のシカ。' },
-            { id: 'b82', no: '082', name: 'ドードー', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-slate-900 via-amber-950 to-stone-950', rarity: 'SAR', svgKey: 'custom_dodo', habitat: 'インド洋のモーリシャス島', feature: '天敵のいない島で翼が退化し飛べなくなった大きな鳥。丸い体と先が曲がった太いくちばしが特徴。' },
-            { id: 'b83', no: '083', name: 'サーベルタイガー', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-orange-950 via-amber-950 to-stone-950', rarity: 'SR', svgKey: 'custom_sabertooth', habitat: '氷河期の南北アメリカ大陸', feature: '剣のように長く鋭い2本の上あごの犬歯をもち、マンモスやバイソンなどの大型動物を狩っていた。' },
-            { id: 'b84', no: '084', name: 'メガロドン', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-blue-950 via-indigo-950 to-stone-950', rarity: 'MUR', svgKey: 'custom_megalodon', habitat: '約2300万〜360万年前の世界中の海', feature: '全長15〜20メートルに達した史上最大のサメ。人間の手のひらほどもある巨大な歯の化石が見つかる。' },
-            { id: 'b85', no: '085', name: 'ジャイアントモア', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-rose-950 to-stone-950', rarity: 'SR', svgKey: 'custom_moa', habitat: 'ニュージーランドの森林や草原', feature: '高さ3.6メートルにもなった史上最大級の飛べない鳥。翼が完全になく、太く頑丈な2本の足をもつ。' },
-            { id: 'b86', no: '086', name: 'ティラノサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-red-950 via-amber-950 to-stone-950', rarity: 'MUR', emoji: '🦖', habitat: '白亜紀後期の北アメリカ大陸', feature: '「暴君トカゲ」の名をもつ史上最大級の肉食恐竜。骨をも砕く強大なあごと鋭い歯をもっていた。' },
-            { id: 'b87', no: '087', name: 'ブラキオサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-emerald-950 via-teal-950 to-stone-950', rarity: 'RR', emoji: '🦕', habitat: 'ジュラ紀後期の北アメリカ・アフリカ', feature: '前足が後ろ足より長く、キリンよりもはるかに高い13メートルの高さの木の葉を食べていた大型草食恐竜。' },
-            { id: 'b88', no: '088', name: 'ケナガマンモス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-sky-950 to-stone-950', rarity: 'RR', emoji: '🦣', habitat: '氷河期のシベリア・北半球', feature: '長い体毛と大きく曲がった牙をもつゾウの仲間。永久凍土から氷漬けの標本も発見されている。' },
-            { id: 'b89', no: '089', name: 'トリケラトプス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-lime-950 via-emerald-950 to-stone-950', rarity: 'R', svgKey: 'triceratops', habitat: '白亜紀後期の北アメリカ大陸', feature: '目の上の2本の長い角と鼻の上の1本の角、首を守る大きなフリルをもった人気の草食恐竜。' },
-            { id: 'b90', no: '090', name: 'ステゴサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-green-950 via-orange-950 to-stone-950', rarity: 'R', svgKey: 'stegosaurus', habitat: 'ジュラ紀後期の北アメリカ大陸', feature: '背中に並ぶ五角形の大きな骨板と、しっぽの先端にある4本の鋭いトゲで肉食恐竜から身を守った。' },
-            { id: 'b91', no: '091', name: 'プテラノドン', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-sky-950 to-stone-950', rarity: 'U', svgKey: 'pteranodon', habitat: '白亜紀後期の北アメリカ沿岸', feature: '翼を広げると7メートル以上になる有名な翼竜。頭のとさかでバランスをとり海の上を滑空した。' },
-            { id: 'b92', no: '092', name: 'アンモナイト', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-stone-900 to-stone-950', rarity: 'C', svgKey: 'ammonite', habitat: '古生代〜中生代の世界中の海', feature: 'うずまき状の殻をもつイカやタコの仲間。殻の中の空気と水を調整して海の中を浮き沈みしていた。' },
-            { id: 'b93', no: '093', name: '三葉虫', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-stone-900 via-slate-900 to-stone-950', rarity: 'C', svgKey: 'trilobite', habitat: '古生代の世界中の海底', feature: '体が縦に3つの部分に分かれていることから名づけられた節足動物。約2億5000万年以上繁栄した。' },
-            { id: 'b94', no: '094', name: 'アノマロカリス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-rose-950 via-indigo-950 to-stone-950', rarity: 'AR', svgKey: 'anomalocaris', habitat: 'カンブリア紀の海', feature: '約5億年前の海で頂点に立っていた大型の捕食動物。2本の触手で三葉虫などをつかまえていた。' },
-            { id: 'b95', no: '095', name: 'ダンクルオステウス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-slate-900 via-blue-950 to-stone-950', rarity: 'R', svgKey: 'dunkleosteus', habitat: 'デボン紀後期の海', feature: '頭と胸が分厚い装甲板でおおわれた巨大な板皮類。ハサミのようなあごの骨で獲物を切り裂いた。' },
-            { id: 'b96', no: '096', name: 'スピノサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-teal-950 via-orange-950 to-stone-950', rarity: 'SAR', svgKey: 'spinosaurus', habitat: '白亜紀の北アフリカの水辺', feature: '背中に高さ1.8メートルもの大きな帆をもつ水辺の肉食恐竜。ワニのような細長い口で魚をとらえた。' },
-            { id: 'b97', no: '097', name: 'モササウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-blue-950 via-cyan-950 to-stone-950', rarity: 'SR', svgKey: 'mosasaurus', habitat: '白亜紀後期の世界中の海', feature: '全長15メートルを超える海の王者。4つのひれ足と強い尾びれで泳ぎ、恐竜時代の海を支配した。' },
-            { id: 'b98', no: '098', name: 'ケツァルコアトルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-amber-950 via-rose-950 to-stone-950', rarity: 'UR', svgKey: 'quetzalcoatlus', habitat: '白亜紀後期の北アメリカ大陸', feature: '翼を広げると10メートルを超える史上最大の空飛ぶ動物。立ち上がるとキリンほどの高さがあった。' },
-            { id: 'b99', no: '099', name: 'フタバスズキリュウ', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-sky-950 via-indigo-950 to-stone-950', rarity: 'AR', svgKey: 'futabasaurus', habitat: '白亜紀後期の日本近海', feature: '福島県いわき市で化石が発見された首長竜。4つのひれ足で海を泳ぎ、長い首で魚をとらえた。' },
-            { id: 'b100', no: '100', name: 'アルゼンチノサウルス', category: '絶滅動物', typeBg: 'bg-rose-600 text-white', bgTone: 'from-emerald-950 via-amber-950 to-stone-950', rarity: 'UR', svgKey: 'argentinosaurus', habitat: '白亜紀の南アメリカ大陸', feature: '全長35〜40メートル、体重約80トンにもなった地球史上最大級の超巨大草食恐竜。' }
+            // 絶滅動物 (20種: b81〜b100 / 添付5種を必ず収録)
+            { id: 'b81', no: '081', name: 'オオツノジカ', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'MUR', emoji: null, svgKey: 'custom_megaloceros', habitat: '氷河期の ユーラシア大陸', feature: '左右に 大きく 広がる 手のひら状の 巨大な ツノを もつ 絶滅した シカ。ツノの 幅は 3.5メートルにも なったよ。', bgTone: 'from-amber-950 via-rose-950 to-stone-950' },
+            { id: 'b82', no: '082', name: 'ドードー', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'MUR', emoji: null, svgKey: 'custom_dodo', habitat: 'インド洋の モーリシャス島', feature: '太くて 先が 曲がった 大きな くちばしと ふわふわの 尾羽を もつ 飛べない 鳥。天敵の いない 島で くらしていたよ。', bgTone: 'from-slate-900 via-rose-950 to-stone-950' },
+            { id: 'b83', no: '083', name: 'サーベルタイガー', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'MUR', emoji: null, svgKey: 'custom_sabertooth', habitat: '氷河期の 南北アメリカ大陸', feature: '口から 飛び出す 2本の 巨大な サーベル牙（犬歯）を もつ 肉食獣。がっしりした 体つきで 大型動物を 狩っていたよ。', bgTone: 'from-orange-950 via-rose-950 to-stone-950' },
+            { id: 'b84', no: '084', name: 'メガロドン', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'MUR', emoji: null, svgKey: 'custom_megalodon', habitat: '太古の 世界中の 暖かい 海', feature: '全長15〜20メートルにも 達した 史上最大の 巨大ザメ。ギザギザの 大きな 歯で クジラなども 襲っていた 海の 王者。', bgTone: 'from-blue-950 via-rose-950 to-stone-950' },
+            { id: 'b85', no: '085', name: 'ジャイアントモア', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'MUR', emoji: null, svgKey: 'custom_moa', habitat: 'ニュージーランドの 森林や 草原', feature: '高さ3.6メートルにも なった 史上最大級の 飛べない 鳥。翼が まったく なく、太くて 頑丈な 2本の 脚で 歩いていたよ。', bgTone: 'from-amber-950 via-purple-950 to-stone-950' },
+            { id: 'b86', no: '086', name: 'ティラノサウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'UR', emoji: '🦖', habitat: '白亜紀後期の 北アメリカ大陸', feature: '「暴君トカゲ」の 意味を もつ 史上最大級の 肉食恐竜。バナナほどの 大きさの 歯と 強烈な アゴの 力を もっていたよ。', bgTone: 'from-red-950 via-stone-900 to-stone-950' },
+            { id: 'b87', no: '087', name: 'ブラキオサウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'SR', emoji: '🦕', habitat: 'ジュラ紀後期の 北アメリカなど', feature: '前脚が 後ろ脚より 長く、キリンよりも ずっと 高い 木の 葉っぱを 食べていた 超大型の 植物食恐竜。', bgTone: 'from-emerald-950 via-stone-900 to-stone-950' },
+            { id: 'b88', no: '088', name: 'ケナガマンモス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'SR', emoji: '🦣', habitat: '氷河期の シベリアや 北半球', feature: '長い 体毛と 大きく 曲がった キバを もち、寒い 氷河期を 生き抜いた ゾウの 仲間。冷凍マンモスとして 発見されることも あるよ。', bgTone: 'from-amber-950 via-sky-950 to-stone-950' },
+            { id: 'b89', no: '089', name: 'トリケラトプス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'RR', emoji: null, svgKey: 'triceratops', habitat: '白亜紀後期の 北アメリカ大陸', feature: '顔に 3本の ツノと 首を 守る 大きな エリ飾りを もつ 植物食恐竜。ティラノサウルスとも 勇敢に 戦ったと いわれるよ。', bgTone: 'from-lime-950 via-stone-900 to-stone-950' },
+            { id: 'b90', no: '090', name: 'ステゴサウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'R', emoji: null, svgKey: 'stegosaurus', habitat: 'ジュラ紀後期の 北アメリカ大陸', feature: '背中に 並んだ 大きな 骨の 板と、しっぽの 先の 4本の 鋭い トゲ（サゴマイザー）が 特徴の 植物食恐竜。', bgTone: 'from-orange-950 via-emerald-950 to-stone-950' },
+            { id: 'b91', no: '091', name: 'プテラノドン', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'R', emoji: null, svgKey: 'pteranodon', habitat: '白亜紀後期の 北アメリカ沿岸', feature: '翼を 広げると 7メートルを こえる 翼竜。頭の 後ろに 長い トサカを もち、海の上を 滑空して 魚を 食べていたよ。', bgTone: 'from-amber-950 via-sky-950 to-stone-950' },
+            { id: 'b92', no: '092', name: 'アンモナイト', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'C', emoji: null, svgKey: 'ammonite', habitat: '古生代〜中生代の 世界中の 海', feature: 'うずまき状の 殻を もつ イカや タコの 仲間。恐竜と 同じ 時代に 海で 大繁栄し、たくさんの 化石が 見つかるよ。', bgTone: 'from-amber-950 via-stone-900 to-stone-950' },
+            { id: 'b93', no: '093', name: '三葉虫', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'C', emoji: null, svgKey: 'trilobite', habitat: '古生代の 世界中の 海底', feature: '体が 縦に 3つの 部分に 分かれている ことから 名付けられた 節足動物。約3億年もの 長い 間 海で くらしていたよ。', bgTone: 'from-stone-900 via-zinc-800 to-stone-950' },
+            { id: 'b94', no: '094', name: 'アノマロカリス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'AR', emoji: null, svgKey: 'anomalocaris', habitat: 'カンブリア紀の 太古の 海', feature: '「奇妙な エビ」と 名付けられた カンブリア紀の 王者。口の まわりの 2本の 触手で 獲物を つかまえて 食べていたよ。', bgTone: 'from-rose-950 via-blue-950 to-stone-950' },
+            { id: 'b95', no: '095', name: 'ダンクルオステウス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'RR', emoji: null, svgKey: 'dunkleosteus', habitat: 'デボン紀の 太古の 海', feature: '頭と 胸が 頑丈な 装甲板で おおわれた 巨大甲冑魚。歯の 代わりに 鋭い アゴの 骨で 獲物を 噛みくだいたよ。', bgTone: 'from-slate-900 via-indigo-950 to-stone-950' },
+            { id: 'b96', no: '096', name: 'スピノサウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'UR', emoji: null, svgKey: 'spinosaurus', habitat: '白亜紀の 北アフリカの水辺', feature: '背中に 大きな 帆を もち、ワニの ような 細長い 口で 魚を 食べていた 水辺の 巨大肉食恐竜。', bgTone: 'from-teal-950 via-orange-950 to-stone-950' },
+            { id: 'b97', no: '097', name: 'モササウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'SAR', emoji: null, svgKey: 'mosasaurus', habitat: '白亜紀後期の 世界中の 海', feature: '全長15メートルにも なる 巨大な 海生爬虫類。ヒレの ような 四肢と 強い 尾で 泳ぎ、白亜紀の 海の 頂点に 君臨したよ。', bgTone: 'from-blue-950 via-indigo-950 to-stone-950' },
+            { id: 'b98', no: '098', name: 'ケツァルコアトルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'SAR', emoji: null, svgKey: 'quetzalcoatlus', habitat: '白亜紀後期の 北アメリカ大陸', feature: '翼を 広げると 10メートルを こえる 史上最大級の 翼竜。小型飛行機ほどの 大きさで 大空を 舞っていたよ。', bgTone: 'from-amber-950 via-red-950 to-stone-950' },
+            { id: 'b99', no: '099', name: 'フタバサウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'AR', emoji: null, svgKey: 'futabasaurus', habitat: '白亜紀後期の 日本近海', feature: '福島県で 化石が 発見された 日本を代表する 首長竜。4枚の ヒレで 泳ぎ、長い 首で 魚を つかまえていたよ。', bgTone: 'from-sky-950 via-blue-950 to-stone-950' },
+            { id: 'b100', no: '100', name: 'アルゼンチノサウルス', category: '絶滅動物', typeBg: 'bg-rose-500 text-white', rarity: 'UR', emoji: null, svgKey: 'argentinosaurus', habitat: '白亜紀後期の 南アメリカ大陸', feature: '全長35メートル、体重80トン以上とも いわれる 史上最大級の 超巨大恐竜。1歩の 足跡だけでも 1メートル近く あるよ。', bgTone: 'from-lime-950 via-amber-950 to-stone-950' }
         ];
 
         // ==========================================
-        // アプリ状態管理（メモリ ＋ IndexedDB永続化）
+        // アプリ状態管理（メモリ ＋ 永続ストレージ保存）
         // ==========================================
+        const LOCAL_STORAGE_KEY = 'KakezanDobutsuZukan_saveData_v1';
         const DB_NAME = 'KakezanDobutsuZukanDB';
         const DB_VERSION = 1;
         const STORE_NAME = 'progressStore';
@@ -714,7 +715,7 @@
         let isProgressLoaded = false;
         let saveQueuePromise = Promise.resolve();
 
-        // IndexedDB データベース接続の取得・キャッシュ
+        // IndexedDB データベース接続の取得・キャッシュ（ハング防止タイムアウト付き）
         function openProgressDB() {
             if (dbInstance) {
                 return Promise.resolve(dbInstance);
@@ -724,7 +725,23 @@
                     reject(new Error('IndexedDB is not supported in this environment.'));
                     return;
                 }
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+                let settled = false;
+                const timer = setTimeout(() => {
+                    if (!settled) {
+                        settled = true;
+                        reject(new Error('IndexedDB open timeout'));
+                    }
+                }, 1500);
+
+                let request;
+                try {
+                    request = indexedDB.open(DB_NAME, DB_VERSION);
+                } catch (err) {
+                    clearTimeout(timer);
+                    reject(err);
+                    return;
+                }
 
                 request.onupgradeneeded = (event) => {
                     const db = event.target.result;
@@ -734,6 +751,12 @@
                 };
 
                 request.onsuccess = (event) => {
+                    if (settled) {
+                        event.target.result.close();
+                        return;
+                    }
+                    settled = true;
+                    clearTimeout(timer);
                     dbInstance = event.target.result;
                     dbInstance.onversionchange = () => {
                         dbInstance.close();
@@ -746,11 +769,19 @@
                 };
 
                 request.onerror = (event) => {
-                    reject(event.target.error || new Error('Failed to open IndexedDB'));
+                    if (!settled) {
+                        settled = true;
+                        clearTimeout(timer);
+                        reject(event.target.error || new Error('Failed to open IndexedDB'));
+                    }
                 };
 
                 request.onblocked = () => {
-                    reject(new Error('IndexedDB open request is blocked'));
+                    if (!settled) {
+                        settled = true;
+                        clearTimeout(timer);
+                        reject(new Error('IndexedDB open request is blocked'));
+                    }
                 };
             });
         }
@@ -792,21 +823,30 @@
             return restored;
         }
 
-        // IndexedDBへ進行データを確実に保存（直列化キューで競合・上書きを防止）
+        // コンピュータ内の永続領域（localStorage ＋ IndexedDB）へ確実に保存
         function saveProgress() {
             if (!isProgressLoaded) {
                 return Promise.resolve();
             }
 
             const snapshot = createProgressSnapshot();
+            const serialized = JSON.stringify(snapshot);
 
-            // 同一タブ内リロード用の補助バックアップ
+            // 1. 同期的にローカルストレージへ即時書き込み（アプリ終了・PC再起動直前でも確実に完了）
+            try {
+                window.localStorage.setItem(LOCAL_STORAGE_KEY, serialized);
+            } catch (e) {
+                console.warn('localStorageへのデータ保存に失敗しました:', e);
+            }
+
+            // 2. 同一セッション内リロード用バックアップ
             try {
                 window.name = JSON.stringify({ [PROGRESS_RECORD_KEY]: snapshot });
             } catch (e) {
                 // ignore
             }
 
+            // 3. IndexedDBへも非同期で永続書き込み（直列化キューで競合防止）
             saveQueuePromise = saveQueuePromise.then(async () => {
                 try {
                     const db = await openProgressDB();
@@ -836,10 +876,25 @@
             return saveQueuePromise;
         }
 
-        // IndexedDBから進行データを確実にロード
+        // 再起動後に永続領域（localStorage ＋ IndexedDB）から進行データを確実にロード
         async function loadProgress() {
-            let loadedFromDB = false;
+            let lsData = null;
+            let idbData = null;
 
+            // 1. localStorage から同期ロード
+            try {
+                const raw = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && typeof parsed === 'object' && Array.isArray(parsed.clearedFlags)) {
+                        lsData = parsed;
+                    }
+                }
+            } catch (e) {
+                console.warn('localStorageからのデータ読み込みに失敗しました:', e);
+            }
+
+            // 2. IndexedDB から非同期ロード
             try {
                 const db = await openProgressDB();
                 const data = await new Promise((resolve, reject) => {
@@ -855,20 +910,35 @@
                     };
                 });
 
-                if (data) {
-                    loadedFromDB = applyLoadedData(data);
+                if (data && typeof data === 'object' && Array.isArray(data.clearedFlags)) {
+                    idbData = data;
                 }
             } catch (e) {
                 console.warn('IndexedDBからのデータ読み込みに失敗しました:', e);
             }
 
-            // IndexedDBが空または利用不可時のフォールバック復元
-            if (!loadedFromDB) {
+            // 3. より新しい保存データを選択してメモリへ復元
+            let chosenData = null;
+            if (lsData && idbData) {
+                const lsTime = typeof lsData.updatedAt === 'number' ? lsData.updatedAt : 0;
+                const idbTime = typeof idbData.updatedAt === 'number' ? idbData.updatedAt : 0;
+                chosenData = lsTime >= idbTime ? lsData : idbData;
+            } else {
+                chosenData = lsData || idbData;
+            }
+
+            let restored = false;
+            if (chosenData) {
+                restored = applyLoadedData(chosenData);
+            }
+
+            // 4. 上記が空の場合のフォールバック復元
+            if (!restored) {
                 try {
                     if (window.name && window.name.startsWith('{')) {
                         const parsed = JSON.parse(window.name);
                         if (parsed && parsed[PROGRESS_RECORD_KEY]) {
-                            applyLoadedData(parsed[PROGRESS_RECORD_KEY]);
+                            restored = applyLoadedData(parsed[PROGRESS_RECORD_KEY]);
                         }
                     }
                 } catch (e) {
@@ -877,6 +947,11 @@
             }
 
             isProgressLoaded = true;
+
+            // 復元データがあれば両ストレージ間を同期しておく
+            if (restored) {
+                saveProgress();
+            }
         }
 
         // 現在の問題の筆算ステップ管理
@@ -994,6 +1069,9 @@
                 }
             });
             window.addEventListener('pagehide', () => {
+                saveProgress();
+            });
+            window.addEventListener('beforeunload', () => {
                 saveProgress();
             });
         };
