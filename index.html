@@ -893,9 +893,9 @@
 
         async function saveProgressToCloud(overrideQIdx) {
             hasLocalMutation = true;
-            if (typeof overrideQIdx === 'number' && overrideQIdx >= 0 && overrideQIdx < TOTAL_QUESTIONS) {
-                currentGlobalQIdx = overrideQIdx;
-            }
+            const qIdxToSave = (typeof overrideQIdx === 'number' && overrideQIdx >= 0 && overrideQIdx < TOTAL_QUESTIONS)
+                ? overrideQIdx
+                : currentGlobalQIdx;
             if (storageReadyPromise) {
                 await storageReadyPromise;
             }
@@ -905,7 +905,7 @@
                 await firestoreSetDocFn(progressRef, {
                     clearedFlags: clearedFlags,
                     ownedCards: ownedCards,
-                    currentGlobalQIdx: currentGlobalQIdx,
+                    currentGlobalQIdx: qIdxToSave,
                     inProgressStep: inProgressStep,
                     updatedAt: Date.now()
                 });
@@ -1100,7 +1100,7 @@
             let nextUncleared = clearedFlags.findIndex(flag => !flag);
             if (nextUncleared === -1) nextUncleared = TOTAL_QUESTIONS - 1;
 
-            const targetActiveIdx = (currentGlobalQIdx !== undefined && currentGlobalQIdx < TOTAL_QUESTIONS)
+            const targetActiveIdx = (currentGlobalQIdx !== undefined && currentGlobalQIdx < TOTAL_QUESTIONS && !clearedFlags[currentGlobalQIdx])
                 ? currentGlobalQIdx
                 : (nextUncleared !== -1 ? nextUncleared : 0);
 
