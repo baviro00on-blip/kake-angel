@@ -771,6 +771,95 @@
         let isProcessingAnswer = false;
         let currentAlbumFilter = 'ALL';
 
+        // 進行状況のクラウド保存用変数
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+        let firestoreDocFn = null;
+        let firestoreGetDocFn = null;
+        let firestoreSetDocFn = null;
+
+        async function initStorage() {
+            try {
+                if (typeof __firebase_config === 'undefined' || !__firebase_config) return;
+                const [
+                    { initializeApp },
+                    { getAuth, signInAnonymously, signInWithCustomToken },
+                    { getFirestore, doc, getDoc, setDoc }
+                ] = await Promise.all([
+                    import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"),
+                    import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"),
+                    import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js")
+                ]);
+
+                const firebaseConfig = JSON.parse(__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                firestoreDocFn = doc;
+                firestoreGetDocFn = getDoc;
+                firestoreSetDocFn = setDoc;
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                currentUser = auth.currentUser;
+                await loadProgressFromCloud();
+            } catch (err) {
+                console.error('Storage initialization error:', err);
+            }
+        }
+
+        async function loadProgressFromCloud() {
+            if (!db || !currentUser || !firestoreDocFn || !firestoreGetDocFn) return;
+            try {
+                const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
+                const snap = await firestoreGetDocFn(progressRef);
+                if (snap.exists()) {
+                    const data = snap.data();
+                    if (Array.isArray(data.clearedFlags) && data.clearedFlags.length === TOTAL_QUESTIONS) {
+                        clearedFlags = data.clearedFlags.map(Boolean);
+                    }
+                    if (Array.isArray(data.ownedCards)) {
+                        ownedCards = data.ownedCards.filter(id => typeof id === 'string');
+                    }
+                    if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
+                        currentGlobalQIdx = data.currentGlobalQIdx;
+                    }
+                    updateCardBadge();
+                    renderMenuCards();
+                    if (!document.getElementById('game-screen').classList.contains('hidden')) {
+                        renderQuestion();
+                    }
+                    if (!document.getElementById('album-screen').classList.contains('hidden')) {
+                        renderAlbumFilters();
+                        renderAlbumGrid();
+                    }
+                }
+            } catch (err) {
+                console.error('Load progress error:', err);
+            }
+        }
+
+        async function saveProgressToCloud(overrideQIdx) {
+            if (!db || !currentUser || !firestoreDocFn || !firestoreSetDocFn) return;
+            try {
+                const qIdxToSave = typeof overrideQIdx === 'number' ? overrideQIdx : currentGlobalQIdx;
+                const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
+                await firestoreSetDocFn(progressRef, {
+                    clearedFlags: clearedFlags,
+                    ownedCards: ownedCards,
+                    currentGlobalQIdx: qIdxToSave,
+                    updatedAt: Date.now()
+                });
+            } catch (err) {
+                console.error('Save progress error:', err);
+            }
+        }
+
         // 現在の問題の筆算ステップ管理
         let questionSteps = [];
         let currentStepIdx = 0;
@@ -877,6 +966,7 @@
             renderMenuCards();
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
+            initStorage();
         };
 
         function setupEventListeners() {
@@ -988,13 +1078,18 @@
         }
 
         function startFromContinue() {
-            let nextUncleared = clearedFlags.findIndex(flag => !flag);
-            if (nextUncleared === -1) nextUncleared = 0;
-            startFromQuestion(nextUncleared);
+            let targetIdx = currentGlobalQIdx;
+            if (typeof targetIdx !== 'number' || targetIdx < 0 || targetIdx >= TOTAL_QUESTIONS || clearedFlags[targetIdx]) {
+                let nextUncleared = clearedFlags.findIndex(flag => !flag);
+                if (nextUncleared === -1) nextUncleared = 0;
+                targetIdx = nextUncleared;
+            }
+            startFromQuestion(targetIdx);
         }
 
         function startFromQuestion(globalIdx) {
             currentGlobalQIdx = globalIdx;
+            saveProgressToCloud(currentGlobalQIdx);
             document.getElementById('menu-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.remove('hidden');
             document.getElementById('game-screen').classList.add('flex');
@@ -1366,6 +1461,15 @@
                     ownedCards.push(rewardCard.id);
                 }
 
+                let nextQIdxAfterClear = currentGlobalQIdx;
+                if (currentGlobalQIdx < TOTAL_QUESTIONS - 1) {
+                    nextQIdxAfterClear = currentGlobalQIdx + 1;
+                } else {
+                    const nextUncleared = clearedFlags.findIndex(flag => !flag);
+                    if (nextUncleared !== -1) nextQIdxAfterClear = nextUncleared;
+                }
+                saveProgressToCloud(nextQIdxAfterClear);
+
                 updateCardBadge();
                 renderMenuCards();
 
@@ -1402,13 +1506,16 @@
 
             if (currentGlobalQIdx < TOTAL_QUESTIONS - 1) {
                 currentGlobalQIdx++;
+                saveProgressToCloud(currentGlobalQIdx);
                 renderQuestion();
             } else {
                 let nextUncleared = clearedFlags.findIndex(flag => !flag);
                 if (nextUncleared !== -1) {
                     currentGlobalQIdx = nextUncleared;
+                    saveProgressToCloud(currentGlobalQIdx);
                     renderQuestion();
                 } else {
+                    saveProgressToCloud(currentGlobalQIdx);
                     showMenu();
                 }
             }
@@ -2257,6 +2364,7 @@
             document.getElementById('all-clear-modal').classList.add('hidden');
             clearedFlags = new Array(TOTAL_QUESTIONS).fill(false);
             currentGlobalQIdx = 0;
+            saveProgressToCloud(0);
             renderMenuCards();
             showMenu();
         }
