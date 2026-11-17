@@ -371,7 +371,7 @@
                 <span>▶️ つづきから はじめる</span>
             </button>
             <div class="text-xs sm:text-sm font-bold text-sky-800 bg-sky-100 px-3.5 py-2 rounded-xl border border-sky-300 shadow-sm">
-                👇 やりなおす＝あかいコマをタップ
+                👇 もう１ど＝あかいコマをタップ
             </div>
         </div>
 
@@ -770,47 +770,69 @@
         let isSoundEnabled = true;
         let isProcessingAnswer = false;
         let currentAlbumFilter = 'ALL';
+        let inProgressStep = null;
 
         // 進行状況のクラウド保存用変数
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const rawAppId = typeof __app_id !== 'undefined' ? String(__app_id) : 'default-app-id';
+        const appId = rawAppId.replace(/\//g, '_') || 'default-app-id';
         let db = null;
         let auth = null;
         let currentUser = null;
         let firestoreDocFn = null;
         let firestoreGetDocFn = null;
         let firestoreSetDocFn = null;
+        let storageReadyPromise = null;
+        let hasLocalMutation = false;
+        let isAppInitialized = false;
 
-        async function initStorage() {
-            try {
-                if (typeof __firebase_config === 'undefined' || !__firebase_config) return;
-                const [
-                    { initializeApp },
-                    { getAuth, signInAnonymously, signInWithCustomToken },
-                    { getFirestore, doc, getDoc, setDoc }
-                ] = await Promise.all([
-                    import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"),
-                    import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"),
-                    import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js")
-                ]);
+        function initStorage() {
+            if (storageReadyPromise) return storageReadyPromise;
+            storageReadyPromise = (async () => {
+                try {
+                    if (typeof __firebase_config === 'undefined' || !__firebase_config) return;
+                    const [
+                        { initializeApp, getApps, getApp },
+                        { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged },
+                        { getFirestore, doc, getDoc, setDoc }
+                    ] = await Promise.all([
+                        import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"),
+                        import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"),
+                        import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js")
+                    ]);
 
-                const firebaseConfig = JSON.parse(__firebase_config);
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-                firestoreDocFn = doc;
-                firestoreGetDocFn = getDoc;
-                firestoreSetDocFn = setDoc;
+                    const firebaseConfig = JSON.parse(__firebase_config);
+                    const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    firestoreDocFn = doc;
+                    firestoreGetDocFn = getDoc;
+                    firestoreSetDocFn = setDoc;
 
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
+                    onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                            currentUser = user;
+                        }
+                    });
+
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        try {
+                            await signInWithCustomToken(auth, __initial_auth_token);
+                        } catch (tokenErr) {
+                            await signInAnonymously(auth);
+                        }
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                    currentUser = auth.currentUser;
+                    if (currentUser) {
+                        await loadProgressFromCloud();
+                    }
+                } catch (err) {
+                    console.error('Storage initialization error:', err);
                 }
-                currentUser = auth.currentUser;
-                await loadProgressFromCloud();
-            } catch (err) {
-                console.error('Storage initialization error:', err);
-            }
+            })();
+            return storageReadyPromise;
         }
 
         async function loadProgressFromCloud() {
@@ -820,15 +842,34 @@
                 const snap = await firestoreGetDocFn(progressRef);
                 if (snap.exists()) {
                     const data = snap.data();
+
                     if (Array.isArray(data.clearedFlags) && data.clearedFlags.length === TOTAL_QUESTIONS) {
-                        clearedFlags = data.clearedFlags.map(Boolean);
+                        if (hasLocalMutation) {
+                            clearedFlags = clearedFlags.map((localVal, idx) => Boolean(localVal || data.clearedFlags[idx]));
+                        } else {
+                            clearedFlags = data.clearedFlags.map(Boolean);
+                        }
                     }
+
                     if (Array.isArray(data.ownedCards)) {
-                        ownedCards = data.ownedCards.filter(id => typeof id === 'string');
+                        const cloudCards = data.ownedCards.filter(id => typeof id === 'string');
+                        if (hasLocalMutation) {
+                            const mergedSet = new Set([...cloudCards, ...ownedCards]);
+                            ownedCards = Array.from(mergedSet);
+                        } else {
+                            ownedCards = cloudCards;
+                        }
                     }
-                    if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
-                        currentGlobalQIdx = data.currentGlobalQIdx;
+
+                    if (!hasLocalMutation) {
+                        if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
+                            currentGlobalQIdx = data.currentGlobalQIdx;
+                        }
+                        if (data.inProgressStep && typeof data.inProgressStep === 'object') {
+                            inProgressStep = data.inProgressStep;
+                        }
                     }
+
                     updateCardBadge();
                     renderMenuCards();
                     if (!document.getElementById('game-screen').classList.contains('hidden')) {
@@ -838,6 +879,12 @@
                         renderAlbumFilters();
                         renderAlbumGrid();
                     }
+
+                    if (hasLocalMutation) {
+                        await saveProgressToCloud(currentGlobalQIdx);
+                    }
+                } else if (hasLocalMutation) {
+                    await saveProgressToCloud(currentGlobalQIdx);
                 }
             } catch (err) {
                 console.error('Load progress error:', err);
@@ -845,14 +892,21 @@
         }
 
         async function saveProgressToCloud(overrideQIdx) {
+            hasLocalMutation = true;
+            if (typeof overrideQIdx === 'number' && overrideQIdx >= 0 && overrideQIdx < TOTAL_QUESTIONS) {
+                currentGlobalQIdx = overrideQIdx;
+            }
+            if (storageReadyPromise) {
+                await storageReadyPromise;
+            }
             if (!db || !currentUser || !firestoreDocFn || !firestoreSetDocFn) return;
             try {
-                const qIdxToSave = typeof overrideQIdx === 'number' ? overrideQIdx : currentGlobalQIdx;
                 const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
                 await firestoreSetDocFn(progressRef, {
                     clearedFlags: clearedFlags,
                     ownedCards: ownedCards,
-                    currentGlobalQIdx: qIdxToSave,
+                    currentGlobalQIdx: currentGlobalQIdx,
+                    inProgressStep: inProgressStep,
                     updatedAt: Date.now()
                 });
             } catch (err) {
@@ -960,14 +1014,23 @@
         // ==========================================
         // 初期化・イベント設定
         // ==========================================
-        window.onload = () => {
+        function initApp() {
+            if (isAppInitialized) return;
+            isAppInitialized = true;
             setupEventListeners();
             updateCardBadge();
             renderMenuCards();
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
             initStorage();
-        };
+        }
+
+        if (document.readyState === 'loading') {
+            window.addEventListener('DOMContentLoaded', initApp);
+            window.addEventListener('load', initApp);
+        } else {
+            initApp();
+        }
 
         function setupEventListeners() {
             const soundBtn = document.getElementById('sound-toggle-btn');
@@ -980,6 +1043,18 @@
                     if (soundOff) soundOff.classList.toggle('hidden', isSoundEnabled);
                 });
             }
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden' && hasLocalMutation) {
+                    saveProgressToCloud();
+                }
+            });
+
+            window.addEventListener('pagehide', () => {
+                if (hasLocalMutation) {
+                    saveProgressToCloud();
+                }
+            });
 
             window.addEventListener('keydown', (e) => {
                 if (!document.getElementById('card-get-modal').classList.contains('hidden')) {
@@ -1265,6 +1340,19 @@
             currentStepInput = '';
             rowStates = { 1: {}, 2: {}, 3: {} };
 
+            if (
+                inProgressStep &&
+                inProgressStep.qIdx === currentGlobalQIdx &&
+                !clearedFlags[currentGlobalQIdx] &&
+                typeof inProgressStep.stepIdx === 'number' &&
+                inProgressStep.stepIdx > 0 &&
+                inProgressStep.stepIdx < questionSteps.length &&
+                inProgressStep.rowStates
+            ) {
+                currentStepIdx = inProgressStep.stepIdx;
+                rowStates = JSON.parse(JSON.stringify(inProgressStep.rowStates));
+            }
+
             renderAllAnswerRows();
         }
 
@@ -1431,6 +1519,12 @@
                 commitCurrentStepToState(step);
                 currentStepIdx++;
                 currentStepInput = '';
+                inProgressStep = {
+                    qIdx: currentGlobalQIdx,
+                    stepIdx: currentStepIdx,
+                    rowStates: JSON.parse(JSON.stringify(rowStates))
+                };
+                saveProgressToCloud(currentGlobalQIdx);
                 renderAllAnswerRows();
             } else {
                 triggerWrongFeedback();
@@ -1446,6 +1540,7 @@
                 isProcessingAnswer = true;
                 commitCurrentStepToState(step);
                 currentStepInput = '';
+                inProgressStep = null;
                 renderAllAnswerRows();
 
                 playSound('correct');
@@ -2364,6 +2459,7 @@
             document.getElementById('all-clear-modal').classList.add('hidden');
             clearedFlags = new Array(TOTAL_QUESTIONS).fill(false);
             currentGlobalQIdx = 0;
+            inProgressStep = null;
             saveProgressToCloud(0);
             renderMenuCards();
             showMenu();
