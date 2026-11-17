@@ -789,12 +789,109 @@
         let userNavigatedInSession = false;
         let pendingSaveQIdx = null;
         let isAppInitialized = false;
+        let lastSavedTimestamp = 0;
 
-        function applyLoadedProgressData(data) {
+        const LOCAL_DB_NAME = 'KakezanAngelDevilDB_v1';
+        const LOCAL_STORE_NAME = 'progressStore';
+        const LOCAL_RECORD_KEY = 'userProgress';
+
+        function openLocalProgressDB() {
+            return new Promise((resolve) => {
+                try {
+                    if (typeof window === 'undefined' || !window.indexedDB) {
+                        resolve(null);
+                        return;
+                    }
+                    const req = window.indexedDB.open(LOCAL_DB_NAME, 1);
+                    req.onupgradeneeded = (event) => {
+                        const database = event.target.result;
+                        if (!database.objectStoreNames.contains(LOCAL_STORE_NAME)) {
+                            database.createObjectStore(LOCAL_STORE_NAME);
+                        }
+                    };
+                    req.onsuccess = (event) => {
+                        resolve(event.target.result);
+                    };
+                    req.onerror = () => resolve(null);
+                    req.onblocked = () => resolve(null);
+                } catch (e) {
+                    resolve(null);
+                }
+            });
+        }
+
+        async function loadProgressFromLocalMemory() {
+            try {
+                const localDb = await openLocalProgressDB();
+                if (localDb) {
+                    const data = await new Promise((resolve) => {
+                        try {
+                            const tx = localDb.transaction(LOCAL_STORE_NAME, 'readonly');
+                            const store = tx.objectStore(LOCAL_STORE_NAME);
+                            const getReq = store.get(LOCAL_RECORD_KEY);
+                            getReq.onsuccess = () => resolve(getReq.result || null);
+                            getReq.onerror = () => resolve(null);
+                        } catch (e) {
+                            resolve(null);
+                        }
+                    });
+                    if (data && typeof data === 'object') {
+                        return data;
+                    }
+                }
+            } catch (e) {
+                // ignore
+            }
+            try {
+                if (typeof window !== 'undefined' && window.name && window.name.startsWith('KAD_SAVE:')) {
+                    const parsed = JSON.parse(window.name.slice('KAD_SAVE:'.length));
+                    if (parsed && typeof parsed === 'object') {
+                        return parsed;
+                    }
+                }
+            } catch (e) {
+                // ignore
+            }
+            return null;
+        }
+
+        async function saveProgressToLocalMemory(payload) {
+            try {
+                if (typeof window !== 'undefined') {
+                    window.name = 'KAD_SAVE:' + JSON.stringify(payload);
+                }
+            } catch (e) {
+                // ignore
+            }
+            try {
+                const localDb = await openLocalProgressDB();
+                if (localDb) {
+                    await new Promise((resolve) => {
+                        try {
+                            const tx = localDb.transaction(LOCAL_STORE_NAME, 'readwrite');
+                            const store = tx.objectStore(LOCAL_STORE_NAME);
+                            const putReq = store.put(payload, LOCAL_RECORD_KEY);
+                            putReq.onsuccess = () => resolve(true);
+                            putReq.onerror = () => resolve(false);
+                            tx.oncomplete = () => resolve(true);
+                            tx.onerror = () => resolve(false);
+                        } catch (e) {
+                            resolve(false);
+                        }
+                    });
+                }
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        function applyLoadedProgressData(data, forceOverwrite = false) {
             if (!data || typeof data !== 'object') return;
 
+            const incomingUpdatedAt = typeof data.updatedAt === 'number' ? data.updatedAt : 0;
+
             if (Array.isArray(data.clearedFlags) && data.clearedFlags.length === TOTAL_QUESTIONS) {
-                if (hasLocalMutation) {
+                if (hasLocalMutation && !forceOverwrite) {
                     clearedFlags = clearedFlags.map((localVal, idx) => Boolean(localVal || data.clearedFlags[idx]));
                 } else {
                     clearedFlags = data.clearedFlags.map(Boolean);
@@ -802,16 +899,16 @@
             }
 
             if (Array.isArray(data.ownedCards)) {
-                const cloudCards = data.ownedCards.filter(id => typeof id === 'string');
-                if (hasLocalMutation) {
-                    const mergedSet = new Set([...cloudCards, ...ownedCards]);
+                const loadedCards = data.ownedCards.filter(id => typeof id === 'string');
+                if (hasLocalMutation && !forceOverwrite) {
+                    const mergedSet = new Set([...loadedCards, ...ownedCards]);
                     ownedCards = Array.from(mergedSet);
                 } else {
-                    ownedCards = cloudCards;
+                    ownedCards = loadedCards;
                 }
             }
 
-            if (!userNavigatedInSession) {
+            if (!userNavigatedInSession && (!hasLocalMutation || incomingUpdatedAt >= lastSavedTimestamp)) {
                 if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
                     currentGlobalQIdx = data.currentGlobalQIdx;
                 }
@@ -828,6 +925,9 @@
                     }
                 } else {
                     inProgressStep = null;
+                }
+                if (incomingUpdatedAt > lastSavedTimestamp) {
+                    lastSavedTimestamp = incomingUpdatedAt;
                 }
             }
 
@@ -846,6 +946,11 @@
             if (storageReadyPromise) return storageReadyPromise;
             storageReadyPromise = (async () => {
                 try {
+                    const localData = await loadProgressFromLocalMemory();
+                    if (localData) {
+                        applyLoadedProgressData(localData);
+                    }
+
                     if (typeof __firebase_config === 'undefined' || !__firebase_config) {
                         isInitialLoadDone = true;
                         return;
@@ -899,7 +1004,7 @@
 
                     currentUser = auth.currentUser;
                     if (currentUser) {
-                        await loadProgressFromCloud();
+                        await loadProgressFromCloud(localData);
                         subscribeProgressFromCloud();
                     }
                 } catch (err) {
@@ -922,7 +1027,15 @@
                 (snap) => {
                     if (snap.metadata && snap.metadata.hasPendingWrites) return;
                     if (snap.exists()) {
-                        applyLoadedProgressData(snap.data());
+                        const cloudData = snap.data();
+                        applyLoadedProgressData(cloudData);
+                        saveProgressToLocalMemory({
+                            clearedFlags: clearedFlags.map(Boolean),
+                            ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
+                            currentGlobalQIdx: currentGlobalQIdx,
+                            inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
+                            updatedAt: typeof cloudData.updatedAt === 'number' ? cloudData.updatedAt : Date.now()
+                        });
                     }
                 },
                 (err) => {
@@ -931,17 +1044,28 @@
             );
         }
 
-        async function loadProgressFromCloud() {
+        async function loadProgressFromCloud(localData) {
             if (!db || !currentUser || !firestoreDocFn || !firestoreGetDocFn) return;
             try {
                 const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
                 const snap = await firestoreGetDocFn(progressRef);
                 if (snap.exists()) {
-                    applyLoadedProgressData(snap.data());
-                    if (hasLocalMutation) {
+                    const cloudData = snap.data();
+                    applyLoadedProgressData(cloudData);
+                    const localUpdated = localData && typeof localData.updatedAt === 'number' ? localData.updatedAt : 0;
+                    const cloudUpdated = typeof cloudData.updatedAt === 'number' ? cloudData.updatedAt : 0;
+                    if (hasLocalMutation || localUpdated > cloudUpdated) {
                         await saveProgressToCloud(pendingSaveQIdx !== null ? pendingSaveQIdx : currentGlobalQIdx);
+                    } else {
+                        await saveProgressToLocalMemory({
+                            clearedFlags: clearedFlags.map(Boolean),
+                            ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
+                            currentGlobalQIdx: currentGlobalQIdx,
+                            inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
+                            updatedAt: cloudUpdated || Date.now()
+                        });
                     }
-                } else if (hasLocalMutation) {
+                } else if (hasLocalMutation || localData) {
                     await saveProgressToCloud(pendingSaveQIdx !== null ? pendingSaveQIdx : currentGlobalQIdx);
                 }
             } catch (err) {
@@ -957,24 +1081,30 @@
                 pendingSaveQIdx = currentGlobalQIdx;
             }
 
+            const qIdxToSave = (typeof pendingSaveQIdx === 'number' && pendingSaveQIdx >= 0 && pendingSaveQIdx < TOTAL_QUESTIONS)
+                ? pendingSaveQIdx
+                : currentGlobalQIdx;
+
+            const nowTs = Date.now();
+            lastSavedTimestamp = nowTs;
+            const payload = {
+                clearedFlags: clearedFlags.map(Boolean),
+                ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
+                currentGlobalQIdx: qIdxToSave,
+                inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
+                updatedAt: nowTs
+            };
+
+            await saveProgressToLocalMemory(payload);
+
             if (storageReadyPromise) {
                 await storageReadyPromise;
             }
             if (!db || !currentUser || !firestoreDocFn || !firestoreSetDocFn) return;
 
-            const qIdxToSave = (typeof pendingSaveQIdx === 'number' && pendingSaveQIdx >= 0 && pendingSaveQIdx < TOTAL_QUESTIONS)
-                ? pendingSaveQIdx
-                : currentGlobalQIdx;
-
             try {
                 const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
-                await firestoreSetDocFn(progressRef, {
-                    clearedFlags: clearedFlags.map(Boolean),
-                    ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
-                    currentGlobalQIdx: qIdxToSave,
-                    inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
-                    updatedAt: Date.now()
-                });
+                await firestoreSetDocFn(progressRef, payload);
             } catch (err) {
                 console.error('Save progress error:', err);
             }
