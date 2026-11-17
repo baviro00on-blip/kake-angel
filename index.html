@@ -1684,8 +1684,8 @@
                 : vis.illustBoxHeight;
 
             const nameClass = isModal
-                ? 'text-sm sm:text-base tracking-wide text-amber-100 drop-shadow-md leading-tight font-black truncate'
-                : 'text-xs sm:text-sm tracking-wide truncate drop-shadow-md text-amber-100 font-black';
+                ? 'text-sm sm:text-base tracking-wide text-amber-100 drop-shadow-md leading-tight font-black break-words'
+                : 'text-xs sm:text-sm tracking-wide leading-tight drop-shadow-md text-amber-100 font-black break-words';
 
             const illustrationSvg = getAngelDevilSvgIllustration(card, vis.charScale, isModal);
             const sparkleOverlay = buildSparkleOverlayHtml(vis, card.level);
@@ -1697,12 +1697,12 @@
             return `
                 <div class="relative ${containerSize} rounded-2xl p-2.5 bg-gradient-to-b ${vis.bgTone} border-4 ${vis.borderStyle} shadow-2xl flex flex-col justify-between ${vis.foilClass} text-white overflow-hidden select-none transition-all duration-300">
                     <!-- ヘッダー：キャラクター名＆レベル＆種族 -->
-                    <div class="flex justify-between items-center z-10 font-black border-b border-white/25 pb-1 gap-1">
-                        <div class="flex items-center gap-1 min-w-0">
+                    <div class="flex flex-col z-10 font-black border-b border-white/25 pb-1 gap-0.5 shrink-0">
+                        <div class="flex justify-between items-center gap-1">
                             <span class="text-[10px] px-1.5 py-0.5 rounded-md font-black shrink-0 ${vis.lvBadgeStyle}">Lv.${card.level}</span>
-                            <span class="${nameClass}" title="${card.name}">${card.name}</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded-full ${card.typeBg} font-extrabold shadow-sm shrink-0">${card.category}</span>
                         </div>
-                        <span class="text-[10px] px-1.5 py-0.5 rounded-full ${card.typeBg} font-extrabold shadow-sm shrink-0">${card.category}</span>
+                        <div class="${nameClass} text-left" title="${card.name}">${card.name}</div>
                     </div>
 
                     <!-- イラストエリア（レベルが上がるほど大きく・色鮮やかに・キラキラに！） -->
