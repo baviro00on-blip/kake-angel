@@ -781,32 +781,95 @@
         let firestoreDocFn = null;
         let firestoreGetDocFn = null;
         let firestoreSetDocFn = null;
+        let firestoreOnSnapshotFn = null;
+        let unsubscribeProgressSnapshot = null;
         let storageReadyPromise = null;
+        let isInitialLoadDone = false;
         let hasLocalMutation = false;
+        let userNavigatedInSession = false;
+        let pendingSaveQIdx = null;
         let isAppInitialized = false;
+
+        function applyLoadedProgressData(data) {
+            if (!data || typeof data !== 'object') return;
+
+            if (Array.isArray(data.clearedFlags) && data.clearedFlags.length === TOTAL_QUESTIONS) {
+                if (hasLocalMutation) {
+                    clearedFlags = clearedFlags.map((localVal, idx) => Boolean(localVal || data.clearedFlags[idx]));
+                } else {
+                    clearedFlags = data.clearedFlags.map(Boolean);
+                }
+            }
+
+            if (Array.isArray(data.ownedCards)) {
+                const cloudCards = data.ownedCards.filter(id => typeof id === 'string');
+                if (hasLocalMutation) {
+                    const mergedSet = new Set([...cloudCards, ...ownedCards]);
+                    ownedCards = Array.from(mergedSet);
+                } else {
+                    ownedCards = cloudCards;
+                }
+            }
+
+            if (!userNavigatedInSession) {
+                if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
+                    currentGlobalQIdx = data.currentGlobalQIdx;
+                }
+                if (data.inProgressStep) {
+                    try {
+                        const parsedStep = typeof data.inProgressStep === 'string'
+                            ? JSON.parse(data.inProgressStep)
+                            : data.inProgressStep;
+                        if (parsedStep && typeof parsedStep === 'object') {
+                            inProgressStep = parsedStep;
+                        }
+                    } catch (e) {
+                        inProgressStep = null;
+                    }
+                } else {
+                    inProgressStep = null;
+                }
+            }
+
+            updateCardBadge();
+            renderMenuCards();
+            if (!document.getElementById('game-screen').classList.contains('hidden')) {
+                renderQuestion();
+            }
+            if (!document.getElementById('album-screen').classList.contains('hidden')) {
+                renderAlbumFilters();
+                renderAlbumGrid();
+            }
+        }
 
         function initStorage() {
             if (storageReadyPromise) return storageReadyPromise;
             storageReadyPromise = (async () => {
                 try {
-                    if (typeof __firebase_config === 'undefined' || !__firebase_config) return;
+                    if (typeof __firebase_config === 'undefined' || !__firebase_config) {
+                        isInitialLoadDone = true;
+                        return;
+                    }
                     const [
                         { initializeApp, getApps, getApp },
                         { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged },
-                        { getFirestore, doc, getDoc, setDoc }
+                        { getFirestore, doc, getDoc, setDoc, onSnapshot }
                     ] = await Promise.all([
                         import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"),
                         import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"),
                         import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js")
                     ]);
 
-                    const firebaseConfig = JSON.parse(__firebase_config);
+                    const firebaseConfig = typeof __firebase_config === 'string'
+                        ? JSON.parse(__firebase_config)
+                        : __firebase_config;
                     const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
                     db = getFirestore(app);
                     auth = getAuth(app);
                     firestoreDocFn = doc;
                     firestoreGetDocFn = getDoc;
                     firestoreSetDocFn = setDoc;
+                    firestoreOnSnapshotFn = onSnapshot;
 
                     onAuthStateChanged(auth, (user) => {
                         if (user) {
@@ -818,21 +881,54 @@
                         try {
                             await signInWithCustomToken(auth, __initial_auth_token);
                         } catch (tokenErr) {
-                            await signInAnonymously(auth);
+                            if (typeof auth.authStateReady === 'function') {
+                                await auth.authStateReady();
+                            }
+                            if (!auth.currentUser) {
+                                await signInAnonymously(auth);
+                            }
                         }
                     } else {
-                        await signInAnonymously(auth);
+                        if (typeof auth.authStateReady === 'function') {
+                            await auth.authStateReady();
+                        }
+                        if (!auth.currentUser) {
+                            await signInAnonymously(auth);
+                        }
                     }
 
                     currentUser = auth.currentUser;
                     if (currentUser) {
                         await loadProgressFromCloud();
+                        subscribeProgressFromCloud();
                     }
                 } catch (err) {
                     console.error('Storage initialization error:', err);
+                } finally {
+                    isInitialLoadDone = true;
                 }
             })();
             return storageReadyPromise;
+        }
+
+        function subscribeProgressFromCloud() {
+            if (!db || !currentUser || !firestoreDocFn || !firestoreOnSnapshotFn) return;
+            if (unsubscribeProgressSnapshot) {
+                unsubscribeProgressSnapshot();
+            }
+            const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
+            unsubscribeProgressSnapshot = firestoreOnSnapshotFn(
+                progressRef,
+                (snap) => {
+                    if (snap.metadata && snap.metadata.hasPendingWrites) return;
+                    if (snap.exists()) {
+                        applyLoadedProgressData(snap.data());
+                    }
+                },
+                (err) => {
+                    console.error('Snapshot listener error:', err);
+                }
+            );
         }
 
         async function loadProgressFromCloud() {
@@ -841,50 +937,12 @@
                 const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
                 const snap = await firestoreGetDocFn(progressRef);
                 if (snap.exists()) {
-                    const data = snap.data();
-
-                    if (Array.isArray(data.clearedFlags) && data.clearedFlags.length === TOTAL_QUESTIONS) {
-                        if (hasLocalMutation) {
-                            clearedFlags = clearedFlags.map((localVal, idx) => Boolean(localVal || data.clearedFlags[idx]));
-                        } else {
-                            clearedFlags = data.clearedFlags.map(Boolean);
-                        }
-                    }
-
-                    if (Array.isArray(data.ownedCards)) {
-                        const cloudCards = data.ownedCards.filter(id => typeof id === 'string');
-                        if (hasLocalMutation) {
-                            const mergedSet = new Set([...cloudCards, ...ownedCards]);
-                            ownedCards = Array.from(mergedSet);
-                        } else {
-                            ownedCards = cloudCards;
-                        }
-                    }
-
-                    if (!hasLocalMutation) {
-                        if (typeof data.currentGlobalQIdx === 'number' && data.currentGlobalQIdx >= 0 && data.currentGlobalQIdx < TOTAL_QUESTIONS) {
-                            currentGlobalQIdx = data.currentGlobalQIdx;
-                        }
-                        if (data.inProgressStep && typeof data.inProgressStep === 'object') {
-                            inProgressStep = data.inProgressStep;
-                        }
-                    }
-
-                    updateCardBadge();
-                    renderMenuCards();
-                    if (!document.getElementById('game-screen').classList.contains('hidden')) {
-                        renderQuestion();
-                    }
-                    if (!document.getElementById('album-screen').classList.contains('hidden')) {
-                        renderAlbumFilters();
-                        renderAlbumGrid();
-                    }
-
+                    applyLoadedProgressData(snap.data());
                     if (hasLocalMutation) {
-                        await saveProgressToCloud(currentGlobalQIdx);
+                        await saveProgressToCloud(pendingSaveQIdx !== null ? pendingSaveQIdx : currentGlobalQIdx);
                     }
                 } else if (hasLocalMutation) {
-                    await saveProgressToCloud(currentGlobalQIdx);
+                    await saveProgressToCloud(pendingSaveQIdx !== null ? pendingSaveQIdx : currentGlobalQIdx);
                 }
             } catch (err) {
                 console.error('Load progress error:', err);
@@ -893,20 +951,28 @@
 
         async function saveProgressToCloud(overrideQIdx) {
             hasLocalMutation = true;
-            const qIdxToSave = (typeof overrideQIdx === 'number' && overrideQIdx >= 0 && overrideQIdx < TOTAL_QUESTIONS)
-                ? overrideQIdx
-                : currentGlobalQIdx;
+            if (typeof overrideQIdx === 'number' && overrideQIdx >= 0 && overrideQIdx < TOTAL_QUESTIONS) {
+                pendingSaveQIdx = overrideQIdx;
+            } else if (pendingSaveQIdx === null) {
+                pendingSaveQIdx = currentGlobalQIdx;
+            }
+
             if (storageReadyPromise) {
                 await storageReadyPromise;
             }
             if (!db || !currentUser || !firestoreDocFn || !firestoreSetDocFn) return;
+
+            const qIdxToSave = (typeof pendingSaveQIdx === 'number' && pendingSaveQIdx >= 0 && pendingSaveQIdx < TOTAL_QUESTIONS)
+                ? pendingSaveQIdx
+                : currentGlobalQIdx;
+
             try {
                 const progressRef = firestoreDocFn(db, 'artifacts', appId, 'users', currentUser.uid, 'gameState', 'progress');
                 await firestoreSetDocFn(progressRef, {
-                    clearedFlags: clearedFlags,
-                    ownedCards: ownedCards,
+                    clearedFlags: clearedFlags.map(Boolean),
+                    ownedCards: Array.from(new Set(ownedCards.filter(id => typeof id === 'string'))),
                     currentGlobalQIdx: qIdxToSave,
-                    inProgressStep: inProgressStep,
+                    inProgressStep: inProgressStep ? JSON.stringify(inProgressStep) : null,
                     updatedAt: Date.now()
                 });
             } catch (err) {
@@ -1044,6 +1110,49 @@
                 });
             }
 
+            document.addEventListener('keydown', (e) => {
+                if (e.isComposing) return;
+
+                const cardGetModal = document.getElementById('card-get-modal');
+                if (cardGetModal && !cardGetModal.classList.contains('hidden')) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        closeCardGetModal();
+                    }
+                    return;
+                }
+
+                const albumScreen = document.getElementById('album-screen');
+                const detailModal = document.getElementById('card-detail-modal');
+                const allClearModal = document.getElementById('all-clear-modal');
+                const gameScreen = document.getElementById('game-screen');
+
+                if (
+                    (albumScreen && !albumScreen.classList.contains('hidden')) ||
+                    (detailModal && !detailModal.classList.contains('hidden')) ||
+                    (allClearModal && !allClearModal.classList.contains('hidden')) ||
+                    !gameScreen || gameScreen.classList.contains('hidden')
+                ) {
+                    return;
+                }
+
+                if (e.key >= '0' && e.key <= '9') {
+                    e.preventDefault();
+                    pressKey(e.key);
+                } else if (e.key === 'Backspace' || e.key === 'Delete') {
+                    e.preventDefault();
+                    pressKey('backspace');
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const isLastStep = (currentStepIdx === questionSteps.length - 1);
+                    if (isLastStep) {
+                        checkAnswer();
+                    } else {
+                        handleNextStep();
+                    }
+                }
+            });
+
             document.addEventListener('visibilitychange', () => {
                 if (document.visibilityState === 'hidden' && hasLocalMutation) {
                     saveProgressToCloud();
@@ -1056,31 +1165,9 @@
                 }
             });
 
-            window.addEventListener('keydown', (e) => {
-                if (!document.getElementById('card-get-modal').classList.contains('hidden')) {
-                    if (e.key === 'Enter' || e.key === 'NumpadEnter' || e.key === ' ') {
-                        e.preventDefault();
-                        closeCardGetModal();
-                    }
-                    return;
-                }
-                if (document.getElementById('game-screen').classList.contains('hidden')) return;
-                if (!document.getElementById('album-screen').classList.contains('hidden')) return;
-                if (isProcessingAnswer) return;
-
-                if (e.key >= '0' && e.key <= '9') {
-                    pressKey(e.key);
-                } else if (e.key === 'Backspace') {
-                    pressKey('backspace');
-                } else if (e.key === 'Enter' || e.key === 'NumpadEnter') {
-                    e.preventDefault();
-                    const nextBtn = document.getElementById('btn-next-step');
-                    const submitBtn = document.getElementById('btn-submit-answer');
-                    if (nextBtn && !nextBtn.disabled) {
-                        handleNextStep();
-                    } else if (submitBtn && !submitBtn.disabled) {
-                        checkAnswer();
-                    }
+            window.addEventListener('beforeunload', () => {
+                if (hasLocalMutation) {
+                    saveProgressToCloud();
                 }
             });
         }
@@ -1152,7 +1239,13 @@
             });
         }
 
-        function startFromContinue() {
+        async function startFromContinue() {
+            if (!isInitialLoadDone && storageReadyPromise) {
+                await Promise.race([
+                    storageReadyPromise,
+                    new Promise(resolve => setTimeout(resolve, 2500))
+                ]);
+            }
             let targetIdx = currentGlobalQIdx;
             if (typeof targetIdx !== 'number' || targetIdx < 0 || targetIdx >= TOTAL_QUESTIONS || clearedFlags[targetIdx]) {
                 let nextUncleared = clearedFlags.findIndex(flag => !flag);
@@ -1163,6 +1256,10 @@
         }
 
         function startFromQuestion(globalIdx) {
+            userNavigatedInSession = true;
+            if (inProgressStep && inProgressStep.qIdx !== globalIdx) {
+                inProgressStep = null;
+            }
             currentGlobalQIdx = globalIdx;
             saveProgressToCloud(currentGlobalQIdx);
             document.getElementById('menu-screen').classList.add('hidden');
@@ -1172,6 +1269,9 @@
         }
 
         function showMenu() {
+            if (hasLocalMutation) {
+                saveProgressToCloud(currentGlobalQIdx);
+            }
             document.getElementById('game-screen').classList.add('hidden');
             document.getElementById('game-screen').classList.remove('flex');
             document.getElementById('menu-screen').classList.remove('hidden');
@@ -1592,6 +1692,7 @@
         function closeCardGetModal() {
             document.getElementById('card-get-modal').classList.add('hidden');
             isProcessingAnswer = false;
+            userNavigatedInSession = true;
 
             const allCleared = clearedFlags.every(Boolean);
             if (allCleared) {
@@ -2457,6 +2558,7 @@
 
         function restartAll() {
             document.getElementById('all-clear-modal').classList.add('hidden');
+            userNavigatedInSession = true;
             clearedFlags = new Array(TOTAL_QUESTIONS).fill(false);
             currentGlobalQIdx = 0;
             inProgressStep = null;
